@@ -1,0 +1,19 @@
+<table style="width: 50%; margin-left: auto; margin-right: auto">
+  <tbody>
+    <tr *ngFor="let text of texts">
+      <td>
+        <span style="text-align: center"
+          ><div>
+            <a
+              href="./antologia-me/?id=T{{ text.idChr }}#{{ text.idChr }}"
+              id="CHR{{ text.idChr }}"
+              >{{ text.info }}</a
+            >
+          </div>
+          <div id="chr{{ text.idChr }}"></div>
+          <hr style="width: 30%"
+        /></span>
+      </td>
+    </tr>
+  </tbody>
+</table>

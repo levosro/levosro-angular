@@ -1,0 +1,71 @@
+.book {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 17em;
+    margin: 1em;
+    margin-bottom: 1em;
+}
+
+.text {
+    text-align: center;
+}
+
+.book img.cover {
+  width: 17em;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.25rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s linear;
+  content-visibility: auto;
+}
+
+.book img.cover:hover {
+  /* width: 14em; */
+  cursor: pointer;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.7);
+}
+
+.book h1 {
+  width: 16em;
+  font-family: "Vollkorn", serif;
+  font-size: 1.15em;
+  flex-grow: 2;
+}
+
+.book h1.title {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 700;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.book h1.author {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+A:link {
+  color: #000;
+  text-decoration: none;
+}
+
+A:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+A:hover {
+  color: #c41616;
+  text-decoration: underline;
+}
+
+A:active {
+  color: #c41616;
+  text-decoration: underline;
+}

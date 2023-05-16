@@ -1,0 +1,28 @@
+A:link {
+    COLOR: #c41616;
+    TEXT-DECORATION: none;
+}
+
+A:visited {
+    COLOR: #c41616;
+    TEXT-DECORATION: none;
+}
+
+A:hover {
+    COLOR: #c41616;
+    text-decoration: underline;
+}
+
+A:active {
+    COLOR: #c41616;
+    text-decoration: underline;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: gray;
+    align-items: center;
+}

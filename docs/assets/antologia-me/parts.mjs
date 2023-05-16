@@ -1,0 +1,17 @@
+export default [
+{'idPt': '1.0',
+'title': `PARTEA I. Marx timpuriu`,
+},
+{'idPt': '2.0',
+'title': `PARTEA A II-A. Critica sistemului capitalist`,
+},
+{'idPt': '3.0',
+'title': `PARTEA A III-A. Programe şi strategii revoluţionare`,
+},
+{'idPt': '4.0',
+'title': `PARTEA A IV-A. Societatea şi politica în secolul al XIX-lea`,
+},
+{'idPt': '5.0',
+'title': `PARTEA A V-A. Engels: elaborare şi popularizare`,
+},
+];

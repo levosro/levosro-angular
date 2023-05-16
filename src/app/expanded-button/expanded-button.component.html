@@ -1,0 +1,6 @@
+<section class="container">
+  <button (click)="onButtonClick()" class="expand-btn" id={{this.title}}>{{this.title}}</button>
+</section>
+<div [style.display] = "this.ok ? 'block' : 'none'" id="content{{this.title}}">
+  <ng-content></ng-content>
+</div>

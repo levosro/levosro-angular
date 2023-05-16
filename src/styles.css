@@ -1,1 +1,23 @@
+
+@font-face {
+  font-family: "Vollkorn";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/assets/fonts/Vollkorn-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Grizzly";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/assets/fonts/itc-grizzly.otf");
+}
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: 'Vollkorn';
+}
+
+div#search {
+  display: flex;
+}

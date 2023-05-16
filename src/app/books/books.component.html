@@ -1,0 +1,21 @@
+<div class="antologii">
+<app-book *ngFor="let bookX of bookService.getAntologii()" [book]="bookX"></app-book>
+</div>
+
+<div class="capitalul">
+<app-book *ngFor="let bookX of bookService.getCapitalul()" [book]="bookX"></app-book>
+</div>
+
+
+<div class="teorii">
+<app-book *ngFor="let bookX of bookService.getTeorii()" [book]="bookX"></app-book>
+</div>
+
+
+<div class="content">
+<app-book *ngFor="let bookX of bookService.getContent()" [book]="bookX"></app-book>
+</div>
+
+<div class="mao">
+<app-book *ngFor="let bookX of bookService.getMao()" [book]="bookX"></app-book>
+</div>

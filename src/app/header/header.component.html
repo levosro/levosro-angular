@@ -1,0 +1,33 @@
+<header>
+  <div class="left-content">
+    <a href="/">
+      <img src="assets/antologia-me/levos.svg" />
+      <h1>Levos</h1>
+    </a>
+  </div>
+  <div class="right-content">
+    <app-search></app-search>
+    <ul>
+      <li><img id="quotes" src="assets/icons/quote-right-solid.svg" /></li>
+      <li><img id="youtube" src="assets/icons/yt.svg" /></li>
+      <li><img id="instagram" src="assets/icons/instagram.svg" /></li>
+      <li><img id="facebook" src="assets/icons/facebook.svg" /></li>
+      <!-- <li><img id="discord" src="./assets/icons/discord.svg" /></li> -->
+    </ul>
+  </div>
+  <button class="menu-btn" (click)="openNav()">Open Menu</button>
+</header>
+<nav class="sidenav" id="sidenav">
+  <ul class="sidebar-menu">
+    <li>
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
+        >&times;</a
+      >
+    </li>
+    <li><app-search></app-search></li>
+    <li><img id="quotes" src="assets/icons/quote-right-solid.svg" /></li>
+    <li><img id="youtube" src="assets/icons/yt.svg" /></li>
+    <li><img id="instagram" src="assets/icons/instagram.svg" /></li>
+    <li><img id="facebook" src="assets/icons/facebook.svg" /></li>
+  </ul>
+</nav>

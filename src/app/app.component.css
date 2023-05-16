@@ -1,0 +1,22 @@
+
+.yt-content {
+  padding-top: 0em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.yt {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 17em;
+  margin: 1em;
+  margin-bottom: 1em;
+}
+
+#search {
+  display: none;
+}
