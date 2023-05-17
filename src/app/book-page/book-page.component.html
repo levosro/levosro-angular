@@ -1,3 +1,14 @@
-<app-header></app-header>
-<p>book-page works!</p>
-<!-- <ng-content></ng-content> -->
+<div class="title">
+  <h2>{{ book.title }}</h2>
+  <div class="subtitle">{{ book.subtitle }}</div>
+  <div *ngIf="book.author">
+    <hr />
+  </div>
+  <div class="subtitle" *ngFor="let author of book.author.split(',')">
+    {{ author }}
+  </div>
+  <div class="underline"></div>
+</div>
+<div *ngFor="let text of book.texts">
+    {{text.info}}
+</div>

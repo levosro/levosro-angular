@@ -12,6 +12,9 @@ import { ExpandedButtonComponent } from './expanded-button/expanded-button.compo
 import { SearchContentComponent } from './search-content/search-content.component';
 import { TextSearchContentComponent } from './text-search-content/text-search-content.component';
 import { CitSearchContentComponent } from './cit-search-content/cit-search-content.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CenterComponent } from './center/center.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,12 @@ import { CitSearchContentComponent } from './cit-search-content/cit-search-conte
     ExpandedButtonComponent,
     SearchContentComponent,
     TextSearchContentComponent,
-    CitSearchContentComponent
+    CitSearchContentComponent,
+    HomepageComponent,
+    CenterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Citat } from '../citat';
 import { SearchComponent } from '../search/search.component';
+import { Book } from '../book';
 
 @Component({
   selector: 'app-cit-search-content',
@@ -10,8 +11,8 @@ import { SearchComponent } from '../search/search.component';
 export class CitSearchContentComponent {
   @Input()
   cits!: Citat[];
-  @Input()
-  idntf!: string;
+  @Input() idntf!: string;
+  @Input() book!: Book;
 
   replaceAnchors(titlu: string): string {
     return titlu.replace(/<a[^>]+>/g, '');

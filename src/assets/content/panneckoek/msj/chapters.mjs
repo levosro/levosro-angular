@@ -1,0 +1,17 @@
+export default [
+{'title': 'Introducere',
+'idCh': '1.0',
+},
+{'title': 'Marxismul',
+'idCh': '1.1',
+},
+{'title': 'Lenin',
+'idCh': '1.6',
+},
+{'title': 'Revoluţia rusă',
+'idCh': '1.7',
+},
+{'title': 'Revoluţia proletară',
+'idCh': '1.8',
+},
+];

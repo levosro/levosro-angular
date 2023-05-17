@@ -1,8 +1,21 @@
-<app-expanded-button title="Karl Marx">
-  <div id="antologia-m">
-    <app-text-search-content [texts]="marxTexts" [notes]="meNotes" [idntf]="'antologia-m'"></app-text-search-content>
-  </div>
-  <div id="cit-m">
-    <app-cit-search-content [cits]="marxCit" [idntf]="'cit-m'"></app-cit-search-content>
-  </div>
-</app-expanded-button>
+<app-center>
+  <app-expanded-button *ngFor="let author of authors" title={{author}}>
+    <div *ngFor="let book of getBooks(author)">
+      <div [id]="getIdentifier('texts', book)">
+      <app-text-search-content
+        [texts]="getTexts(book)"
+        [notes]="getNotes(book)"
+        [idntf]="getIdentifier('texts', book)"
+        [book]="book"
+      ></app-text-search-content>
+    </div>
+    <div [id]="getIdentifier('cit', book)">
+      <app-cit-search-content
+        [cits]="getCitate(book)"
+        [idntf]="getIdentifier('cit', book)"
+        [book]="book"
+      ></app-cit-search-content>
+    </div>
+    </div>
+  </app-expanded-button>
+</app-center>

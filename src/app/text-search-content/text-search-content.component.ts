@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Text } from '../text';
 import { SearchComponent } from '../search/search.component';
 import { Note } from '../note';
+import { Book } from '../book';
 
 @Component({
   selector: 'app-text-search-content',
@@ -11,8 +12,8 @@ import { Note } from '../note';
 export class TextSearchContentComponent {
   @Input() texts!: Text[];
   @Input() notes!: Note[];
-  @Input()
-  idntf!: string;
+  @Input() idntf!: string;
+  @Input() book!: Book;
 
   ngAfterViewInit() {
     SearchComponent.Search2(

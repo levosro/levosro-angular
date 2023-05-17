@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterContentInit } from '@angular/core';
 import { Citat } from '../citat';
 import { Note } from '../note';
 import { Text } from '../text';
@@ -8,8 +8,16 @@ import { Text } from '../text';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
-export class SearchComponent {
+export class SearchComponent implements AfterContentInit {
   static searchField = document.querySelector('#query') as HTMLInputElement;
+
+  ngAfterContentInit(): void {
+    document
+      .getElementById('form')!
+      .addEventListener('submit', function (event) {
+        event.preventDefault();
+      });
+  }
 
   static Search2(
     inputX: string,
@@ -30,10 +38,10 @@ export class SearchComponent {
 
     const handleKeyUp = SearchComponent.debounce(function () {
       let filter = input.value.toUpperCase();
-      console.log(filter);
       if (filter != '') {
         toc.style.display = 'none';
-        (document.getElementById('search') as HTMLElement).style.display = 'block';
+        (document.getElementById('search') as HTMLElement).style.display =
+          'block';
       } else {
         toc.style.display = '';
         (document.getElementById('search') as HTMLElement).style.display =

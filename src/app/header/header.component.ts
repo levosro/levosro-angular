@@ -20,12 +20,11 @@ export class HeaderComponent implements AfterViewInit {
     document.getElementById('sidenav')!.style.width = '0';
     (document.querySelector('.main') as HTMLElement).style.marginLeft = '0';
   }
-
 }
 
 function addContent() {
   document.getElementById('quotes')!.addEventListener('click', function () {
-    window.location.href = './citate.html';
+    window.location.href = './citate';
   });
   document.getElementById('youtube')!.addEventListener('click', function () {
     window.open('https://www.youtube.com/@levos4355', '_blank')!.focus();

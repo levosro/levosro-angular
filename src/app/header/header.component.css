@@ -12,7 +12,7 @@ header {
   justify-content: flex-end;
 }
 
-div.right-content {
+div.content {
   display: flex;
   align-items: center;
 }
@@ -35,6 +35,9 @@ header .left-content a {
 .menu-btn {
   display: none;
 }
+.content {
+  display: flex;
+}
 .right-content {
   display: flex;
 }
@@ -45,7 +48,7 @@ header .left-content a {
     display: block;
   }
   .right-content {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -53,8 +56,12 @@ header #youtube,
 #instagram,
 #discord,
 #facebook,
-#quotes {
+#quotes, .fa-bars {
   cursor: pointer;
+}
+
+.fa-bars {
+  height: 2em;
 }
 
 header ul {
@@ -171,17 +178,4 @@ ul.sidebar-menu img {
   padding: 0.5em;
   object-fit: contain;
   height: 2em;
-}
-
-.menu-btn {
-  /* display: inline-block; */
-  padding: 10px 20px;
-  font-size: 16px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.menu-btn:hover {
-  background: #c41616;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
