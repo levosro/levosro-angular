@@ -15,7 +15,7 @@ export class TextSearchContentComponent {
   @Input() idntf!: string;
   @Input() book!: Book;
 
-  ngAfterViewInit() {
+  ngAfterContentInit() {
     SearchComponent.Search2(
       'tr',
       this.idntf,

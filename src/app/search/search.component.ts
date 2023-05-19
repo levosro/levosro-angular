@@ -2,6 +2,7 @@ import { Component, AfterContentInit } from '@angular/core';
 import { Citat } from '../citat';
 import { Note } from '../note';
 import { Text } from '../text';
+import { BooksService } from '../books.service';
 
 @Component({
   selector: 'app-search',
@@ -9,6 +10,7 @@ import { Text } from '../text';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements AfterContentInit {
+  
   static searchField = document.querySelector('#query') as HTMLInputElement;
 
   ngAfterContentInit(): void {
@@ -38,6 +40,8 @@ export class SearchComponent implements AfterContentInit {
 
     const handleKeyUp = SearchComponent.debounce(function () {
       let filter = input.value.toUpperCase();
+      // console.log(texts)
+      // console.log(filter);
       if (filter != '') {
         toc.style.display = 'none';
         (document.getElementById('search') as HTMLElement).style.display =

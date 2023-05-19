@@ -1,21 +1,22 @@
 <app-center>
-  <app-expanded-button *ngFor="let author of authors" title={{author}}>
+  <app-expanded-button *ngFor="let author of authors" title="{{ author }}">
     <div *ngFor="let book of getBooks(author)">
-      <div [id]="getIdentifier('texts', book)">
-      <app-text-search-content
-        [texts]="getTexts(book)"
-        [notes]="getNotes(book)"
-        [idntf]="getIdentifier('texts', book)"
-        [book]="book"
-      ></app-text-search-content>
-    </div>
-    <div [id]="getIdentifier('cit', book)">
-      <app-cit-search-content
-        [cits]="getCitate(book)"
-        [idntf]="getIdentifier('cit', book)"
-        [book]="book"
-      ></app-cit-search-content>
-    </div>
+      <!-- {{ book.title }} -->
+      <div [id]="getIdentifier('texts', book, author)">
+        <app-text-search-content
+          [texts]="book.texts"
+          [notes]="book.notes"
+          [idntf]="getIdentifier('texts', book, author)"
+          [book]="book"
+        ></app-text-search-content>
+      </div>
+      <div [id]="getIdentifier('cit', book, author)">
+        <app-cit-search-content
+          [cits]="book.citate"
+          [idntf]="getIdentifier('cit', book, author)"
+          [book]="book"
+        ></app-cit-search-content>
+      </div>
     </div>
   </app-expanded-button>
 </app-center>

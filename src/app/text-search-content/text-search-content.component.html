@@ -7,7 +7,7 @@
             <a
               href="./{{book.link}}/?id=T{{ text.idChr }}#{{ text.idChr }}"
               id="CHR{{ text.idChr }}"
-              >{{ text.info }}</a
+              >{{ text.info ? text.info : text.title }}</a
             >
           </div>
           <div id="chr{{ text.idChr }}"></div>

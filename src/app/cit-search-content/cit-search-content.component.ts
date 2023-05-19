@@ -15,10 +15,10 @@ export class CitSearchContentComponent {
   @Input() book!: Book;
 
   replaceAnchors(titlu: string): string {
-    return titlu.replace(/<a[^>]+>/g, '');
+    return titlu.replace(/<\/*a[^>]*>/g, '');
   }
 
-  ngAfterViewInit() {
+  ngAfterContentInit() {
     SearchComponent.Search2(
       'tr',
       this.idntf,

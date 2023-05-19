@@ -17,15 +17,15 @@ export class BookPageComponent implements OnInit {
 
   async ngOnInit() {
     this.book = this.route.snapshot.data['book'] as Book;
-    new BooksService(this.http).getTexts(this.book).subscribe((data) => {
-      this.book.texts = data;
-    });
-    new BooksService(this.http).getChapters(this.book).subscribe((data) => {
-      this.book.chapters = data;
-    });
-    new BooksService(this.http).getNotes(this.book).subscribe((data) => {
-      this.book.notes = data;
-    });
+    // new BooksService(this.http).getTexts(this.book).subscribe((data) => {
+    //   this.book.texts = data;
+    // });
+    // new BooksService(this.http).getChapters(this.book).subscribe((data) => {
+    //   this.book.chapters = data;
+    // });
+    // new BooksService(this.http).getNotes(this.book).subscribe((data) => {
+    //   this.book.notes = data;
+    // });
     console.log(this.book)
   }
 }

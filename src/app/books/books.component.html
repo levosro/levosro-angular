@@ -1,21 +1,21 @@
 <div class="antologii">
-<app-book *ngFor="let bookX of bookService.getAntologii()" [book]="bookX"></app-book>
+<app-book *ngFor="let bookX of antologiiList" [book]="bookX"></app-book>
 </div>
 
 <div class="capitalul">
-<app-book *ngFor="let bookX of bookService.getCapitalul()" [book]="bookX"></app-book>
+<app-book *ngFor="let bookX of capitalulList" [book]="bookX"></app-book>
 </div>
 
 
 <div class="teorii">
-<app-book *ngFor="let bookX of bookService.getTeorii()" [book]="bookX"></app-book>
+<app-book *ngFor="let bookX of teoriiList" [book]="bookX"></app-book>
 </div>
 
 
 <div class="content">
-<app-book *ngFor="let bookX of bookService.getContent()" [book]="bookX"></app-book>
+<app-book *ngFor="let bookX of contentList" [book]="bookX"></app-book>
 </div>
 
 <div class="mao">
-<app-book *ngFor="let bookX of bookService.getMao()" [book]="bookX"></app-book>
+<app-book *ngFor="let bookX of maoList" [book]="bookX"></app-book>
 </div>

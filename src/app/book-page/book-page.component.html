@@ -4,11 +4,13 @@
   <div *ngIf="book.author">
     <hr />
   </div>
-  <div class="subtitle" *ngFor="let author of book.author.split(',')">
+  <div class="subtitle" *ngFor="let author of book.author.split(', ')">
     {{ author }}
   </div>
   <div class="underline"></div>
 </div>
+<app-center>
 <div *ngFor="let text of book.texts">
-    {{text.info}}
+    {{text.info ?? text.title}}
 </div>
+</app-center>
