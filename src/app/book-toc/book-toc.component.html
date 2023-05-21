@@ -1,0 +1,32 @@
+<div class="TOC">
+  <table style="margin: 0 auto">
+    <tr *ngFor="let part of book.parts">
+      <td>
+        <a href="{{ book.link }}?id=P{{ part.idPt }}"
+          ><div class="dt">
+            <b [innerHTML]="part.title"></b></div
+        ></a>
+        <ol class="partOl">
+          <li *ngFor="let chapter of getChaptersOfPart(part)">
+            <ul>
+              <a href="{{ book.link }}?id=C{{ chapter.idCh }}"
+                ><ng-component [innerHTML]="chapter.title"></ng-component
+              ></a>
+              <ul>
+                <li *ngFor="let text of getTextsOfChapter(chapter)">
+                  <a
+                    href="{{ book.link }}?id=T{{ text.idChr }}#{{ text.idChr }}"
+                  >
+                    <ng-component
+                      [innerHTML]="text.title == '' ? text.info : text.title"
+                    ></ng-component
+                  ></a>
+                </li>
+              </ul>
+            </ul>
+          </li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -7,7 +7,8 @@
             <a
               href="./{{book.link}}/citate?cit={{ citat.id }}"
               id="CIT{{ citat.id }}"
-              >{{ citat.autor }}, {{ replaceAnchors(citat.titlu) }}</a
+              [innerHTML]="getTitle(citat)">
+              </a
             >
           </div>
           <div id="cit{{ citat.id }}"></div>

@@ -1,16 +1,19 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Book } from './book';
-import { RouterModule, Routes } from '@angular/router';
 import { BookPageComponent } from './book-page/book-page.component';
 import { HttpClient } from '@angular/common/http';
-import { Text } from './text';
-import { lastValueFrom } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
+import booksInit from 'src/assets/books.mjs';
+import { BehaviorSubject, ReplaySubject, firstValueFrom, lastValueFrom } from 'rxjs';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Observable } from 'rxjs';
-import books from 'src/assets/books.mjs';
+import { Route } from './route';
+import { Text } from './text';
+import { Chapter } from './chapter';
+import { Part } from './part';
+import { Note } from './note';
+import { Citat } from './citat';
 
 @Injectable({
   providedIn: 'root',
@@ -19,71 +22,80 @@ export class BooksService {
   private _books = new BehaviorSubject<Book[]>([]);
   books$ = this._books.asObservable();
 
+  books = new BehaviorSubject<any>(null);
+
+  setData(data: any) {
+    this.books.next(data);
+  }
+
+
   constructor(private http: HttpClient) {}
 
   async initializeBooks(books: Book[]): Promise<void> {
-    const newBooks: Book[] = [];
+    const newBooks: Book[] = books;
 
-    books.forEach(async (item: Book) => {
-      const promises: Promise<void>[] = [];
-      // console.log(item);
-      const textsPromise = this.getTexts(item as Book);
-      const citatePromise = this.getCitate(item as Book);
-      const chaptersPromise = this.getChapters(item as Book);
-      const partsPromise = this.getParts(item as Book);
-      const notesPromise = this.getNotes(item as Book);
+    await Promise.all(
+      books.map(async (item) => {
+        const texts = await this.getTexts(item as Book);
+        const citate = await this.getCitate(item as Book);
+        const chapters = await this.getChapters(item as Book);
+        const parts = await this.getParts(item as Book);
+        const notes = await this.getNotes(item as Book);
 
-      promises.push(
-        lastValueFrom(textsPromise).then(
-          (data) => ((item as Book).texts = data)
-        ),
-        lastValueFrom(citatePromise).then(
-          (data) => ((item as Book).citate = data)
-        ),
-        lastValueFrom(chaptersPromise).then(
-          (data) => ((item as Book).chapters = data)
-        ),
-        lastValueFrom(partsPromise).then(
-          (data) => ((item as Book).parts = data)
-        ),
-        lastValueFrom(notesPromise).then(
-          (data) => ((item as Book).notes = data)
+        item.texts = texts;
+        item.citate = citate;
+        item.chapters = chapters;
+        item.parts =
+          parts.length === 0 ? [{ idPt: '1', title: item.title }] : parts;
+        item.notes = notes;
+
+        const title = item.title;
+        const book = newBooks.filter((item) => item.title == title)[0];
+        const index = newBooks.indexOf(book);
+        newBooks[index] = item;
+      })
+    );
+
+    this._books.next(newBooks);
+  }
+
+  async getTexts(book: Book): Promise<Text[]> {
+    const response = this.http.get(`assets/content/${book.link}/texts.json`);
+    return await (lastValueFrom(response) as Promise<Text[]>);
+  }
+
+  async getChapters(book: Book): Promise<Chapter[]> {
+    const response = this.http.get(`assets/content/${book.link}/chapters.json`);
+    return await (lastValueFrom(response) as Promise<Chapter[]>);
+  }
+
+  async getParts(book: Book): Promise<Part[]> {
+    const response = this.http.get(`assets/content/${book.link}/parts.json`);
+    return await (lastValueFrom(response) as Promise<Part[]>);
+  }
+
+  async getNotes(book: Book): Promise<Note[]> {
+    const response = this.http.get(`assets/content/${book.link}/notes.json`);
+    return await (lastValueFrom(response) as Promise<Note[]>);
+  }
+
+  async getCitate(book: Book): Promise<Citat[]> {
+    const response = this.http.get(`assets/content/${book.link}/citate.json`);
+    return await (lastValueFrom(response) as Promise<Citat[]>);
+  }
+
+  async getBooks(autor: string): Promise<Book[]> {
+    const books$ = this.books$.pipe(
+      // tap((value) => console.log('Emitted value:', value)),
+      // take(1),
+      map((books) =>
+        books.filter(
+          (item) =>
+            item.author.includes(autor) && !item.title.includes('Anthology')
         )
-      );
-      await Promise.all(promises);
-      // console.log(item);
-      // console.log(newBooks);
-      newBooks.push(item);
-      this._books.next(newBooks);
-    });
-    // await Promise.all(promises);
-    // this._books.next(newBooks);
-  }
-
-  getTexts(book: Book): Observable<any> {
-    return this.http.get(`assets/content/${book.link}/texts.json`);
-  }
-
-  getChapters(book: Book): Observable<any> {
-    return this.http.get(`assets/content/${book.link}/chapters.json`);
-  }
-
-  getParts(book: Book): Observable<any> {
-    return this.http.get(`assets/content/${book.link}/parts.json`);
-  }
-
-  getNotes(book: Book): Observable<any> {
-    return this.http.get(`assets/content/${book.link}/notes.json`);
-  }
-
-  getCitate(book: Book): Observable<any> {
-    return this.http.get(`assets/content/${book.link}/citate.json`);
-  }
-
-  static getBooks(autor: string): Book[] {
-    return (books as Book[]).filter((item) =>
-      item.author.includes(autor)
-    ) as Book[];
+      )
+    );
+    return await (lastValueFrom(books$) as Promise<Book[]>);
   }
 
   antologii$ = this.books$.pipe(
@@ -136,27 +148,27 @@ export class BooksService {
   );
 
   getAuthors(): string[] {
+    const books = this._books.getValue();
+    console.log(books)
     const authors: string[] = [];
     const names: string[] = [];
-    this.books$.subscribe((books) =>
-      books.forEach((item: Book) => {
-        if (item.title.includes('Citate din scrierile')) {
-          item.author = item.title.split('Citate din scrierile lui ')[1];
+    (books as Book[]).forEach((book) => {
+      if (book.title.includes('Citate din scrierile')) {
+        book.author = book.title.split('Citate din scrierile lui ')[1];
+      }
+      const items = book.author.split(', ');
+      items.forEach((elm) => {
+        const name = elm.split(' ')[1];
+        if (!names.includes(name)) {
+          authors.push(elm);
+          names.push(name);
         }
-        const items = item.author.split(', ');
-        items.forEach((elm) => {
-          if (!names.includes(elm.split(' ')[1])) {
-            authors.push(elm);
-            // console.log(authors);
-            names.push(elm.split(' ')[1]);
-          }
-        });
-      })
-    );
-    return authors;
+      });
+    });
+    return Array.from(new Set(authors));
   }
 
-  getLinks(): Observable<Object[]> {
+  getLinks(): Observable<Route[]> {
     return this.books$.pipe(
       map((books) =>
         books.map((item: Book) => ({
@@ -166,5 +178,17 @@ export class BooksService {
         }))
       )
     );
+  }
+
+  getInitialLinks(): any[] {
+    const links: any[] = [];
+    booksInit.forEach((item) => {
+      links.push({
+        path: (item as Book).link,
+        component: BookPageComponent,
+        data: { book: item },
+      });
+    });
+    return links;
   }
 }

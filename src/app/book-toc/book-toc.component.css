@@ -1,0 +1,49 @@
+.dt {
+  background: #b8c1c8;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  /* color: #fff; */
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 90vw; */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  text-align: center;
+}
+
+.partOl {
+  width: 75vw;
+  /* padding: 0; */
+}
+
+
+ul {
+    list-style-type: "★ ";
+
+}
+
+body {
+  line-height: 150%;
+  HYPHENS: auto
+}
+
+A:link {
+  COLOR: #000;
+  TEXT-DECORATION: none;
+}
+
+A:visited {
+  COLOR: #000;
+  TEXT-DECORATION: none;
+}
+
+A:hover {
+  COLOR: #c41616;
+  text-decoration: underline;
+}
+
+A:active {
+  COLOR: #c41616;
+  text-decoration: underline;
+}

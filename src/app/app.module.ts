@@ -15,6 +15,7 @@ import { CitSearchContentComponent } from './cit-search-content/cit-search-conte
 import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CenterComponent } from './center/center.component';
+import { BookTocComponent } from './book-toc/book-toc.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CenterComponent } from './center/center.component';
     CitSearchContentComponent,
     HomepageComponent,
     CenterComponent,
+    BookTocComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

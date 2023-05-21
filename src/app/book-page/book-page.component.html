@@ -9,8 +9,6 @@
   </div>
   <div class="underline"></div>
 </div>
-<app-center>
-<div *ngFor="let text of book.texts">
-    {{text.info ?? text.title}}
-</div>
-</app-center>
+<!-- <app-center> -->
+<app-book-toc [book]="book"></app-book-toc>
+<!-- </app-center> -->

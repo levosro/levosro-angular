@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { BooksService } from './books.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 const injector = Injector.create({
   providers: [{ provide: BooksService, useClass: BooksService, deps: [] }],
 });
 const booksService = injector.get(BooksService);
 
-const routes: Routes = [
+var routes: Routes = [
+  ...booksService.getInitialLinks(),
   {
     path: 'citate',
     component: HomepageComponent,
@@ -22,22 +24,25 @@ const routes: Routes = [
   },
 ];
 
-function getPaths() {
-  
-}
-
 export function loadLinks(booksService: BooksService): () => Promise<void> {
   return () => {
     return new Promise((resolve) => {
-      booksService.getLinks().subscribe((links) => {
-        links.forEach((element) => {
-          if (!routes.includes(element)) {
-            routes.push(element);
-          }
+      booksService
+        .getLinks()
+        .pipe(
+          map((links) => {
+            links.forEach((element) => {
+              const path = element.path
+              const route = routes.filter(item => item.path == path)[0]
+              const index = routes.indexOf(route)
+              routes[index] = element
+            });
+            console.log(routes);
+          })
+        )
+        .subscribe(() => {
+          resolve();
         });
-        console.log(routes);
-        resolve();
-      });
     });
   };
 }
@@ -46,12 +51,12 @@ export function loadLinks(booksService: BooksService): () => Promise<void> {
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: loadLinks,
-      deps: [BooksService],
-      multi: true,
-    },
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: () => loadLinks,
+    //   deps: [BooksService],
+    //   multi: true,
+    // },
   ],
 })
 export class AppRoutingModule {}

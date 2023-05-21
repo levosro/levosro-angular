@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Book } from '../book';
 import { HttpClient } from '@angular/common/http';
 import { BooksService } from '../books.service';
+import { Chapter } from '../chapter';
+import { Text } from '../text';
+import { Part } from '../part';
 
 @Component({
   selector: 'app-book-page',
@@ -26,6 +29,6 @@ export class BookPageComponent implements OnInit {
     // new BooksService(this.http).getNotes(this.book).subscribe((data) => {
     //   this.book.notes = data;
     // });
-    console.log(this.book)
+    console.log(this.book);
   }
 }
