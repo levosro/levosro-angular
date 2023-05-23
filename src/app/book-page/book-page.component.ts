@@ -13,22 +13,24 @@ import { Part } from '../part';
   styleUrls: ['./book-page.component.css'],
 })
 export class BookPageComponent implements OnInit {
-  book: any;
+  book!: Book;
+  id: string | any;
+  isItPCT!: boolean;
   // texts: any;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   async ngOnInit() {
     this.book = this.route.snapshot.data['book'] as Book;
-    // new BooksService(this.http).getTexts(this.book).subscribe((data) => {
-    //   this.book.texts = data;
-    // });
-    // new BooksService(this.http).getChapters(this.book).subscribe((data) => {
-    //   this.book.chapters = data;
-    // });
-    // new BooksService(this.http).getNotes(this.book).subscribe((data) => {
-    //   this.book.notes = data;
-    // });
+    const url = new URL(window.location.href);
+    this.id = url.searchParams.get('id');
+    console.log('ID:', this.id);
+    if (url.searchParams.get('id') != null) {
+      this.isItPCT = true;
+    } else {
+      this.isItPCT = false;
+    }
+
     console.log(this.book);
   }
 }

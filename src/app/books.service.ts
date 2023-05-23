@@ -3,7 +3,13 @@ import { Book } from './book';
 import { BookPageComponent } from './book-page/book-page.component';
 import { HttpClient } from '@angular/common/http';
 import booksInit from 'src/assets/books.mjs';
-import { BehaviorSubject, ReplaySubject, firstValueFrom, lastValueFrom } from 'rxjs';
+import {
+  BehaviorSubject,
+  ReplaySubject,
+  firstValueFrom,
+  lastValueFrom,
+  of,
+} from 'rxjs';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -28,7 +34,6 @@ export class BooksService {
     this.books.next(data);
   }
 
-
   constructor(private http: HttpClient) {}
 
   async initializeBooks(books: Book[]): Promise<void> {
@@ -43,7 +48,16 @@ export class BooksService {
         const notes = await this.getNotes(item as Book);
 
         item.texts = texts;
-        item.citate = citate;
+        const updatedCitate = citate.map((citat, index) => {
+          // Create a copy of the chapter object to avoid modifying the original object
+          const updatedCitat = { ...citat };
+
+          // Assign a growing ID to the updatedChapter object
+          updatedCitat.id = index + 1;
+
+          return updatedCitat;
+        });
+        item.citate = updatedCitate;
         item.chapters = chapters;
         item.parts =
           parts.length === 0 ? [{ idPt: '1', title: item.title }] : parts;
@@ -147,9 +161,9 @@ export class BooksService {
     })
   );
 
-  getAuthors(): string[] {
-    const books = this._books.getValue();
-    console.log(books)
+  getAuthors(books: Book[]): Observable<string[]> {
+    // const books = this._books.getValue();
+    // console.log(books)
     const authors: string[] = [];
     const names: string[] = [];
     (books as Book[]).forEach((book) => {
@@ -165,7 +179,7 @@ export class BooksService {
         }
       });
     });
-    return Array.from(new Set(authors));
+    return of(Array.from(new Set(authors)));
   }
 
   getLinks(): Observable<Route[]> {

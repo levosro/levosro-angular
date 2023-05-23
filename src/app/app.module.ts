@@ -16,6 +16,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CenterComponent } from './center/center.component';
 import { BookTocComponent } from './book-toc/book-toc.component';
+import { BookContentComponent } from './book-content/book-content.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { BookTocComponent } from './book-toc/book-toc.component';
     HomepageComponent,
     CenterComponent,
     BookTocComponent,
+    BookContentComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

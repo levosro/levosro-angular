@@ -1,0 +1,8 @@
+#part {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: #c41616;
+  font-size: 0.85rem;
+  font-family: var(--ff-secondary);
+}
+

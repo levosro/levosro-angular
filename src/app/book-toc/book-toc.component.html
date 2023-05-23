@@ -1,17 +1,30 @@
 <div class="TOC">
   <table style="margin: 0 auto">
+    <tr *ngFor="let chapter of getFirstChapters()">
+      <td>
+        <app-center>
+          <a href="{{ book.link }}?id=C{{ chapter.idCh }}"
+            ><ng-component [innerHTML]="chapter.title"></ng-component
+          ></a>
+        </app-center>
+      </td>
+    </tr>
     <tr *ngFor="let part of book.parts">
       <td>
         <a href="{{ book.link }}?id=P{{ part.idPt }}"
           ><div class="dt">
             <b [innerHTML]="part.title"></b></div
         ></a>
-        <ol class="partOl">
-          <li *ngFor="let chapter of getChaptersOfPart(part)">
-            <ul>
-              <a href="{{ book.link }}?id=C{{ chapter.idCh }}"
-                ><ng-component [innerHTML]="chapter.title"></ng-component
-              ></a>
+        <!-- Use ngIf to conditionally render ul or ol -->
+        <ng-container *ngIf="isItAnthology; else unorderedList">
+          <ol class="partOl">
+            <ng-container *ngFor="let chapter of getChaptersOfPart(part)">
+              <!-- <ol> -->
+              <li>
+                <a href="{{ book.link }}?id=C{{ chapter.idCh }}"
+                  ><ng-component [innerHTML]="chapter.title"></ng-component
+                ></a>
+              </li>
               <ul>
                 <li *ngFor="let text of getTextsOfChapter(chapter)">
                   <a
@@ -23,9 +36,34 @@
                   ></a>
                 </li>
               </ul>
-            </ul>
-          </li>
-        </ol>
+              <!-- </ol> -->
+            </ng-container>
+          </ol>
+        </ng-container>
+        <ng-template #unorderedList>
+          <ul class="partOl">
+            <ng-container *ngFor="let chapter of getChaptersOfPart(part)">
+              <!-- <ol> -->
+              <li>
+                <a href="{{ book.link }}?id=C{{ chapter.idCh }}"
+                  ><ng-component [innerHTML]="chapter.title"></ng-component
+                ></a>
+              </li>
+              <ul>
+                <li *ngFor="let text of getTextsOfChapter(chapter)">
+                  <a
+                    href="{{ book.link }}?id=T{{ text.idChr }}#{{ text.idChr }}"
+                  >
+                    <ng-component
+                      [innerHTML]="text.title == '' ? text.info : text.title"
+                    ></ng-component
+                  ></a>
+                </li>
+              </ul>
+              <!-- </ol> -->
+            </ng-container>
+          </ul>
+        </ng-template>
       </td>
     </tr>
   </table>

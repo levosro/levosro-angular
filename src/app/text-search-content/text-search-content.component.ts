@@ -43,8 +43,7 @@ export class TextSearchContentComponent implements OnInit {
     this.bookSubscription = of(this.book$)
       .pipe(map((book) => (this.book = book)))
       .subscribe();
-    console.log(this.texts);
-    SearchComponent.Search2(
+    SearchComponent.Search(
       'tr',
       this.idntf,
       'query',

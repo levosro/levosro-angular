@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
     this.booksService.books$.subscribe((books) => {
       this.books = books;
-      console.log(books)
+      // console.log(books)
       this.booksService.setData(books);
     });
 

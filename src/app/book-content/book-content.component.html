@@ -1,0 +1,11 @@
+<app-center>
+  <app-expanded-button title="TOC">
+    <app-book-toc [book]="book"></app-book-toc>
+  </app-expanded-button>
+</app-center>
+<p>{{id}}</p>
+
+<!-- Use *ngIf to check if 'part' is not null -->
+<div *ngIf="part">
+  {{part.title}}
+</div>

@@ -11,8 +11,17 @@ import { Part } from '../part';
 })
 export class BookTocComponent implements OnInit {
   @Input() book!: Book;
+  isItAnthology!: boolean;
 
   ngOnInit(): void {
+    if (
+      this.book.title.includes('Antologia') ||
+      this.book.title.includes('Anthology')
+    ) {
+      this.isItAnthology = true;
+    } else {
+      this.isItAnthology = false;
+    }
   }
 
   getTextsOfChapter(chapter: Chapter): Text[] {
@@ -31,8 +40,20 @@ export class BookTocComponent implements OnInit {
   }
 
   getChaptersOfPart(part: Part): Chapter[] {
+    // console.log(this.book)
     return this.book.chapters.filter(
-      (item: Chapter) => item.idCh.indexOf(part.idPt.split('.')[0]) == 0
+      (item: Chapter) => item.idCh.indexOf(part.idPt) == 0
     );
+  }
+
+  getFirstChapters(): Chapter[] | any {
+    if (this.book.parts) {
+      const firstPart = this.book.parts[0];
+      const firstChapter = this.getChaptersOfPart(firstPart)[0];
+      const index = this.book.chapters.indexOf(firstChapter);
+      return this.book.chapters.filter(
+        (item) => this.book.chapters.indexOf(item) < index
+      );
+    }
   }
 }

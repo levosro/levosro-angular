@@ -1,25 +1,26 @@
 <app-center>
-  <app-expanded-button
-    *ngFor="let authorBook of authorBooks"
-    title="{{ authorBook.author }}"
-  >
-    <div *ngFor="let book of authorBook.books">
-      <!-- {{ book.title }} -->
-      <div [id]="getIdentifier('texts', book, authorBook.author)">
-        <app-text-search-content
-          [texts$]="getTexts(book, authorBook.author)"
-          [notes$]="book.notes"
-          [idntf]="getIdentifier('texts', book, authorBook.author)"
-          [book$]="book"
-        ></app-text-search-content>
-      </div>
-      <div [id]="getIdentifier('cit', book, authorBook.author)">
-        <app-cit-search-content
-          [cits$]="getCits(book, authorBook.author)"
-          [idntf]="getIdentifier('cit', book, authorBook.author)"
-          [book]="book"
-        ></app-cit-search-content>
-      </div>
-    </div>
-  </app-expanded-button>
+  <ng-container *ngIf="authors">
+    <app-expanded-button *ngFor="let author of authors" title="{{ author }}">
+      <ng-container *ngIf="getBooks(author) as booksX">
+        <div *ngFor="let book of booksX">
+          <!-- {{ book.title }} -->
+          <div [id]="getIdentifier('texts', book, author)">
+            <app-text-search-content
+              [texts$]="getTexts(book, author)"
+              [notes$]="book.notes"
+              [idntf]="getIdentifier('texts', book, author)"
+              [book$]="book"
+            ></app-text-search-content>
+          </div>
+          <div [id]="getIdentifier('cit', book, author)">
+            <app-cit-search-content
+              [cits$]="getCits(book, author)"
+              [idntf]="getIdentifier('cit', book, author)"
+              [book]="book"
+            ></app-cit-search-content>
+          </div>
+        </div>
+      </ng-container>
+    </app-expanded-button>
+  </ng-container>
 </app-center>

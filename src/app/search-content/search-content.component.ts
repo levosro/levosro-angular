@@ -1,8 +1,14 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit,
+} from '@angular/core';
 import { BooksService } from '../books.service';
 import { Book } from '../book';
 import { Text } from '../text';
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, map, of, switchMap } from 'rxjs';
 import { Citat } from '../citat';
 import { Note } from '../note';
 
@@ -13,23 +19,50 @@ import { Note } from '../note';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchContentComponent implements OnInit {
-  authors: string[] = [];
-  books: Book[] = [];
-  constructor(private booksService: BooksService) {}
+  authors$!: Observable<string[]>;
+  books$!: Observable<Book[]>;
+  books!: Book[];
+  authors!: string[];
 
-  authorBooks: Array<any> = [];
+  constructor(
+    private booksService: BooksService,
+    private elRef: ElementRef,
+    private changeDetector: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.booksService.books$
-      .pipe(takeUntil(this.onDestroy$))
-      .subscribe((books) => {
-        if (books) {
-          this.books = books;
-          this.authors = this.booksService.getAuthors();
-          this.processBooks();
-          console.log(this.authorBooks);
-        }
-      });
+    this.books$ = this.booksService.books;
+    if (this.books$ !== undefined) {
+      this.books$
+        .pipe(
+          switchMap((books) => {
+            if (books) {
+              // console.log(books);
+              this.books = books;
+              // console.log(this.elRef.nativeElement.outerHTML);
+              return this.booksService.getAuthors(books);
+            } else {
+              return of(null);
+            }
+          })
+        )
+        .subscribe({
+          next: (authors) => {
+            if (authors) {
+              this.authors = authors;
+              console.log(authors);
+              this.changeDetector.markForCheck();
+              // console.log(this.elRef.nativeElement.outerHTML);
+              return;
+            }
+          },
+          error: (error) => {
+            console.error(error);
+          },
+        });
+      // console.log(this.elRef.nativeElement.outerHTML);
+    }
+    // console.log(`!!${this.elRef.nativeElement.outerHTML}`);
   }
 
   private onDestroy$ = new Subject<void>();
@@ -39,21 +72,26 @@ export class SearchContentComponent implements OnInit {
     this.onDestroy$.complete();
   }
 
-  processBooks() {
-    this.authorBooks = this.authors.map((author) => {
-      const books = this.getBooks(author);
-      return {
-        author: author,
-        books: books,
-      };
-    });
-  }
-
   getBooks(author: string): Book[] {
-    return this.books.filter(
-      (item) =>
-        item.author.includes(author) && !item.title.includes('Anthology')
-    );
+    let books: Book[] = [];
+
+    this.books$
+      .pipe(
+        map((data: Book[]) =>
+          data.filter((item) => {
+            // console.log(item);
+            return (
+              item.author.includes(author) && !item.title.includes('Anthology')
+            );
+          })
+        )
+      )
+      .subscribe((filteredBooks) => {
+        books = filteredBooks;
+      });
+
+    // console.log(books);
+    return books;
   }
 
   getBook(book: Book): Book {
@@ -75,7 +113,9 @@ export class SearchContentComponent implements OnInit {
   }
 
   getTexts(book: Book, author: string): Text[] {
-    if (!book.title.includes('Antologia Marx-Engels')) {
+    if (book.title.includes('Citate din scrierile lui')) {
+      return [];
+    } else if (!book.title.includes('Antologia Marx-Engels')) {
       return book.texts;
     } else {
       // Provide a fallback value of an empty array if `book.texts` is undefined

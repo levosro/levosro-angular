@@ -6,6 +6,7 @@ import { Text } from "./text";
 
 export interface Book {
   title: string;
+  subtitle: string | null;
   author: string;
   cover: string;
   link: string;

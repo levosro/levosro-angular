@@ -31,3 +31,23 @@ H2 {
   margin-left: auto;
   margin-right: auto;
 }
+
+A:link {
+  COLOR: #000;
+  TEXT-DECORATION: none;
+}
+
+A:visited {
+  COLOR: #000;
+  TEXT-DECORATION: none;
+}
+
+A:hover {
+  COLOR: #c41616;
+  text-decoration: underline;
+}
+
+A:active {
+  COLOR: #c41616;
+  text-decoration: underline;
+}

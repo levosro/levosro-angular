@@ -1,5 +1,7 @@
 <div class="title">
-  <h2>{{ book.title }}</h2>
+  <h2>
+    <a [href]="book.link">{{ book.title }}</a>
+  </h2>
   <div class="subtitle">{{ book.subtitle }}</div>
   <div *ngIf="book.author">
     <hr />
@@ -9,6 +11,13 @@
   </div>
   <div class="underline"></div>
 </div>
-<!-- <app-center> -->
-<app-book-toc [book]="book"></app-book-toc>
-<!-- </app-center> -->
+
+<ng-container *ngIf="!isItPCT; else anotherElement">
+  <app-book-toc [book]="book"></app-book-toc>
+</ng-container>
+
+<!-- Content to display when isItPCT is true -->
+<ng-template #anotherElement>
+  <!-- Replace this with your desired content -->
+  <app-book-content [book]="book" [id]="id"></app-book-content>
+</ng-template>

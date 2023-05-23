@@ -6,12 +6,12 @@
           ><div>
             <a
               href="./{{book.link}}/citate?cit={{ citat.id }}"
-              id="CIT{{ citat.id }}"
+              id="CIT{{ citat.id.toString() }}"
               [innerHTML]="getTitle(citat)">
               </a
             >
           </div>
-          <div id="cit{{ citat.id }}"></div>
+          <div id="cit{{ citat.id.toString() }}"></div>
           <hr style="width: 30%"
         /></span>
       </td>
