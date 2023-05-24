@@ -28,7 +28,9 @@ export class CitSearchContentComponent implements OnInit {
 
   cits: Citat[] = [];
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.waitForCits();
+    console.log(this.cits$)
     SearchComponent.Search(
       'tr',
       this.idntf,
@@ -39,5 +41,16 @@ export class CitSearchContentComponent implements OnInit {
       this.cits,
       []
     );
+  }
+
+  waitForCits(): Promise<void> {
+    return new Promise((resolve) => {
+      const checkInterval = setInterval(() => {
+        if (this.cits$ != undefined) {
+          clearInterval(checkInterval);
+          resolve();
+        }
+      }, 100); // Check every 100ms
+    });
   }
 }

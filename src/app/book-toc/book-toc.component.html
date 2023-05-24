@@ -59,6 +59,33 @@
                     ></ng-component
                   ></a>
                 </li>
+                <ul class="headerUl">
+                  <li *ngFor="let header of getHeaders(chapter)">
+                    <ng-container
+                      *ngIf="
+                        header.startsWith('\<h4') ||
+                        header.startsWith('\<h5') ||
+                        header.startsWith('\<h6')
+                      "
+                    >
+                      <ul
+                        class="headerUl {{
+                          'h' + (getHeaderLevel(header) - 1) + '-indent'
+                        }}"
+                      >
+                        <li>
+                          <a
+                            href="{{ this.book.link }}?id=T{{ chapter.idCh }}#{{
+                              getAnchor(header)
+                            }}"
+                          >
+                            {{ getTitle(header) }}
+                          </a>
+                        </li>
+                      </ul>
+                    </ng-container>
+                  </li>
+                </ul>
               </ul>
               <!-- </ol> -->
             </ng-container>

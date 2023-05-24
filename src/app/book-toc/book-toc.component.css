@@ -22,6 +22,28 @@ ul {
     list-style-type: "★ ";
 }
 
+.headerUl {
+  list-style: none;
+  padding-left: 0;
+}
+
+.headerUl li {
+  list-style: none;
+}
+
+.h4-indent {
+  margin-left: 2em;
+}
+
+.h5-indent {
+  margin-left: 4em;
+}
+
+.h6-indent {
+  margin-left: 6em;
+}
+
+
 body {
   line-height: 150%;
   HYPHENS: auto

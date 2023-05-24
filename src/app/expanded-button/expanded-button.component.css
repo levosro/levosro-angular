@@ -2,7 +2,7 @@
     margin-top: 0.5rem;
     color: #c41616;
     padding: 0.25rem 0.5rem;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     border-radius: 0.25rem;
     transition: all 0.3s linear;
     border-color: #c41616;

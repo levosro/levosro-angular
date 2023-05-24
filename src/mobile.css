@@ -1,0 +1,4055 @@
+@media (max-width: 480px) {
+  img.lenin1 {
+    width: 62px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.lenin2 {
+    width: 52px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.lenin3 {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 11pt;
+    font-size: 80%;
+    margin-left: 15%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+@media screen and (min-device-width: 480px) and (max-device-width: 1280px) {
+  img.lenin1 {
+    width: 9.3%;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.lenin2 {
+    width: 7.8%;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.lenin3 {
+    width: 9.7%;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 15%;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 8.4%;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 13pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 30pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 15pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 70%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+/* ----------- Non-Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+}
+
+/* ----------- Kindle Fire HD 7" ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  p {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 13pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 20pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 15pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 80%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 1px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) and (orientation: portrait) {
+  p {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 13pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 20pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 15pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 80%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 1px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) and (orientation: landscape) {
+  p {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 13pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 20pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 15pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 80%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 1px;
+  }
+}
+
+/* ----------- Kindle Fire HD 8.9" ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  p {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 13pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 20pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 15pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 80%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 1px;
+  }
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1.5) and (orientation: portrait) {
+  p {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 13pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 20pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 15pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 80%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 1px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1.5) and (orientation: landscape) {
+  p {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 13pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 20pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 15pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 80%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 12pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 1px;
+  }
+}
+
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+
+  :host ::ng-deep .partOl {
+    width: 90vw;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  img.engels {
+    width: 51px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marx {
+    width: 78px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.engelsy {
+    width: 60px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxy {
+    width: 65px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxengels {
+    width: 86px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.marxo {
+    width: 64px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.levos {
+    width: 85px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep img.tucker {
+    width: 56px;
+    height: auto;
+    text-align: center;
+  }
+
+  :host ::ng-deep p {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
+  :host ::ng-deep div.citate {
+    font-size: 12pt;
+    font-size: 80%;
+    margin-left: 20%;
+    margin-right: 1.5%;
+    line-height: 125%;
+    text-align: right;
+    margin-bottom: 2em;
+    margin-top: 0pt;
+  }
+
+  :host ::ng-deep p.right {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: right;
+  }
+
+  :host ::ng-deep p.noind {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep p.mid {
+    font-size: 12pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  :host ::ng-deep p.quotef {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: center;
+  }
+
+  :host ::ng-deep p.h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: "font2";
+    font-variant: small-caps;
+  }
+
+  :host ::ng-deep h1 {
+    font-size: 18pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 16pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h3 {
+    font-size: 14pt;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  :host ::ng-deep h4 {
+    font-size: 13pt;
+  }
+
+  :host ::ng-deep h5 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep h6 {
+    margin-left: 1%;
+  }
+
+  :host ::ng-deep img {
+    width: 75px;
+    height: auto;
+  }
+
+  :host ::ng-deep img.auto {
+    width: 90%;
+    height: auto;
+  }
+
+  :host ::ng-deep p.quote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep blockquote {
+    font-size: 11pt;
+    margin-left: 7%;
+    margin-right: 7%;
+    text-align: justify;
+  }
+
+  :host ::ng-deep span.spt {
+    letter-spacing: 0.2em;
+    word-spacing: 0.1em;
+  }
+
+  :host ::ng-deep span.stea {
+    font-size: 110%;
+  }
+
+  :host ::ng-deep span.greek {
+    font-family: symbol;
+  }
+
+  :host ::ng-deep hr {
+    height: 2px;
+  }
+}
+
+/* override styles when printing  */
+
+@media print {
+  P {
+    font-size: 12pt;
+    margin-left: 5%;
+    text-indent: 1.5em;
+    line-height: 130%;
+    margin-right: 5%;
+
+    text-align: justify;
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+
+  :host ::ng-deep #bookContent ol {
+    font-size: 12pt;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  :host ::ng-deep P.noind {
+    font-size: 12pt;
+    margin-left: 5%;
+    text-indent: 0em;
+    line-height: 130%;
+    margin-right: 5%;
+
+    text-align: justify;
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+
+  :host ::ng-deep P.sub {
+    font-weight: bold;
+    font-size: 16pt;
+    color: black;
+    text-align: center;
+  }
+
+  :host ::ng-deep P.right {
+    font-size: 12pt;
+    margin-left: 11%;
+    text-indent: 0em;
+    line-height: 130%;
+    margin-right: 5%;
+
+    text-align: right;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  :host ::ng-deep P.mid {
+    font-size: 13pt;
+    margin-left: 20%;
+    text-indent: 0em;
+    line-height: 125%;
+    margin-right: 20%;
+
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  :host ::ng-deep #container {
+    display: none;
+  }
+}

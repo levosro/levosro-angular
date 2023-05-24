@@ -1,0 +1,6 @@
+.profile {
+  width: 10vw;
+  min-width: 7em;
+  pointer-events: none;
+  text-align: center;
+}

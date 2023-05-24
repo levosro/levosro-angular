@@ -1,4 +1,10 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  AfterViewInit,
+  OnInit,
+  AfterContentInit,
+} from '@angular/core';
 import { Book } from '../book';
 import { Chapter } from '../chapter';
 import { Part } from '../part';
@@ -9,15 +15,15 @@ import { Text } from '../text';
   templateUrl: './book-content.component.html',
   styleUrls: ['./book-content.component.css'],
 })
-export class BookContentComponent implements AfterViewInit {
+export class BookContentComponent implements OnInit, AfterContentInit {
   @Input() book!: Book;
   @Input() id!: string;
   chapter!: Chapter;
   part!: Part;
   texts!: Text[];
 
-  ngAfterViewInit(): void {
-    console.log(this.book.parts)
+  async ngOnInit(): Promise<void> {
+    await this.waitForBookParts();
     if (this.book.parts) {
       if (this.id.includes('P')) {
         const part = this.book.parts.filter(
@@ -33,7 +39,6 @@ export class BookContentComponent implements AfterViewInit {
         this.part = part;
         this.chapter = chapter;
         this.texts = texts;
-        console.log(this.part, this.chapter, this.texts);
       } else if (this.id.includes('C')) {
         const chapter = this.book.chapters.filter(
           (item) => item.idCh.indexOf(this.id.split('C')[1]) == 0
@@ -48,16 +53,17 @@ export class BookContentComponent implements AfterViewInit {
         this.part = part;
         this.chapter = chapter;
         this.texts = texts;
-        console.log(this.part, this.chapter, this.texts);
       } else if (this.id.includes('T')) {
-        const texts = this.book.texts.filter(
-          (item) => item.idChr.indexOf(this.id.split('T')[1]) == 0
-        );
         const t = this.id.split('T')[1];
         const cSearch = t.substring(0, 4);
         const chapter = this.book.chapters.filter((element) =>
           element.idCh.includes(cSearch)
         )[0];
+        const texts = this.book.texts.filter(
+          (item) =>
+            item.idChr.includes(chapter.idCh) &&
+            item.idChr.indexOf(chapter.idCh) == 0
+        );
         const part = this.book.parts.filter(
           (item) => item.idPt.indexOf(chapter.idCh.split('.')[0]) == 0
         )[0];
@@ -65,13 +71,75 @@ export class BookContentComponent implements AfterViewInit {
         this.part = part;
         this.chapter = chapter;
         this.texts = texts;
-        console.log(this.part, this.chapter, this.texts);
       } else {
         window.location.href = this.book.link;
       }
+    } else {
+      console.log(this.book);
     }
-    else {
-      console.log(this.book)
+  }
+
+  async ngAfterContentInit(): Promise<void> {
+    await this.waitForBookParts();
+    const link = this.book.link;
+    const chapters = this.book.chapters;
+    let indexOf = this.book.chapters.indexOf(this.chapter);
+    const prevBtn = document.querySelector('.prev-btn') as HTMLElement;
+    const nextBtn = document.querySelector('.next-btn') as HTMLElement;
+    const randomBtn = document.querySelector('.random-btn') as HTMLElement;
+
+    prevBtn.addEventListener('click', function () {
+      if (indexOf == 0) {
+        indexOf = chapters.length - 1;
+      } else {
+        indexOf--;
+      }
+      window.location.href = `${link}?id=C${chapters[indexOf].idCh}`;
+    });
+
+    nextBtn.addEventListener('click', function () {
+      if (indexOf == chapters.length) {
+        indexOf = 0;
+      } else {
+        indexOf++;
+      }
+      window.location.href = `${link}?id=C${chapters[indexOf].idCh}`;
+    });
+
+    if (this.book.title.includes('Antologia') || this.book.title.includes('Anthology')) {
+      randomBtn.addEventListener('click', function () {
+        let x = indexOf;
+        indexOf = Math.floor(Math.random() * chapters.length);
+        while (indexOf <= 2 && indexOf != x) {
+          indexOf = Math.floor(Math.random() * chapters.length);
+        }
+        window.location.href = `${link}?id=C${chapters[indexOf].idCh}`;
+      });
     }
+
+    (document.getElementById('cuprins') as HTMLElement).addEventListener(
+      'click',
+      function () {
+        window.location.href = `./` + link;
+      }
+    );
+
+    (document.getElementById('home') as HTMLElement).addEventListener(
+      'click',
+      function () {
+        window.location.href = './';
+      }
+    );
+  }
+
+  waitForBookParts(): Promise<void> {
+    return new Promise((resolve) => {
+      const checkInterval = setInterval(() => {
+        if (this.book.parts) {
+          clearInterval(checkInterval);
+          resolve();
+        }
+      }, 100); // Check every 100ms
+    });
   }
 }

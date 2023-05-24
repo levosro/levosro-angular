@@ -1,0 +1,32 @@
+<div id="synthZone{{text.idChr}}"></div>
+<p *ngIf="book.title.includes('Antologia') || book.title.includes('Anthology')">
+  &nbsp;
+</p>
+<table
+  *ngIf="text.info"
+  style="width: 30%; margin-left: auto; margin-right: auto"
+>
+  <tbody>
+    <tr>
+      <td style="text-align: center; color: gray">~</td>
+      <td style="width: 75%; text-align: center; color: gray">
+        {{ text.info }}
+      </td>
+      <td style="text-align: center; color: gray">~</td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="text.image">&nbsp;</p>
+<img
+  *ngIf="text.image"
+  class="profile"
+  src="assets/profiles/{{ text.image }}.svg"
+/>
+<p *ngIf="text.image">&nbsp;</p>
+
+<app-actual-text [content]="text.content"></app-actual-text>
+<!-- <a href="{{book.link}}?id={{text.idChr}}#{{text.idChr}}">▲</a> -->
+<hr>
+<div style="color: gray" id="notes">
+  <app-actual-text [content]="getNotes()"></app-actual-text>
+</div>

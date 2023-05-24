@@ -1,6 +1,6 @@
 export default [
 {'title': 'Cuvânt înainte',
-'idCh': '0.1',
+'idCh': '1.0',
 },
 {'title': 'CAPITOLUL I. O descoperire ştiinţifică',
 'idCh': '1.1',

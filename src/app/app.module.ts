@@ -17,6 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CenterComponent } from './center/center.component';
 import { BookTocComponent } from './book-toc/book-toc.component';
 import { BookContentComponent } from './book-content/book-content.component';
+import { TextContentComponent } from './text-content/text-content.component';
+import { BookButtonComponent } from './book-button/book-button.component';
+import { ActualTextComponent } from './actual-text/actual-text.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { BookContentComponent } from './book-content/book-content.component';
     CenterComponent,
     BookTocComponent,
     BookContentComponent,
+    TextContentComponent,
+    BookButtonComponent,
+    ActualTextComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

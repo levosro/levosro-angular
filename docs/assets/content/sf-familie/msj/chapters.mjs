@@ -1,6 +1,6 @@
 export default [
 {'title': 'Prefaţă',
-'idCh': '0.1',
+'idCh': '1.00',
 },
 {'title': 'CAPITOLUL I. „Critica critică sub înfăţişarea unui legător de cărţi“, sau critica critică în persoana d-lui Reichardt',
 'idCh': '1.01',

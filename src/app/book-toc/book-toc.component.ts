@@ -24,6 +24,39 @@ export class BookTocComponent implements OnInit {
     }
   }
 
+  getHeaders(chapter: Chapter): string[] {
+    const text = this.book.texts.filter(
+      (item) => item.idChr == chapter.idCh
+    )[0];
+    const headers = text.content.filter(
+      (item) => item.indexOf('<h') == 0 && !item.includes('h3')
+    );
+    return headers;
+  }
+
+  getHeaderLevel(header: string): number {
+    const level = Number(header.split('<h')[1][0]);
+    return level;
+  }
+
+  getAnchor(header: string) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(header, 'text/html');
+    const headerHTML = (doc.body.firstChild as HTMLElement)
+    return headerHTML.id
+  }
+
+  getTitle(header: string) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(header, 'text/html');
+    const headerHTML = (doc.body.firstChild as HTMLElement)
+    if (headerHTML.title) {
+      return headerHTML.title;
+    } else {
+      return headerHTML.textContent;
+    }
+  }
+
   getTextsOfChapter(chapter: Chapter): Text[] {
     const texts = this.book.texts.filter(
       (item: Text) => item.idChr.indexOf(chapter.idCh) == 0

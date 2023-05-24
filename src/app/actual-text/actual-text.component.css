@@ -1,0 +1,383 @@
+:host ::ng-deep p, div, blockquote {
+  font-family: var(--ff-secondary);
+}
+
+:host ::ng-deep A:link {
+  color: #c41616;
+  text-decoration: none;
+}
+
+:host ::ng-deep A:visited {
+  color: #c41616;
+  text-decoration: none;
+}
+
+:host ::ng-deep A:hover {
+  text-decoration: underline;
+}
+
+:host ::ng-deep A:active {
+  text-decoration: underline;
+}
+
+:host ::ng-deep A:hover {
+  text-decoration: underline;
+}
+
+:host ::ng-deep A:active {
+  text-decoration: underline;
+}
+
+:host ::ng-deep div {
+  text-align: justify;
+}
+
+:host ::ng-deep hr {
+  border: 0;
+  height: 1px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+:host ::ng-deep BLOCKQUOTE {
+  font-size: 12pt;
+  margin-left: 15%;
+  line-height: 125%;
+  margin-right: 15%;
+  color: gray;
+  text-align: justify;
+}
+
+:host ::ng-deep DIV.citate {
+  font-size: 11pt;
+  margin-left: 20%;
+  text-indent: 0em;
+  line-height: 130%;
+  margin-right: 5%;
+  text-align: right;
+}
+
+:host ::ng-deep P.right2 {
+  font-size: 12pt;
+  margin-left: 40%;
+  text-indent: 1em;
+  line-height: 130%;
+  margin-right: 5%;
+  text-align: justify;
+}
+
+:host ::ng-deep H1 {
+  font-weight: bold;
+  font-size: 28pt;
+  background: #ffffff;
+  margin-left: 36px;
+  color: #330000;
+  line-height: 120%;
+  margin-right: 36px;
+
+  text-align: center;
+}
+
+:host ::ng-deep P.h1 {
+  font-weight: bold;
+  font-size: 28pt;
+  background: #ffffff;
+  text-indent: 0em;
+  margin-left: 36px;
+  color: #000000;
+  line-height: 120%;
+  margin-right: 36px;
+  text-align: center;
+}
+
+:host ::ng-deep H2 {
+  font-weight: bold;
+  font-size: 18pt;
+  background: none transparent scroll repeat 0% 0%;
+  margin-left: 36px;
+  color: #330000;
+  line-height: 120%;
+  margin-right: 36px;
+
+  text-align: center;
+}
+
+:host ::ng-deep H3 {
+  font-weight: bold;
+  font-size: 16pt;
+  background: none transparent scroll repeat 0% 0%;
+  margin-left: 36px;
+  color: #330000;
+  line-height: 120%;
+  margin-right: 36px;
+
+  text-align: center;
+}
+
+:host ::ng-deep H4 {
+  font-weight: bold;
+  font-size: 14pt;
+  background: none transparent scroll repeat 0% 0%;
+  margin-left: 8%;
+  color: #330000;
+  line-height: 120%;
+  margin-right: 8%;
+
+  text-align: center;
+}
+
+:host ::ng-deep H5 {
+  font-weight: bold;
+  font-size: 14pt;
+  background: none transparent scroll repeat 0% 0%;
+  margin-left: 9%;
+  color: #330000;
+  line-height: 175%;
+  margin-right: 9%;
+
+  text-align: center;
+}
+
+:host ::ng-deep H6 {
+  font-weight: bold;
+  font-size: 14pt;
+  background: none transparent scroll repeat 0% 0%;
+  margin-left: 6%;
+  color: #330000;
+  line-height: 150%;
+  margin-right: 6%;
+  margin-bottom: 1em;
+
+  text-align: center;
+}
+
+:host ::ng-deep SPAN.stea {
+  font-size: 110%;
+  ;
+}
+
+:host ::ng-deep SPAN.greek {
+  font-family: symbol;
+  font-family: "grec";
+}
+
+:host ::ng-deep SPAN.russian {
+  font-family: "rus";
+}
+
+:host ::ng-deep ol {
+  font-size: 12pt;
+  margin-left: 5%;
+  line-height: 130%;
+  margin-right: 5%;
+
+  text-align: justify;
+}
+
+:host ::ng-deep table {
+  font-size: 12pt;
+  margin-left: 5%;
+  line-height: 130%;
+  margin-right: 5%;
+  text-align: justify;
+  border: black;
+}
+
+:host ::ng-deep td.special {
+  background-color: black;
+  width: 1px;
+}
+
+:host ::ng-deep UL.disc {
+  font-size: 12pt;
+  margin-left: 7%;
+  line-height: 130%;
+  margin-right: 14%;
+
+  list-style-type: disc;
+  text-align: left;
+}
+
+:host ::ng-deep OL.numbered {
+  font-size: 12pt;
+  margin-left: 7%;
+  line-height: 130%;
+  margin-right: 14%;
+
+  text-align: left;
+}
+
+:host ::ng-deep /* .info {
+  font-family: 'font.otf';
+}
+
+:host ::ng-deep .button-container {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+SPAN.spt {
+  letter-spacing: 0.2em;
+  word-spacing: 0.1em;
+}
+
+:host ::ng-deep P {
+  font-size: 12pt;
+  margin-left: 5%;
+  text-indent: 1em !important;
+  line-height: 130%;
+  margin-right: 5%;
+  margin-bottom: 1.25rem;
+  /* color: black; */
+  text-align: justify;
+}
+
+:host ::ng-deep P.noind {
+  font-size: 12pt;
+  margin-left: 5%;
+  text-indent: 0 !important;
+  line-height: 130%;
+  margin-right: 5%;
+
+  text-align: justify;
+}
+
+:host ::ng-deep P.sub {
+  font-weight: bold;
+  font-size: 16pt;
+  color: black;
+  text-align: center;
+}
+
+:host ::ng-deep P.quote {
+  text-indent: 0em;
+  font-size: 12pt;
+  margin-left: 15%;
+  line-height: 125%;
+  margin-right: 15%;
+
+  text-align: justify;
+}
+
+:host ::ng-deep P.quotef {
+  font-size: 12pt;
+  margin-left: 15%;
+  line-height: 125%;
+  margin-right: 15%;
+  text-indent: 0em;
+
+  text-align: center;
+}
+
+:host ::ng-deep P.quote-list {
+  font-size: 12pt;
+  margin-left: 14%;
+  text-indent: -1em;
+  line-height: 150%;
+  margin-right: 14%;
+
+  text-align: justify;
+}
+
+:host ::ng-deep P.inline {
+  font-size: 11pt;
+  background: none transparent scroll repeat 0% 0%;
+  margin-left: 20%;
+  color: #666666;
+  text-indent: 0em;
+  margin-right: 11%;
+  text-align: right;
+}
+
+:host ::ng-deep P.toc {
+  font-weight: bold;
+  font-size: 12pt;
+  background: none transparent scroll repeat 0% 0%;
+  margin-left: 7%;
+  color: #330000;
+  text-indent: 0em;
+  line-height: 100%;
+  margin-right: 7%;
+  text-align: left;
+}
+
+:host ::ng-deep P.right {
+  font-size: 12pt;
+  margin-left: 11%;
+  text-indent: 0em;
+  line-height: 125%;
+  margin-right: 5%;
+
+  text-align: right;
+}
+
+:host ::ng-deep P.mid {
+  font-size: 13pt;
+  margin-left: 20%;
+  text-indent: 0em;
+  line-height: 125%;
+  margin-right: 20%;
+
+  text-align: center;
+}
+
+:host ::ng-deep P.mid1 {
+  font-size: 12pt;
+  margin-left: 20%;
+  text-indent: 0em;
+  line-height: 125%;
+  margin-right: 20%;
+
+  text-align: center;
+}
+
+:host ::ng-deep P.indent-list {
+  font-size: 14pt;
+  margin-left: 12%;
+  text-indent: -1em;
+  line-height: 150%;
+  margin-right: 12%;
+
+  text-align: justify;
+}
+
+:host ::ng-deep UL.disc {
+  font-size: 12pt;
+  margin-left: 7%;
+  line-height: 130%;
+  margin-right: 14%;
+
+  list-style-type: disc;
+  text-align: left;
+}
+
+:host ::ng-deep OL.numbered {
+  font-size: 12pt;
+  margin-left: 7%;
+  line-height: 130%;
+  margin-right: 14%;
+
+  text-align: left;
+}
+
+:host ::ng-deep SUP {
+  font-weight: normal;
+  font-size: x-small;
+}
+
+:host ::ng-deep SUB {
+  font-weight: normal;
+  font-size: x-small;
+}
+
+/* =====================================*/
+/* Adjustments for Mobile Devices       */
+/* =====================================*/
+
+

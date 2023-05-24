@@ -1,0 +1,11 @@
+<section class="container">
+  <button
+    (click)="onButtonClick()"
+    class="expand-btn"
+    id="{{ text.idChr }}"
+    [innerHTML]="getInnerHTML()"
+  ></button>
+</section>
+<div [style.display]="this.ok ? '' : 'none'" id="content{{ text.idChr }}">
+  <ng-content></ng-content>
+</div>

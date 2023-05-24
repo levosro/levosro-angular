@@ -1,6 +1,8 @@
 <section class="container">
-  <button (click)="onButtonClick()" class="expand-btn" id={{this.title}}>{{this.title}} {{ok ? '▲' : '▼'}}</button>
+  <button (click)="onButtonClick()" class="expand-btn" id="{{ this.title }}">
+    {{this.title}} {{ok ? '▲' : '▼'}}
+  </button>
 </section>
-<div [style.display] = "this.ok ? 'block' : 'none'" id="content{{this.title}}">
+<div [style.display]="this.ok ? '' : 'none'" id="content{{ this.title }}">
   <ng-content></ng-content>
 </div>

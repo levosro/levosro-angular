@@ -5,10 +5,10 @@
         <span style="text-align: center"
           ><div>
             <a
-              href="./{{book!.link}}/?id=T{{ text.idChr }}#{{ text.idChr }}"
+              href="./{{ book!.link }}/?id=T{{ text.idChr }}#{{ text.idChr }}"
               id="CHR{{ text.idChr }}"
-              >{{ text.info ? text.info : text.title }}</a
-            >
+              [innerHTML]="getInnerHTML(text)"
+            ></a>
           </div>
           <div id="chr{{ text.idChr }}"></div>
           <hr style="width: 30%"

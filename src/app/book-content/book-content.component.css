@@ -1,8 +1,101 @@
 #part {
   margin-bottom: 0.5rem;
   text-transform: uppercase;
+  text-align: center;
+  color: gray;
+  font-size: 0.85rem;
+  font-family: var(--ff-secondary);
+}
+
+#titlu {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
   color: #c41616;
   font-size: 0.85rem;
   font-family: var(--ff-secondary);
 }
 
+H4 {
+  font-weight: bold;
+  letter-spacing: var(--spacing);
+  font-size: 14pt;
+  background: none transparent scroll repeat 0% 0%;
+  margin-left: 8%;
+  color: #330000;
+  line-height: 120%;
+  margin-right: 8%;
+  font-family: "font.otf", serif;
+  text-align: center;
+}
+
+main {
+  /* margin: 1em; */
+  /* color: black; */
+  line-height: 150%;
+  hyphens: auto;
+}
+
+#info {
+  margin-bottom: 0.75rem;
+}
+
+#author {
+  text-align: center;
+  color: gray;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-weight: bold;
+  color: var(--clr-black);
+  text-align: center;
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.review {
+  background: #fff;
+  margin: 1.5rem 2rem;
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.review:hover {
+  box-shadow: var(--dark-shadow);
+}
+
+.prev-btn,
+.next-btn {
+  color: #c41616;
+  font-size: 1.25rem;
+  background: transparent;
+  border-color: transparent;
+  margin: 0 0.5rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.random-btn,
+.expand-btn {
+  margin-top: 0.5rem;
+  background: var(--clr-primary-10);
+  color: #c41616;
+  padding: 0.25rem 0.5rem;
+  /* text-transform: capitalize; */
+  border-radius: var(--radius);
+  transition: var(--transition);
+  font-family: var(--ff-primary);
+  border-color: #c41616;
+  cursor: pointer;
+  user-select: none;
+}
+
+.random-btn:hover,
+.expand-btn:hover {
+  background: #c41616;
+  color: white;
+}
