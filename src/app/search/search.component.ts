@@ -97,12 +97,12 @@ export class SearchComponent implements AfterContentInit {
               let text = texts.filter(
                 (element) => element.idChr == a.substring(3)
               )[0];
-              const div = document.getElementById(
-                `chr${text.idChr}`
+              const div = search.querySelector(
+                `[id="chr${text.idChr}"]`
               ) as HTMLElement;
               div.innerHTML = res;
-              const DIV = document.getElementById(
-                `CHR${text.idChr}`
+              const DIV = search.querySelector(
+                `[id="CHR${text.idChr}"]`
               ) as HTMLAnchorElement;
               // console.log(DIV.attributes.href.value)
               const index = DIV.href.indexOf('#');
@@ -129,8 +129,8 @@ export class SearchComponent implements AfterContentInit {
               let citat = citate.filter(
                 (element) => element.id == parseInt(a.substring(3))
               )[0];
-              const div = document.getElementById(
-                `cit${citat.id}`
+              const div = search.querySelector(
+                `[id="cit${citat.id}"]`
               ) as HTMLElement;
               div.innerHTML = res;
             }

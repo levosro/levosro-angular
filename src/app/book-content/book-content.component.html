@@ -10,17 +10,19 @@
     <h4 id="titlu" *ngIf="chapter">
       {{ chapter.title }}
     </h4>
-    <div class="subtitle" *ngIf="chapter">
-      {{ chapter.subtitle }}
-    </div>
+    <div class="subtitle" *ngIf="chapter" [innerHTML]="chapter.subtitle"></div>
     <div id="author" *ngIf="chapter">
-      {{ chapter.author != '' ? chapter.author : book.author }}
+      {{ chapter.author != "" ? chapter.author : book.author }}
     </div>
     <div id="info" *ngIf="chapter">
       <app-actual-text [content]="chapter.description"></app-actual-text>
     </div>
     <div *ngIf="texts">
-      <app-book-button *ngFor="let text of texts" [text]="text" [ok]="text.idChr == id.substring(1) ? true : false">
+      <app-book-button
+        *ngFor="let text of texts"
+        [text]="text"
+        [ok]="text.idChr == id.substring(1) ? true : false"
+      >
         <app-text-content [text]="text" [book]="book"></app-text-content>
       </app-book-button>
     </div>
@@ -33,7 +35,12 @@
           <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
-      <button class="random-btn" *ngIf="book.title.includes('Antologia') || book.title.includes('Anthology')">
+      <button
+        class="random-btn"
+        *ngIf="
+          book.title.includes('Antologia') || book.title.includes('Anthology')
+        "
+      >
         <i class="fa fa-random"></i> Surprinde-mă
       </button>
       <div></div>

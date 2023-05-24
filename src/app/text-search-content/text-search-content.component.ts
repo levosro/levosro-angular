@@ -20,9 +20,9 @@ import { Observable, Subscription, from, map, of } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextSearchContentComponent implements OnInit {
-getInnerHTML(text: Text) {
-return text.info ? text.info : text.title
-}
+  getInnerHTML(text: Text) {
+    return text.info ? text.info : text.title;
+  }
   @Input() texts$!: Text[];
   @Input() notes$!: Note[];
   @Input() idntf!: string;

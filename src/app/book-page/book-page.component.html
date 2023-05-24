@@ -11,13 +11,18 @@
   </div>
   <div class="underline"></div>
 </div>
+<ng-container *ngIf="!isItCit; else citElement">
+  <ng-container *ngIf="!isItPCT; else anotherElement">
+    <app-book-toc [book]="book"></app-book-toc>
+  </ng-container>
 
-<ng-container *ngIf="!isItPCT; else anotherElement">
-  <app-book-toc [book]="book"></app-book-toc>
+  <!-- Content to display when isItPCT is true -->
+  <ng-template #anotherElement>
+    <!-- Replace this with your desired content -->
+    <app-book-content [book]="book" [id]="id"></app-book-content>
+  </ng-template>
 </ng-container>
-
-<!-- Content to display when isItPCT is true -->
-<ng-template #anotherElement>
+<ng-template #citElement>
   <!-- Replace this with your desired content -->
-  <app-book-content [book]="book" [id]="id"></app-book-content>
+  <app-quotes [citate]="book.citate" [id]="cit" [book]="book"></app-quotes>
 </ng-template>

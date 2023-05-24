@@ -5,13 +5,13 @@
         <span style="text-align: center"
           ><div>
             <a
-              href="./{{book.link}}/citate?cit={{ citat.id }}"
-              id="CIT{{ citat.id.toString() }}"
+              href="{{book.link}}/?cit={{ getId(citat) }}"
+              id="CIT{{ getId(citat) }}"
               [innerHTML]="getTitle(citat)">
               </a
             >
           </div>
-          <div id="cit{{ citat.id.toString() }}"></div>
+          <div id="cit{{ getId(citat) }}"></div>
           <hr style="width: 30%"
         /></span>
       </td>

@@ -20,6 +20,7 @@ import { BookContentComponent } from './book-content/book-content.component';
 import { TextContentComponent } from './text-content/text-content.component';
 import { BookButtonComponent } from './book-button/book-button.component';
 import { ActualTextComponent } from './actual-text/actual-text.component';
+import { QuotesComponent } from './quotes/quotes.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ActualTextComponent } from './actual-text/actual-text.component';
     TextContentComponent,
     BookButtonComponent,
     ActualTextComponent,
+    QuotesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
