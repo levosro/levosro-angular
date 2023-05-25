@@ -23,6 +23,6 @@ export class AppComponent implements OnInit {
       this.booksService.setData(books);
     });
 
-    loadLinks(this.booksService);
+    // loadLinks(this.booksService);
   }
 }

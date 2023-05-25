@@ -1,18 +1,16 @@
-import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { BookPageComponent } from './book-page/book-page.component';
-import { AppComponent } from './app.component';
+import { Injector, NgModule } from '@angular/core';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { BooksService } from './books.service';
 import { HomepageComponent } from './homepage/homepage.component';
-import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const injector = Injector.create({
   providers: [{ provide: BooksService, useClass: BooksService, deps: [] }],
 });
 const booksService = injector.get(BooksService);
 
-var routes: Routes = [
+const initialRoutes: Routes = [
   ...booksService.getInitialLinks(),
   {
     path: 'citate',
@@ -24,20 +22,24 @@ var routes: Routes = [
   },
 ];
 
-export function loadLinks(booksService: BooksService): () => Promise<void> {
+export function loadLinks(
+  booksService: BooksService,
+  router: Router
+): () => Promise<void> {
   return () => {
     return new Promise((resolve) => {
       booksService
         .getLinks()
         .pipe(
           map((links) => {
-            links.forEach((element) => {
-              const path = element.path
-              const route = routes.filter(item => item.path == path)[0]
-              const index = routes.indexOf(route)
-              routes[index] = element
+            const updatedRoutes = initialRoutes.map((route) => {
+              const updatedRoute = links.find(
+                (link) => link.path === route.path
+              );
+              return updatedRoute || route;
             });
-            console.log(routes);
+            router.resetConfig(updatedRoutes);
+            console.log(updatedRoutes);
           })
         )
         .subscribe(() => {
@@ -48,15 +50,17 @@ export function loadLinks(booksService: BooksService): () => Promise<void> {
 }
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(initialRoutes)],
   exports: [RouterModule],
   providers: [
     // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: () => loadLinks,
-    //   deps: [BooksService],
-    //   multi: true,
+    //   provide: LocationStrategy,
+    //   useClass: HashLocationStrategy,
     // },
   ],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+  constructor(private router: Router) {
+    loadLinks(booksService, router)();
+  }
+}

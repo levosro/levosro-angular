@@ -198,7 +198,7 @@ export class BooksService {
     const links: any[] = [];
     booksInit.forEach((item) => {
       links.push({
-        path: (item as Book).link,
+        path: `${(item as Book).link}`,
         component: BookPageComponent,
         data: { book: item },
       });
