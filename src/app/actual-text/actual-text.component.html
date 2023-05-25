@@ -1,1 +1,3 @@
-<div *ngFor="let content of safeContent" [innerHTML]="content"></div>
+<div *ngFor="let content of safeContent" [innerHTML]="content">
+  <ng-content></ng-content>
+</div>

@@ -12,6 +12,7 @@ export class BookButtonComponent {
 
   onButtonClick() {
     this.ok = !this.ok;
+    window.speechSynthesis.cancel();
   }
 
   getInnerHTML() {

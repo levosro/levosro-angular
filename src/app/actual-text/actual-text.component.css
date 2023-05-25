@@ -45,6 +45,10 @@
   );
 }
 
+:host ::ng-deep .auto {
+  margin: 0 auto;
+}
+
 :host ::ng-deep BLOCKQUOTE {
   font-size: 12pt;
   margin-left: 15%;

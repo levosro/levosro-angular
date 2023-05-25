@@ -41,5 +41,33 @@ export class BookPageComponent implements OnInit {
     }
 
     console.log(this.book);
+    window.onclick = function (event) {
+      const modal = document.querySelector(".modal") as HTMLElement;
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
+
+  getDownloadTitle(): string {
+    return `\<i class="fa fa-file-download">\</i> Download ${this.book.title}`;
+  }
+
+  CitateClick = (): void => {
+    const citItem = Math.floor(Math.random() * this.book.citate.length);
+    window.location.href = `${this.book.link}?cit=${citItem}`;
+  }
+
+  getCitsTitle(): string {
+    let res = `\<i class="fa fa-quote-right">\</i> Citate`;
+    const authors = this.book.author.split(', ')
+    res = res + ` din scrierile lui ${authors[0]}`
+    if (authors.length > 1) {
+      for (let i = 1; i < authors.length - 1; i++) {
+        res = res + `, ${authors[i]}`
+      }
+      res = res + ` şi ${authors[authors.length - 1]}`
+    }
+    return res;
   }
 }

@@ -171,9 +171,11 @@ h3 {
 }
 
 :host ::ng-deep .img-container::after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
   content: "\f10e";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+
+
   position: absolute;
   top: 0;
   left: 0;
@@ -184,7 +186,7 @@ h3 {
   border-radius: 50%;
   transform: translateY(25%);
   background: #000000;
-  color: var(--clr-white);
+  color: white;
 }
 
 :host ::ng-deep .img-container::before {

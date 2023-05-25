@@ -24,9 +24,9 @@
 />
 <p *ngIf="text.image">&nbsp;</p>
 
-<app-actual-text [content]="text.content"></app-actual-text>
+<app-actual-text [content]="text.content" [book]="book"></app-actual-text>
 <!-- <a href="{{book.link}}?id={{text.idChr}}#{{text.idChr}}">▲</a> -->
 <hr>
 <div style="color: gray" id="notes">
-  <app-actual-text [content]="getNotes()"></app-actual-text>
+  <app-actual-text [content]="getNotes()" [book]="book"></app-actual-text>
 </div>

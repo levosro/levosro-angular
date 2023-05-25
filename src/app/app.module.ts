@@ -21,6 +21,7 @@ import { TextContentComponent } from './text-content/text-content.component';
 import { BookButtonComponent } from './book-button/book-button.component';
 import { ActualTextComponent } from './actual-text/actual-text.component';
 import { QuotesComponent } from './quotes/quotes.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { QuotesComponent } from './quotes/quotes.component';
     BookButtonComponent,
     ActualTextComponent,
     QuotesComponent,
+    ButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

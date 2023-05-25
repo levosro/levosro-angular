@@ -1,4 +1,10 @@
 <app-center>
+  <app-button [title]="getDownloadTitle()"></app-button>
+  <app-button
+    *ngIf="book.citate.length > 0"
+    [title]="getCitsTitle()"
+    [onClick]="CitateClick"
+  ></app-button>
   <app-expanded-button title="TOC">
     <app-book-toc [book]="book"></app-book-toc>
   </app-expanded-button>
@@ -15,7 +21,10 @@
       {{ chapter.author != "" ? chapter.author : book.author }}
     </div>
     <div id="info" *ngIf="chapter">
-      <app-actual-text [content]="chapter.description"></app-actual-text>
+      <app-actual-text
+        [content]="chapter.description"
+        [book]="book"
+      ></app-actual-text>
     </div>
     <div *ngIf="texts">
       <app-book-button
@@ -59,3 +68,4 @@
     </div>
   </main>
 </app-center>
+<ng-content></ng-content>

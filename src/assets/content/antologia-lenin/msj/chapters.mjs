@@ -14,7 +14,7 @@ export default [
 {'author': '[]',
 'title': 'Proiect de program al partidului social-democrat',
 'subtitle': '',
-'description': ['<p>Acest prim proiect de program elaborat de Lenin servește drept introducere atât în viziunea lui despre lume, moștenită în mare parte de la marxismul rus precedent lui și de la teoria și pratica partidului social-democrat german, cât și în problemele specifice Rusiei care se puneau în fața tendințelor revoluționare de la sfârșitul secolului al XIX-lea. Această selecție nu apare în antologia originală.\n</p>'],
+'description': ['<p>Acest prim proiect de program elaborat de Lenin serveşte drept introducere atât în viziunea lui despre lume, moştenită în mare parte de la marxismul rus precedent lui şi de la teoria şi pratica partidului social-democrat german, cât şi în problemele specifice Rusiei care se puneau în faţa tendinţelor revoluţionare de la sfârşitul secolului al XIX-lea. Această selecţie nu apare în antologia originală.\n</p>'],
 'idCh': '1.01',
 },
 {'author': '[]',

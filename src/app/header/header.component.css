@@ -8,6 +8,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
 }
 
 div.content {

@@ -9,17 +9,28 @@
   <div class="subtitle" *ngFor="let author of book.author.split(', ')">
     {{ author }}
   </div>
-  <div class="underline"></div>
 </div>
+<div class="underline"></div>
 <ng-container *ngIf="!isItCit; else citElement">
   <ng-container *ngIf="!isItPCT; else anotherElement">
+    <app-button [title]="getDownloadTitle()"></app-button>
+    <app-button
+      *ngIf="book.citate.length > 0"
+      [title]="getCitsTitle()"
+      [onClick]="CitateClick"
+    ></app-button>
+    <p></p>
     <app-book-toc [book]="book"></app-book-toc>
   </ng-container>
 
   <!-- Content to display when isItPCT is true -->
   <ng-template #anotherElement>
     <!-- Replace this with your desired content -->
-    <app-book-content [book]="book" [id]="id"></app-book-content>
+    <app-book-content [book]="book" [id]="id">
+      <div id="modal" class="modal">
+        <div id="modal-content"></div>
+      </div>
+    </app-book-content>
   </ng-template>
 </ng-container>
 <ng-template #citElement>

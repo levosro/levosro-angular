@@ -1,16 +1,17 @@
 .expand-btn {
-    margin-top: 0.5rem;
-    color: #c41616;
-    padding: 0.25rem 0.5rem;
-    /* text-transform: capitalize; */
-    border-radius: 0.25rem;
-    transition: all 0.3s linear;
-    border-color: #c41616;
-    cursor: pointer;
-    user-select: none;
+  margin-top: 0.5rem;
+  color: #c41616;
+  background: white;
+  padding: 0.25rem 0.5rem;
+  /* text-transform: capitalize; */
+  border-radius: 0.25rem;
+  transition: all 0.3s linear;
+  border-color: #c41616;
+  cursor: pointer;
+  user-select: none;
 }
 
 .expand-btn:hover {
-    background: #c41616;
-    color: white;
+  background: #c41616;
+  color: white;
 }

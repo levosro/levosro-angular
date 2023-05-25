@@ -77,6 +77,7 @@ export class TextContentComponent implements OnInit {
         );
       }
     }
+    this.addNotesFunct();
   }
 
   speak(text: Text) {
@@ -87,76 +88,82 @@ export class TextContentComponent implements OnInit {
     const readText = document.getElementById(
       `play${text.idChr}`
     ) as HTMLElement;
-    if (navigator.userAgent.indexOf('Win') != -1) {
-      readText.addEventListener('click', function () {
-        synth.cancel();
-        let textToRead = Array.prototype.slice.call(
-          (document.getElementById(`content${text.idChr}`) as HTMLElement)
-            .children
-        );
-        for (let i = 0; i < text.content.length; i++) {
-          if (text.content[i] != '<p>&nbsp;</p>') {
-            let utterThis = new SpeechSynthesisUtterance();
-            utterThis.voice = synth
-              .getVoices()
-              .filter((item) => item.lang.includes('ro'))[0];
+    const stopText = document.getElementById(
+      `stop${text.idChr}`
+    ) as HTMLElement;
+    // if (navigator.userAgent.indexOf('Win') != -1 && navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+    //   readText.addEventListener('click', function () {
+    //     synth.cancel();
+    //     let textToRead = Array.prototype.slice.call(
+    //       (document.getElementById(`content${text.idChr}`) as HTMLElement)
+    //         .children
+    //     );
+    //     for (let i = 0; i < text.content.length; i++) {
+    //       if (text.content[i] != '<p>&nbsp;</p>') {
+    //         let utterThis = new SpeechSynthesisUtterance();
+    //         utterThis.voice = synth
+    //           .getVoices()
+    //           .filter((item) => item.lang.includes('ro'))[0];
 
-            (
-              document.getElementById(`synthZone${text.idChr}`)!
-                .lastChild as HTMLElement
-            ).innerHTML = text.content[i];
-            let node = textToRead.filter(
-              (item) =>
-                (
-                  document.getElementById(`synthZone${text.idChr}`)!
-                    .lastChild as HTMLElement
-                ).innerHTML.replace(/<[^>]*>/g, '') ==
-                item.innerHTML.replace(/<[^>]*>/g, '')
-            )[0];
-            utterThis.text = node.innerHTML;
-            const saveNode1 = node.innerHTML;
-            const saveNode = node.innerHTML;
-            utterThis.onboundary = function (event) {
-              if (event.charIndex >= 0) {
-                let index = event.charIndex;
-                let indexSp = saveNode1.indexOf(' ', index);
-                if (indexSp == -1) {
-                  indexSp = saveNode1.length;
-                }
-                let innerHTML =
-                  saveNode.substring(0, event.charIndex) +
-                  '<span class="highlight">' +
-                  saveNode.substring(event.charIndex, indexSp) +
-                  '</span>' +
-                  saveNode.substring(indexSp);
-                node.innerHTML = innerHTML;
-                // anchorChanger();
-              }
-            };
-            utterThis.onend = function () {
-              node.innerHTML = saveNode1;
-              // anchorChanger();
-            };
-            synth.speak(utterThis);
-          }
+    //         (
+    //           document.getElementById(`synthZone${text.idChr}`)!
+    //             .lastChild as HTMLElement
+    //         ).innerHTML = text.content[i];
+    //         let node = textToRead.filter(
+    //           (item) =>
+    //             (
+    //               document.getElementById(`synthZone${text.idChr}`)!
+    //                 .lastChild as HTMLElement
+    //             ).innerHTML.replace(/<[^>]*>/g, '') ==
+    //             item.innerHTML.replace(/<[^>]*>/g, '')
+    //         )[0];
+    //         utterThis.text = node.innerHTML;
+    //         const saveNode1 = node.innerHTML;
+    //         const saveNode = node.innerHTML;
+    //         utterThis.onboundary = function (event) {
+    //           if (event.charIndex >= 0) {
+    //             let index = event.charIndex;
+    //             let indexSp = saveNode1.indexOf(' ', index);
+    //             if (indexSp == -1) {
+    //               indexSp = saveNode1.length;
+    //             }
+    //             let innerHTML =
+    //               saveNode.substring(0, event.charIndex) +
+    //               '<span class="highlight">' +
+    //               saveNode.substring(event.charIndex, indexSp) +
+    //               '</span>' +
+    //               saveNode.substring(indexSp);
+    //             node.innerHTML = innerHTML;
+    //             // anchorChanger();
+    //           }
+    //         };
+    //         utterThis.onend = function () {
+    //           node.innerHTML = saveNode1;
+    //           // anchorChanger();
+    //         };
+    //         synth.speak(utterThis);
+    //       }
 
-          // utterThis.onstart = () => console.log()
-        }
-      });
-    } else {
-      readText.addEventListener('click', function () {
-        synth.cancel();
-        for (let i = 0; i < text.content.length; i++) {
-          let utterThis = new SpeechSynthesisUtterance();
-          utterThis.voice = synth
-            .getVoices()
-            .filter((item) => item.lang.includes('ro'))[0];
-          utterThis.text = text.content[i].replace(/<[^>]*>/g, '');
-          synth.speak(utterThis);
-        }
-      });
-    }
+    //       // utterThis.onstart = () => console.log()
+    //     }
+    //   });
+    // } else {
+    readText.addEventListener('click', function () {
+      synth.cancel();
+      for (let i = 0; i < text.content.length; i++) {
+        let utterThis = new SpeechSynthesisUtterance();
+        utterThis.voice = synth
+          .getVoices()
+          .filter((item) => item.lang.includes('ro'))[0];
+        utterThis.text = text.content[i].replace(/<[^>]*>/g, '');
+        synth.speak(utterThis);
+      }
+    });
+    stopText.addEventListener('click', function () {
+      synth.cancel();
+    });
   }
+  // }
 
   // anchorChanger() {
   //   let x = 0;
@@ -222,6 +229,30 @@ export class TextContentComponent implements OnInit {
     return (node instanceof Element && node.id) || null;
   }
 
+  addNotesFunct(): void {
+    const notes = this.book.notes;
+    const doc = document.getElementById(
+      `content${this.text.idChr}`
+    ) as HTMLElement;
+    const aTags = doc.querySelectorAll('a');
+    const modal = document.getElementById('modal') as HTMLElement;
+    const modalBody = document.getElementById('modal-content') as HTMLElement;
+    // Iterate through the NodeList and perform desired actions
+    aTags.forEach((a) => {
+      if (a.id.includes('n')) {
+        const number = a.id.substring(1);
+        const note = notes.filter((item) => item.idNote == number)[0];
+        // notesInText.push(note);
+        if (note != undefined) {
+          a.addEventListener('click', function () {
+            modalBody.innerHTML = `${note.content}`;
+            modal.style.display = 'block';
+          });
+        }
+      }
+    });
+  }
+
   getNotes(): string[] {
     const joinedContent = this.text.content.join('');
     const notes = this.book.notes;
@@ -239,8 +270,10 @@ export class TextContentComponent implements OnInit {
       }
     });
     notesToReturn.forEach((item) => {
-      stringToReturn.push(`<p class="noind">${item.content}</p>`)
+      if (item != undefined) {
+        stringToReturn.push(`<p class="noind">${item.content}</p>`);
+      }
     });
-    return stringToReturn
+    return stringToReturn;
   }
 }
