@@ -5,5 +5,11 @@ app.use(express.static(__dirname + "/docs"));
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "docs", "index.html"));
 });
+// ES6
+const port = process.env.PORT || 8000;
+
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+app.listen(port, () => {
+  console.log("App is running on port " + port);
+});
+
