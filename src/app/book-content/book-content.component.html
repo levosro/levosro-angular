@@ -13,12 +13,8 @@
   </app-expanded-button>
   <main>
     <p>&nbsp;</p>
-    <div id="part" *ngIf="part">
-      {{ part.title }}
-    </div>
-    <h4 id="titlu" *ngIf="chapter">
-      {{ chapter.title }}
-    </h4>
+    <div id="part" *ngIf="part" [innerHTML]="part.title"></div>
+    <h4 id="titlu" *ngIf="chapter" [innerHTML]="chapter.title"></h4>
     <div class="subtitle" *ngIf="chapter" [innerHTML]="chapter.subtitle"></div>
     <div id="author" *ngIf="chapter">
       {{ chapter.author != "" ? chapter.author : book.author }}

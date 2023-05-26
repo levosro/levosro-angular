@@ -48,12 +48,13 @@
 }
 
 i {
-  margin-left: 50%;
-  margin-right: 50%;
+  margin-left: 50vw;
+  margin-right: 50vw;
   margin-top: 10px;
 }
 
 #modal-inner {
+  max-height: 75vh;
   margin-left: 5%;
   margin-right: 5%;
 }

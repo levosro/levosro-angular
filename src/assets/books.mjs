@@ -5,6 +5,12 @@ export default [
     cover: "./assets/antologia-me.png",
     link: "antologia-me",
   },
+  // {
+  //   title: "Citate din scrierile lui Karl Marx",
+  //   author: "",
+  //   cover: "./assets/marx-cit.png",
+  //   link: "marx-cit",
+  // },
   {
     title: "Antologia Lenin",
     author: "V. I. Lenin",
