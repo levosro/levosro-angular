@@ -16,6 +16,13 @@ export class BookButtonComponent {
   }
 
   getInnerHTML() {
-    return `${this.text.title != '' ? this.text.title : this.text.info} ${this.ok ? '▲' : '▼'}`
+    return `${this.text.title != '' ? this.text.title : this.text.info} ${
+      this.ok ? '▲' : '▼'
+    }`;
+  }
+
+  scrollToTop() {
+    const textButton = document.getElementById(this.text.idChr);
+    textButton?.scrollIntoView();
   }
 }

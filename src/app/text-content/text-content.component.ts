@@ -236,7 +236,7 @@ export class TextContentComponent implements OnInit {
     ) as HTMLElement;
     const aTags = doc.querySelectorAll('a');
     const modal = document.getElementById('modal') as HTMLElement;
-    const modalBody = document.getElementById('modal-content') as HTMLElement;
+    const modalBody = document.getElementById('modal-inner') as HTMLElement;
     // Iterate through the NodeList and perform desired actions
     aTags.forEach((a) => {
       if (a.id.includes('n')) {

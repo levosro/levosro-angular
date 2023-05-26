@@ -13,7 +13,10 @@
 <div class="underline"></div>
 <ng-container *ngIf="!isItCit; else citElement">
   <ng-container *ngIf="!isItPCT; else anotherElement">
-    <app-button [title]="getDownloadTitle()"></app-button>
+    <app-button
+      [title]="getDownloadTitle()"
+      [onClick]="DownloadClick"
+    ></app-button>
     <app-button
       *ngIf="book.citate.length > 0"
       [title]="getCitsTitle()"
@@ -28,7 +31,10 @@
     <!-- Replace this with your desired content -->
     <app-book-content [book]="book" [id]="id">
       <div id="modal" class="modal">
-        <div id="modal-content"></div>
+        <div id="modal-content">
+          <div id="modal-inner"></div>
+          <span class="modal-close"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
       </div>
     </app-book-content>
   </ng-template>

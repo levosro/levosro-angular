@@ -41,16 +41,38 @@
   align-content: center;
 }
 
-:host ::ng-deep #modal-content p.noind {
+.modal-close {
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+
+i {
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-top: 10px;
+}
+
+#modal-inner {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+:host ::ng-deep #modal-content p {
   max-width: 900px;
   margin: 1rem auto;
   font-size: 12pt;
   /* margin-left: 5%; */
-  text-indent: 0 !important;
+  /* text-indent: 0 !important; */
   line-height: 130%;
   /* margin-right: 5%; */
+  max-width: 900px;
 
   text-align: justify;
+}
+
+:host ::ng-deep #modal-content p.noind {
+  text-indent: 0 !important;
 }
 
 .subtitle {

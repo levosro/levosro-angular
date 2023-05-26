@@ -106,7 +106,10 @@ export class BookContentComponent implements OnInit, AfterContentInit {
       window.location.href = `${link}?id=C${chapters[indexOf].idCh}`;
     });
 
-    if (this.book.title.includes('Antologia') || this.book.title.includes('Anthology')) {
+    if (
+      this.book.title.includes('Antologia') ||
+      this.book.title.includes('Anthology')
+    ) {
       randomBtn.addEventListener('click', function () {
         let x = indexOf;
         indexOf = Math.floor(Math.random() * chapters.length);
@@ -136,20 +139,27 @@ export class BookContentComponent implements OnInit, AfterContentInit {
     return `\<i class="fa fa-file-download">\</i> Download ${this.book.title}`;
   }
 
+  DownloadClick = (): void => {
+    downloadFile(
+      `assets/content/${this.book.link}/${this.book.link}.epub`,
+      this.book.title
+    );
+  };
+
   CitateClick = (): void => {
     const citItem = Math.floor(Math.random() * this.book.citate.length);
     window.location.href = `${this.book.link}?cit=${citItem}`;
-  }
+  };
 
   getCitsTitle(): string {
     let res = `\<i class="fa fa-quote-right">\</i> Citate`;
-    const authors = this.book.author.split(', ')
-    res = res + ` din scrierile lui ${authors[0]}`
+    const authors = this.book.author.split(', ');
+    res = res + ` din scrierile lui ${authors[0]}`;
     if (authors.length > 1) {
       for (let i = 1; i < authors.length - 1; i++) {
-        res = res + `, ${authors[i]}`
+        res = res + `, ${authors[i]}`;
       }
-      res = res + ` şi ${authors[authors.length - 1]}`
+      res = res + ` şi ${authors[authors.length - 1]}`;
     }
     return res;
   }
@@ -164,4 +174,19 @@ export class BookContentComponent implements OnInit, AfterContentInit {
       }, 100); // Check every 100ms
     });
   }
+}
+
+function downloadFile(url: string, fileName: string) {
+  fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
+    .then((res) => res.blob())
+    .then((res) => {
+      const aElement = document.createElement('a');
+      aElement.setAttribute('download', fileName);
+      const href = URL.createObjectURL(res);
+      aElement.href = href;
+      // aElement.setAttribute('href', href);
+      aElement.setAttribute('target', '_blank');
+      aElement.click();
+      URL.revokeObjectURL(href);
+    });
 }

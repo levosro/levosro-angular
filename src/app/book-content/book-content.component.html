@@ -1,5 +1,8 @@
 <app-center>
-  <app-button [title]="getDownloadTitle()"></app-button>
+  <app-button
+    [title]="getDownloadTitle()"
+    [onClick]="DownloadClick"
+  ></app-button>
   <app-button
     *ngIf="book.citate.length > 0"
     [title]="getCitsTitle()"

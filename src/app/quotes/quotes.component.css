@@ -174,8 +174,6 @@ h3 {
   content: "\f10e";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-
-
   position: absolute;
   top: 0;
   left: 0;
@@ -185,7 +183,7 @@ h3 {
   place-items: center;
   border-radius: 50%;
   transform: translateY(25%);
-  background: #000000;
+  background: #000;
   color: white;
 }
 
