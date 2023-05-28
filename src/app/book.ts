@@ -10,6 +10,8 @@ export interface Book {
   author: string;
   cover: string;
   link: string;
+  language: string;
+  img: string;
   index: number;
   texts: Text[];
   chapters: Chapter[];

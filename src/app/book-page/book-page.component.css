@@ -2,6 +2,29 @@
   text-align: center;
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.loading img {
+  max-width: 50vw;
+  max-height: 50vh;
+  animation: rotation 2s infinite linear;
+}
+
 .modal {
   display: none;
   /* Hidden by default */

@@ -69,6 +69,10 @@ export class BookPageComponent implements OnInit {
     window.location.href = `${this.book.link}?cit=${citItem}`;
   };
 
+  getImage(): string {
+    return `assets/profiles/${this.book.img}.svg`;
+  }
+
   getCitsTitle(): string {
     let res = `\<i class="fa fa-quote-right">\</i> Citate`;
     const authors = this.book.author.split(', ');

@@ -1,45 +1,53 @@
-<div class="title">
-  <h2>
-    <a [href]="book.link">{{ book.title }}</a>
-  </h2>
-  <div class="subtitle">{{ book.subtitle }}</div>
-  <div *ngIf="book.author">
-    <hr />
-  </div>
-  <div class="subtitle" *ngFor="let author of book.author.split(', ')">
-    {{ author }}
-  </div>
-</div>
-<div class="underline"></div>
-<ng-container *ngIf="!isItCit; else citElement">
-  <ng-container *ngIf="!isItPCT; else anotherElement">
-    <app-button
-      [title]="getDownloadTitle()"
-      [onClick]="DownloadClick"
-    ></app-button>
-    <app-button
-      *ngIf="book.citate.length > 0"
-      [title]="getCitsTitle()"
-      [onClick]="CitateClick"
-    ></app-button>
-    <p></p>
-    <app-book-toc [book]="book"></app-book-toc>
-  </ng-container>
-
-  <!-- Content to display when isItPCT is true -->
-  <ng-template #anotherElement>
-    <!-- Replace this with your desired content -->
-    <app-book-content [book]="book" [id]="id">
-      <div id="modal" class="modal">
-        <div id="modal-content">
-          <div id="modal-inner"></div>
-          <span class="modal-close"><i class="fa-regular fa-circle-xmark"></i></span>
-        </div>
-      </div>
-    </app-book-content>
-  </ng-template>
+<ng-container *ngIf="book.texts == undefined; else loaded">
+  <div class="loading"><img src="{{ getImage() }}" alt="loading" /></div>
 </ng-container>
-<ng-template #citElement>
-  <!-- Replace this with your desired content -->
-  <app-quotes [citate]="book.citate" [id]="cit" [book]="book"></app-quotes>
+
+<ng-template #loaded>
+  <div class="title">
+    <h2>
+      <a [href]="book.link">{{ book.title }}</a>
+    </h2>
+    <div class="subtitle">{{ book.subtitle }}</div>
+    <div *ngIf="book.author">
+      <hr />
+    </div>
+    <div class="subtitle" *ngFor="let author of book.author.split(', ')">
+      {{ author }}
+    </div>
+  </div>
+  <div class="underline"></div>
+  <ng-container *ngIf="!isItCit; else citElement">
+    <ng-container *ngIf="!isItPCT; else anotherElement">
+      <app-button
+        [title]="getDownloadTitle()"
+        [onClick]="DownloadClick"
+      ></app-button>
+      <app-button
+        *ngIf="book.citate.length > 0"
+        [title]="getCitsTitle()"
+        [onClick]="CitateClick"
+      ></app-button>
+      <p></p>
+      <app-book-toc [book]="book"></app-book-toc>
+    </ng-container>
+
+    <!-- Content to display when isItPCT is true -->
+    <ng-template #anotherElement>
+      <!-- Replace this with your desired content -->
+      <app-book-content [book]="book" [id]="id">
+        <div id="modal" class="modal">
+          <div id="modal-content">
+            <div id="modal-inner"></div>
+            <span class="modal-close"
+              ><i class="fa-regular fa-circle-xmark"></i
+            ></span>
+          </div>
+        </div>
+      </app-book-content>
+    </ng-template>
+  </ng-container>
+  <ng-template #citElement>
+    <!-- Replace this with your desired content -->
+    <app-quotes [citate]="book.citate" [id]="cit" [book]="book"></app-quotes>
+  </ng-template>
 </ng-template>

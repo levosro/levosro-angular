@@ -20,7 +20,7 @@ export class TextContentComponent implements OnInit {
     if (
       window.speechSynthesis
         .getVoices()
-        .filter((item) => item.lang.includes('ro')).length > 0
+        .filter((item) => item.lang.includes(this.book.language)).length > 0
     ) {
       this.speak(this.text);
     }
@@ -81,6 +81,7 @@ export class TextContentComponent implements OnInit {
   }
 
   speak(text: Text) {
+    const language = this.book.language
     document.getElementById(
       `synthZone${this.text.idChr}`
     )!.innerHTML = `<button class="expand-btn" id="play${text.idChr}"><i class="fa fa-play"></i></button>&nbsp;<button class="expand-btn" id="stop${text.idChr}"><i class="fa fa-stop"></i></button><div style="display: none"></div>`;
@@ -154,7 +155,7 @@ export class TextContentComponent implements OnInit {
         let utterThis = new SpeechSynthesisUtterance();
         utterThis.voice = synth
           .getVoices()
-          .filter((item) => item.lang.includes('ro'))[0];
+          .filter((item) => item.lang.includes(language))[0];
         utterThis.text = text.content[i].replace(/<[^>]*>/g, '');
         synth.speak(utterThis);
       }

@@ -4,6 +4,8 @@ export default [
     author: "Karl Marx, Friedrich Engels",
     cover: "./assets/antologia-me.png",
     link: "antologia-me",
+    language: 'ro',
+    img: 'marxengels'
   },
   // {
   //   title: "Citate din scrierile lui Karl Marx",
@@ -16,6 +18,8 @@ export default [
     author: "V. I. Lenin",
     cover: "./assets/antologia-lenin.png",
     link: "antologia-lenin",
+    language: 'ro',
+    img: 'lenin1'
   },
   // {
   //     'title': 'Antologia Luxemburg',
@@ -40,6 +44,8 @@ export default [
     author: "Karl Marx, Frederick Engels",
     cover: "./assets/me-anthology.png",
     link: "me-anthology",
+    language: 'en',
+    img: 'marxengels'
   },
   {
     title: "Sfânta familie, sau critica criticii critice",
@@ -47,6 +53,8 @@ export default [
     author: "Karl Marx, Friedrich Engels",
     cover: "./assets/sf-familie.png",
     link: "sf-familie",
+    language: 'ro',
+    img: 'marxengels-sf'
   },
   {
     title: "Mizeria filozofiei",
@@ -54,6 +62,8 @@ export default [
     author: "Karl Marx",
     cover: "./assets/mizeria-filozofiei.png",
     link: "mizeria-filozofiei",
+    language: 'ro',
+    img: 'marxy'
   },
   // {
   //     'title': 'Contribuţii la critica economiei politice',
@@ -115,12 +125,16 @@ export default [
     author: "Friedrich Engels",
     cover: "./assets/antiduhring.png",
     link: "antiduhring",
+    language: 'ro',
+    img: 'engels'
   },
   {
     title: "Esența muncii cerebrale a omului",
     author: "Josef Dietzgen",
     cover: "./assets/dietzgen.png",
     link: "dietzgen",
+    language: 'ro',
+    img: 'dietzgen'
   },
   // {
   //     'title': 'Reformă socială sau revoluție?',
@@ -133,6 +147,8 @@ export default [
     author: "Rosa Luxemburg",
     cover: "./assets/luxemburg.png",
     link: "luxemburg",
+    language: 'ro',
+    img: 'luxemburg'
   },
   // {
   //     'title': 'Istorie şi conştiinţă de clasă',
@@ -152,6 +168,8 @@ export default [
     author: "Anton Panneckoek",
     cover: "./assets/panneckoek.png",
     link: "panneckoek",
+    language: 'ro',
+    img: 'panneckoek'
   },
   // {
   //     'title': 'Piele neagră, măști albe',
@@ -176,6 +194,8 @@ export default [
     author: "",
     cover: "./assets/mao-cit.png",
     link: "mao-cit",
+    language: 'ro',
+    img: 'mao2'
   },
   // {
   //     'title': 'Șase eseuri filozofice',
@@ -188,12 +208,16 @@ export default [
     author: "Mao Ţze-dun",
     cover: "./assets/mao-v1.png",
     link: "mao-v1",
+    language: 'ro',
+    img: 'mao3'
   },
   {
     title: "Scrieri alese, Volumul 2",
     author: "Mao Ţze-dun",
     cover: "./assets/mao-v2.png",
     link: "mao-v2",
+    language: 'ro',
+    img: 'mao3'
   },
   // {
   //     'title': 'Scrieri alese, Volumul 3',

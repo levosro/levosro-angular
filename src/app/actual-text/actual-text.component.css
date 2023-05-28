@@ -1,4 +1,6 @@
-:host ::ng-deep p, div, blockquote {
+:host ::ng-deep p,
+div,
+blockquote {
   font-family: var(--ff-secondary);
 }
 
@@ -163,7 +165,6 @@
 
 :host ::ng-deep SPAN.stea {
   font-size: 110%;
-  ;
 }
 
 :host ::ng-deep SPAN.greek {
@@ -217,18 +218,13 @@
   text-align: left;
 }
 
-:host ::ng-deep /* .info {
-  font-family: 'font.otf';
-}
-
-:host ::ng-deep .button-container {
-  margin-left: auto;
-  margin-right: auto;
-} */
-
-SPAN.spt {
+:host ::ng-deep SPAN.spt {
   letter-spacing: 0.2em;
   word-spacing: 0.1em;
+}
+
+:host ::ng-deep SPAN.eng {
+  font-variant: small-caps;
 }
 
 :host ::ng-deep P {
@@ -383,5 +379,3 @@ SPAN.spt {
 /* =====================================*/
 /* Adjustments for Mobile Devices       */
 /* =====================================*/
-
-
