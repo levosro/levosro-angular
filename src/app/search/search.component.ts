@@ -58,7 +58,7 @@ export class SearchComponent implements AfterContentInit {
           let citat = citate.filter((item) => item.id == x)[0];
           content =
             content +
-            citat.text
+            (citat.text as string)
               .normalize('NFD')
               .replace(/\p{Diacritic}/gu, '')
               .replace(/<[^>]*>/g, '');

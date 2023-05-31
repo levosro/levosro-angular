@@ -11,6 +11,7 @@ export interface Book {
   cover: string;
   link: string;
   language: string;
+  year: string;
   img: string;
   index: number;
   texts: Text[];

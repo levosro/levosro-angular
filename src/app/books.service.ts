@@ -161,6 +161,51 @@ export class BooksService {
     })
   );
 
+  getAllCits(): Observable<Citat[]> {
+    let d = 0;
+    return this.books$.pipe(
+      map((books) => {
+        const resCit: Citat[] = [];
+        books.forEach((book) => {
+          if (book.language != 'en') {
+            if (!book.title.includes('Citate din scrierile lui')) {
+              book.texts.forEach((item) => {
+                d += 1;
+                resCit.push({
+                  autor: item.author ?? book.author,
+                  titlu: item.title
+                    ? `<a href="${book.link}?id=T${item.idChr}#${item.idChr}">${item.title}<br/>(${item.sourceBook ?? book.title})</a>`
+                    : `<a href="${book.link}?id=T${item.idChr}#${item.idChr}">${item.sourceBook}<br/>(${book.title})</a>`,
+                  isItText: true,
+                  text: item.content,
+                  an: item.year ?? book.year,
+                  img: item.image ?? book.img,
+                  linkBook: book.link,
+                  titluBook: book.title,
+                  id: d,
+                  idNota: 0,
+                });
+              });
+            }
+            book.citate.forEach((item) => {
+              d += 1;
+              resCit.push({
+                ...item,
+                id: d,
+                idNota: item.id,
+                isItText: false,
+                linkBook: book.link,
+                titluBook: book.title,
+              });
+            });
+          }
+        });
+        d = 0;
+        return resCit;
+      })
+    );
+  }
+
   getAuthors(books: Book[]): Observable<string[]> {
     // const books = this._books.getValue();
     // console.log(books)

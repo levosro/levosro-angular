@@ -1,0 +1,27 @@
+@media screen and (min-width: 800px) {
+  body > main h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+@media screen and (min-width: 800px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+.underline {
+    margin-top: 1em;
+    height: 0.25rem;
+    width: 5rem;
+    background: rgb(234, 72, 72);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 4rem;
+}

@@ -4,6 +4,7 @@ import { BooksService } from './books.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { map } from 'rxjs/operators';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AllQuotesComponent } from './all-quotes/all-quotes.component';
 
 const injector = Injector.create({
   providers: [{ provide: BooksService, useClass: BooksService, deps: [] }],
@@ -13,12 +14,12 @@ const booksService = injector.get(BooksService);
 const initialRoutes: Routes = [
   ...booksService.getInitialLinks(),
   {
-    path: 'citate',
+    path: '',
     component: HomepageComponent,
   },
   {
-    path: '',
-    component: HomepageComponent,
+    path: 'citate',
+    component: AllQuotesComponent,
   },
 ];
 
@@ -39,7 +40,7 @@ export function loadLinks(
               return updatedRoute || route;
             });
             router.resetConfig(updatedRoutes);
-            console.log(updatedRoutes);
+            // console.log(updatedRoutes);
           })
         )
         .subscribe(() => {

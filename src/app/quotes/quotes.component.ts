@@ -11,7 +11,10 @@ import html2canvas from 'html2canvas';
 export class QuotesComponent implements OnInit, AfterContentInit {
   @Input() citate!: Citat[];
   @Input() id!: number;
-  @Input() book!: Book;
+  @Input() link!: string;
+  @Input() linkBook!: string;
+  @Input() title!: string;
+  @Input() autori!: string[];
 
   async ngOnInit(): Promise<void> {
     await this.waitForCitate();
@@ -23,16 +26,99 @@ export class QuotesComponent implements OnInit, AfterContentInit {
     const an = document.getElementById('an') as HTMLElement;
 
     const item = this.citate.filter((item) => item.id == this.id)[0];
+    console.log(item);
+    let text = '';
+    if (item.isItText == true) {
+      while (text == '') {
+        text = this.makeText(item);
+      }
+    } else {
+      text = item.text as string;
+    }
     img.innerHTML = `<img src="assets/profiles/${item.img}.svg" id="person-img" alt="" > </img>`;
     // console.log(img.innerHTML)
     author.innerHTML = item.autor;
-    titlu.innerHTML = item.titlu.replace('./index.html', this.book.link);
-    info.innerHTML = item.text;
+    titlu.innerHTML = item.titlu.replace('./index.html', this.linkBook);
+    info.innerHTML = text;
     if (!item.titlu.includes('Scrisoare către')) {
       an.innerHTML = item.an;
     } else {
       an.innerHTML = '';
     }
+
+    const autori: string[] = [];
+    this.citate.forEach((item) => {
+      const autorx = item.autor.split(', ');
+      autorx.forEach((autor) => {
+        if (autor.includes('Mao')) {
+          autor = 'mao';
+        } else {
+          autor = autor.split(' ')[autor.split(' ').length - 1].toLowerCase();
+        }
+        if (!autori.includes(autor)) {
+          autori.push(autor);
+        }
+      });
+    });
+    console.log(autori);
+
+    if (autori.length > 1) {
+      const citate = this.citate;
+      const link = this.link;
+      (document.querySelector('.img-container') as HTMLElement).style.cursor =
+        'pointer';
+      (
+        document.querySelector('.img-container') as HTMLElement
+      ).addEventListener('click', function () {
+        let res = `<div class="manyImg">`;
+        autori.forEach((autor) => {
+          res =
+            res +
+            `<div class="img-container" id="${autor}"><img src="assets/profiles/${autor}.svg" id="person-img" alt=""> </div>`;
+        });
+        res = res + '</div></div></div>';
+        const quoteZone = document.querySelector('.quote') as HTMLElement;
+        quoteZone.innerHTML = res;
+
+        autori.forEach((autor) => {
+          (quoteZone.querySelector(`#${autor}`) as HTMLElement).style.cursor =
+            'pointer';
+          (
+            quoteZone.querySelector(`#${autor}`) as HTMLElement
+          ).addEventListener('click', function () {
+            let x = citate.indexOf(
+              citate.filter((item2) => item2.id == item.id)[0]
+            );
+            let citat = citate[x];
+            let currentItem = Math.floor(Math.random() * citate.length)
+            while (!citate[currentItem].autor.toLowerCase().includes(autor)) {
+              currentItem = Math.floor(Math.random() * citate.length);
+            }
+            citat = citate[currentItem];
+            window.location.href = `${link}?cit=${citat.id}`;
+          });
+        });
+      });
+    }
+  }
+
+  makeText(cit: Citat): string {
+    const text = (cit.text as string[]).filter(
+      (item) => !item.includes('<img')
+    );
+    let i = Math.floor(Math.random() * text.length);
+    let res = '';
+    let res2 = text[i];
+    while (res2.length < 2500 && i < text.length) {
+      res = res + text[i];
+      res2 = res2 + text[i + 1];
+      i += 1;
+    }
+    res = res.replace(/<a[^<]+<\/a>/g, '');
+    if (res == '' || res.length < 50) {
+      return '';
+    }
+    return res;
   }
 
   async ngAfterContentInit(): Promise<void> {
@@ -45,8 +131,11 @@ export class QuotesComponent implements OnInit, AfterContentInit {
     const randomBtn = document.querySelector('.random-btn') as HTMLElement;
     const home = document.getElementById('home') as HTMLElement;
 
-    const book = this.book;
-    let currentItem = this.id;
+    const link = this.link;
+    const linkBook = this.linkBook;
+    let currentItem = this.citate.indexOf(
+      this.citate.filter((item) => item.id == this.id)[0]
+    );
     const citate = this.citate;
 
     home.addEventListener('click', function () {
@@ -54,7 +143,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
     });
 
     bookElement.addEventListener('click', function () {
-      window.location.href = book.link;
+      window.location.href = linkBook;
     });
     prevBtn.addEventListener('click', function () {
       if (currentItem == 0) {
@@ -63,7 +152,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
         currentItem--;
       }
       let citat = citate[currentItem];
-      window.location.href = `./citate.html?cit=${citat.id}`;
+      window.location.href = `./${link}?cit=${citat.id}`;
     });
 
     nextBtn.addEventListener('click', function () {
@@ -73,7 +162,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
         currentItem++;
       }
       let citat = citate[currentItem];
-      window.location.href = `./${book.link}?cit=${citat.id}`;
+      window.location.href = `./${link}?cit=${citat.id}`;
     });
 
     // saveBtn.addEventListener('click', function () {
@@ -115,11 +204,12 @@ export class QuotesComponent implements OnInit, AfterContentInit {
 
     randomBtn.addEventListener('click', function () {
       let x = currentItem;
-      while (currentItem == x) {
+      let citat = citate[currentItem];
+      while (currentItem == x || citate[currentItem].autor == citate[x].autor) {
         currentItem = Math.floor(Math.random() * citate.length);
       }
-      let citat = citate[currentItem];
-      window.location.href = `./${book.link}?cit=${citat.id}`;
+      citat = citate[currentItem];
+      window.location.href = `./${link}?cit=${citat.id}`;
     });
   }
 
@@ -133,4 +223,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
       }, 100); // Check every 100ms
     });
   }
+}
+function changeToPerson(arg0: string) {
+  throw new Error('Function not implemented.');
 }

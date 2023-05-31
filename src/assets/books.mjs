@@ -19,7 +19,7 @@ export default [
     cover: "./assets/antologia-lenin.png",
     link: "antologia-lenin",
     language: 'ro',
-    img: 'lenin1'
+    img: 'lenin'
   },
   // {
   //     'title': 'Antologia Luxemburg',
@@ -45,7 +45,8 @@ export default [
     cover: "./assets/me-anthology.png",
     link: "me-anthology",
     language: 'en',
-    img: 'marxengels'
+    img: 'marxengels',
+    year: '1845',
   },
   {
     title: "Sfânta familie, sau critica criticii critice",
@@ -54,7 +55,8 @@ export default [
     cover: "./assets/sf-familie.png",
     link: "sf-familie",
     language: 'ro',
-    img: 'marxengels-sf'
+    img: 'marxengels-sf',
+    year: '1847',
   },
   {
     title: "Mizeria filozofiei",
@@ -63,7 +65,8 @@ export default [
     cover: "./assets/mizeria-filozofiei.png",
     link: "mizeria-filozofiei",
     language: 'ro',
-    img: 'marxy'
+    img: 'marxy',
+    year: '1847',
   },
   // {
   //     'title': 'Contribuţii la critica economiei politice',
@@ -126,7 +129,8 @@ export default [
     cover: "./assets/antiduhring.png",
     link: "antiduhring",
     language: 'ro',
-    img: 'engels'
+    img: 'engels',
+    year: '1877',
   },
   {
     title: "Esența muncii cerebrale a omului",
@@ -134,7 +138,8 @@ export default [
     cover: "./assets/dietzgen.png",
     link: "dietzgen",
     language: 'ro',
-    img: 'dietzgen'
+    img: 'dietzgen',
+    year: '1869',
   },
   // {
   //     'title': 'Reformă socială sau revoluție?',
@@ -148,7 +153,8 @@ export default [
     cover: "./assets/luxemburg.png",
     link: "luxemburg",
     language: 'ro',
-    img: 'luxemburg'
+    img: 'luxemburg',
+    year: '',
   },
   // {
   //     'title': 'Istorie şi conştiinţă de clasă',
@@ -169,7 +175,8 @@ export default [
     cover: "./assets/panneckoek.png",
     link: "panneckoek",
     language: 'ro',
-    img: 'panneckoek'
+    img: 'panneckoek',
+    year: '1938',
   },
   // {
   //     'title': 'Piele neagră, măști albe',
@@ -195,7 +202,7 @@ export default [
     cover: "./assets/mao-cit.png",
     link: "mao-cit",
     language: 'ro',
-    img: 'mao2'
+    img: 'mao',
   },
   // {
   //     'title': 'Șase eseuri filozofice',
@@ -209,7 +216,7 @@ export default [
     cover: "./assets/mao-v1.png",
     link: "mao-v1",
     language: 'ro',
-    img: 'mao3'
+    img: 'mao1',
   },
   {
     title: "Scrieri alese, Volumul 2",
@@ -217,7 +224,7 @@ export default [
     cover: "./assets/mao-v2.png",
     link: "mao-v2",
     language: 'ro',
-    img: 'mao3'
+    img: 'mao1',
   },
   // {
   //     'title': 'Scrieri alese, Volumul 3',
