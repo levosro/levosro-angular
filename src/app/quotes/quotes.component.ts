@@ -15,6 +15,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
   @Input() linkBook!: string;
   @Input() title!: string;
   @Input() autori!: string[];
+  @Input() p!: string;
 
   async ngOnInit(): Promise<void> {
     await this.waitForCitate();
@@ -90,7 +91,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
               citate.filter((item2) => item2.id == item.id)[0]
             );
             let citat = citate[x];
-            let currentItem = Math.floor(Math.random() * citate.length)
+            let currentItem = Math.floor(Math.random() * citate.length);
             while (!citate[currentItem].autor.toLowerCase().includes(autor)) {
               currentItem = Math.floor(Math.random() * citate.length);
             }
@@ -114,6 +115,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
       res2 = res2 + text[i + 1];
       i += 1;
     }
+    this.p = res.split('<a id="p')[1].split('"')[0];
     res = res.replace(/<a[^<]+<\/a>/g, '');
     if (res == '' || res.length < 50) {
       return '';
@@ -123,6 +125,13 @@ export class QuotesComponent implements OnInit, AfterContentInit {
 
   async ngAfterContentInit(): Promise<void> {
     await this.waitForCitate();
+
+    if (this.p) {
+      (document.querySelector('#titlu a') as HTMLAnchorElement).href =
+        (document.querySelector('#titlu a') as HTMLAnchorElement).href.split(
+          '#'
+        )[0] + `#p${this.p}`;
+    }
     const bookElement = document.getElementById('book') as HTMLElement;
 
     const prevBtn = document.querySelector('.prev-btn') as HTMLElement;
