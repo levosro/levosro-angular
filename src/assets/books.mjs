@@ -46,7 +46,6 @@ export default [
     link: "me-anthology",
     language: "en",
     img: "marxengels",
-    year: "1845",
   },
   {
     title: "Sfânta familie, sau critica criticii critice",
@@ -56,7 +55,7 @@ export default [
     link: "sf-familie",
     language: "ro",
     img: "marxengels-sf",
-    year: "1847",
+    year: "1845",
   },
   {
     title: "Mizeria filozofiei",
@@ -171,12 +170,16 @@ export default [
   //     'cover': './assets/lukacs.png',
   //     'link': 'lukacs'
   // },
-  // {
-  //     'title': 'Scrisoare deschisă către tovarășul Lenin',
-  //     'author': 'Herman Gorter',
-  //     'cover': './assets/gorter.png',
-  //     'link': 'gorter'
-  // },
+  {
+    title: "Scrisoare deschisă către tovarășul Lenin",
+    subtitle: "Un răspuns la „«Stângismul» — boala copilăriei comunismului“",
+    author: "Herman Gorter",
+    cover: "./assets/gorter.png",
+    link: "gorter",
+    language: "ro",
+    img: "gorter",
+    year: "1920",
+  },
   {
     title: "Lenin ca filozof",
     subtitle: "O examinare critică a bazelor filozofice ale leninismului",

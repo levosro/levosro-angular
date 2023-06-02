@@ -32,30 +32,59 @@ export class TextContentComponent implements OnInit {
       if (selection != null) {
         if (selection.toString() != '') {
           let anchorId = this.findNearestAnchorId(selection.anchorNode);
-          if (anchorId) {
-            console.log(anchorId);
-          }
           if (anchorId != null) {
             let res = '';
-            res =
-              res +
-              window.location.href.substring(
-                0,
-                window.location.href.indexOf(this.book.link)
-              );
             let parentElementId = (
               selection.anchorNode?.parentElement?.parentElement?.parentElement
                 ?.parentElement?.parentElement as HTMLElement
             ).id.split('content')[1];
+
+            console.log(parentElementId);
+            const text = this.book.texts.filter(
+              (item) => item.idChr == parentElementId
+            )[0];
+
+            res =
+              res +
+              (text.author ?? this.book.author) +
+              ' — ' +
+              (text.title
+                ? `${text.title}<br/>(${text.sourceBook ?? this.book.title})`
+                : `${text.sourceBook}<br/>(${this.book.title})`
+              ).replace('<br/>', ' ');
+            res =
+              res +
+              '\n' +
+              window.location.href.substring(
+                0,
+                window.location.href.indexOf(this.book.link)
+              );
             res = res + `${this.book.link}?id=T${parentElementId}#${anchorId}`;
             event.clipboardData!.setData(
               'text/plain',
               `${selection.toString()}\n\n${res}`
             );
           } else {
+            let parentElementId = (
+              selection.anchorNode?.parentElement?.parentElement?.parentElement
+                ?.parentElement?.parentElement as HTMLElement
+            ).id.split('content')[1];
+            console.log(parentElementId);
+            const text = this.book.texts.filter(
+              (item) => item.idChr == parentElementId
+            )[0];
+            let res = '';
+            res =
+              res +
+              (text.author ?? this.book.author) +
+              ' — ' +
+              (text.title
+                ? `${text.title}<br/>(${text.sourceBook ?? this.book.title})`
+                : `${text.sourceBook}<br/>(${this.book.title})`
+              ).replace('<br/>', ' ');
             event.clipboardData!.setData(
               'text/plain',
-              `${selection.toString()}\n\n${window.location.href}`
+              `${selection.toString()}\n\n${res}\n${window.location.href}`
             );
           }
           event.preventDefault();
@@ -81,7 +110,7 @@ export class TextContentComponent implements OnInit {
   }
 
   speak(text: Text) {
-    const language = this.book.language
+    const language = this.book.language;
     document.getElementById(
       `synthZone${this.text.idChr}`
     )!.innerHTML = `<button class="expand-btn" id="play${text.idChr}"><i class="fa fa-play"></i></button>&nbsp;<button class="expand-btn" id="stop${text.idChr}"><i class="fa fa-stop"></i></button><div style="display: none"></div>`;
