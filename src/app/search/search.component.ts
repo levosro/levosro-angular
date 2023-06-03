@@ -183,7 +183,7 @@ export class SearchComponent implements AfterContentInit {
     notesListX.forEach(function (item) {
       let item1 = item[0];
       let item2 = parseInt(item1.substring(2, item1.length - 2));
-      if (item2 - 1 > notes.length) {
+      if (item2 - 1 <= notes.length) {
         notesList.push(notes[item2 - 1]);
       }
     });

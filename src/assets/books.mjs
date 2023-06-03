@@ -170,16 +170,16 @@ export default [
   //     'cover': './assets/lukacs.png',
   //     'link': 'lukacs'
   // },
-  {
-    title: "Scrisoare deschisă către tovarășul Lenin",
-    subtitle: "Un răspuns la „«Stângismul» — boala copilăriei comunismului“",
-    author: "Herman Gorter",
-    cover: "./assets/gorter.png",
-    link: "gorter",
-    language: "ro",
-    img: "gorter",
-    year: "1920",
-  },
+  // {
+  //   title: "Scrisoare deschisă către tovarășul Lenin",
+  //   subtitle: "Un răspuns la „«Stângismul» — boala copilăriei comunismului“",
+  //   author: "Herman Gorter",
+  //   cover: "./assets/gorter.png",
+  //   link: "gorter",
+  //   language: "ro",
+  //   img: "gorter",
+  //   year: "1920",
+  // },
   {
     title: "Lenin ca filozof",
     subtitle: "O examinare critică a bazelor filozofice ale leninismului",

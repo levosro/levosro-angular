@@ -101,6 +101,32 @@ export class QuotesComponent implements OnInit, AfterContentInit {
         });
       });
     }
+
+    document.addEventListener('copy', (event) => {
+      if (event == null) {
+        return;
+      }
+      let selection = document.getSelection();
+      if (selection != null) {
+        if (selection.toString() != '') {
+          let res = '';
+
+          res =
+            res +
+            item.autor +
+            ' — ' +
+            item.titlu.replace('<br/>', ' ').replace(/<[^>]*>/g, '');
+          res = res + '\n' + window.location.href;
+          // res = res + `citate?cit=T${parentElementId}#${anchorId}`;
+          event.clipboardData!.setData(
+            'text/plain',
+            `${selection.toString()}\n\n${res}`
+          );
+
+          event.preventDefault();
+        }
+      }
+    });
   }
 
   makeText(cit: Citat): string {
