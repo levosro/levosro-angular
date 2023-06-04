@@ -1,8 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { Book } from './book';
 import { BookPageComponent } from './book-page/book-page.component';
 import { HttpClient } from '@angular/common/http';
 import booksInit from 'src/assets/books.mjs';
+import {
+  Firestore,
+  collectionData,
+  collection,
+  DocumentData,
+  CollectionReference,
+} from '@angular/fire/firestore';
+
 import {
   BehaviorSubject,
   ReplaySubject,
@@ -28,74 +36,115 @@ export class BooksService {
   private _books = new BehaviorSubject<Book[]>([]);
   books$ = this._books.asObservable();
 
-  books = new BehaviorSubject<any>(null);
+  // books = new BehaviorSubject<any>(null);
 
-  setData(data: any) {
-    this.books.next(data);
+  constructor(private http: HttpClient) {
+    // const collection2 = collection(firestore, 'content');
+    // this.content = collectionData(collection2);
   }
 
-  constructor(private http: HttpClient) {}
+  @Input() content!: Observable<DocumentData>;
 
-  async initializeBooks(books: Book[]): Promise<void> {
-    const newBooks: Book[] = books;
+  // setData(data: any) {
+  //   this.books.next(data);
+  // }
 
-    await Promise.all(
-      books.map(async (item) => {
-        const texts = await this.getTexts(item as Book);
-        const citate = await this.getCitate(item as Book);
-        const chapters = await this.getChapters(item as Book);
-        const parts = await this.getParts(item as Book);
-        const notes = await this.getNotes(item as Book);
+  async initializeBooks(firestore: Firestore): Promise<void> {
+    // const newBooks: Book[] = books;
 
-        item.texts = texts;
-        const updatedCitate = citate.map((citat, index) => {
-          // Create a copy of the chapter object to avoid modifying the original object
-          const updatedCitat = { ...citat };
+    const books$ = collectionData(collection(firestore, `books`)) as Observable<
+      Book[]
+    >;
 
-          // Assign a growing ID to the updatedChapter object
-          updatedCitat.id = index + 1;
+    // await Promise.all(
 
-          return updatedCitat;
-        });
-        item.citate = updatedCitate;
-        item.chapters = chapters;
-        item.parts =
-          parts.length === 0 ? [{ idPt: '1', title: item.title }] : parts;
-        item.notes = notes;
+    books$.pipe(
+      map((items) => {
+        console.log(items)
+        this._books.next(items);
+        // collectionData(
+        //   collection(firestore, `content/${item.link}/texts`)
+        // ).subscribe((texts) => (item.texts = texts as Text[]));
+        // collectionData(
+        //   collection(firestore, `content/${item.link}/citate`)
+        // ).subscribe((citate) => (item.citate = citate as Citat[]));
+        // collectionData(
+        //   collection(firestore, `content/${item.link}/chapters`)
+        // ).subscribe((chapters) => (item.chapters = chapters as Chapter[]));
+        // collectionData(
+        //   collection(firestore, `content/${item.link}/parts`)
+        // ).subscribe((parts) => (item.parts = parts as Part[]));
+        // collectionData(
+        //   collection(firestore, `content/${item.link}/notes`)
+        // ).subscribe((notes) => (item.notes = notes as Note[]));
 
-        const title = item.title;
-        const book = newBooks.filter((item) => item.title == title)[0];
-        const index = newBooks.indexOf(book);
-        newBooks[index] = item;
+
+        // items.forEach((item) => {
+        //   if (item.citate) {
+        //     // item.texts = texts;
+        //     const updatedCitate = item.citate.map((citat, index) => {
+        //       const updatedCitat = { ...citat };
+        //       updatedCitat.id = index + 1;
+
+        //       return updatedCitat;
+        //     });
+        //     item.citate = updatedCitate;
+        //   }
+        //   item.chapters;
+        //   if (item.parts) {
+        //     item.parts =
+        //       item.parts.length === 0
+        //         ? [{ idPt: '1', title: item.title }]
+        //         : item.parts;
+        //   }
+        //   const title = item.title;
+        //   const book = newBooks.filter((item) => item.title == title)[0];
+        //   const index = newBooks.indexOf(book);
+        //   newBooks[index] = item;
+        // });
       })
     );
 
-    this._books.next(newBooks);
+    // this._books.next(newBooks);
   }
 
-  async getTexts(book: Book): Promise<Text[]> {
-    const response = this.http.get(`assets/content/${book.link}/texts.json`);
-    return await (lastValueFrom(response) as Promise<Text[]>);
+  // getTexts(content: Observable<DocumentData[]>): Observable<Text[]> {
+
+  // }
+
+  getTexts(book: Book, firestore: Firestore): Observable<Text[]> {
+    console.log(1);
+    return collectionData(
+      collection(firestore, `content/${book.link}/texts`)
+    ) as Observable<Text[]>;
   }
 
-  async getChapters(book: Book): Promise<Chapter[]> {
-    const response = this.http.get(`assets/content/${book.link}/chapters.json`);
-    return await (lastValueFrom(response) as Promise<Chapter[]>);
+  getChapters(book: Book, firestore: Firestore): Observable<Chapter[]> {
+    console.log(1);
+    return collectionData(
+      collection(firestore, `content/${book.link}/chapters`)
+    ) as Observable<Chapter[]>;
   }
 
-  async getParts(book: Book): Promise<Part[]> {
-    const response = this.http.get(`assets/content/${book.link}/parts.json`);
-    return await (lastValueFrom(response) as Promise<Part[]>);
+  getParts(book: Book, firestore: Firestore): Observable<Part[]> {
+    console.log(1);
+    return collectionData(
+      collection(firestore, `content/${book.link}/parts`)
+    ) as Observable<Part[]>;
   }
 
-  async getNotes(book: Book): Promise<Note[]> {
-    const response = this.http.get(`assets/content/${book.link}/notes.json`);
-    return await (lastValueFrom(response) as Promise<Note[]>);
+  getNotes(book: Book, firestore: Firestore): Observable<Note[]> {
+    console.log(1);
+    return collectionData(
+      collection(firestore, `content/${book.link}/notes`)
+    ) as Observable<Note[]>;
   }
 
-  async getCitate(book: Book): Promise<Citat[]> {
-    const response = this.http.get(`assets/content/${book.link}/citate.json`);
-    return await (lastValueFrom(response) as Promise<Citat[]>);
+  getCitate(book: Book, firestore: Firestore): Observable<Citat[]> {
+    console.log(1);
+    return collectionData(
+      collection(firestore, `content/${book.link}/citate`)
+    ) as Observable<Citat[]>;
   }
 
   async getBooks(autor: string): Promise<Book[]> {
@@ -174,7 +223,9 @@ export class BooksService {
                 resCit.push({
                   autor: item.author ?? book.author,
                   titlu: item.title
-                    ? `<a href="${book.link}?id=T${item.idChr}#${item.idChr}">${item.title}<br/>(${item.sourceBook ?? book.title})</a>`
+                    ? `<a href="${book.link}?id=T${item.idChr}#${item.idChr}">${
+                        item.title
+                      }<br/>(${item.sourceBook ?? book.title})</a>`
                     : `<a href="${book.link}?id=T${item.idChr}#${item.idChr}">${item.sourceBook}<br/>(${book.title})</a>`,
                   isItText: true,
                   text: item.content,

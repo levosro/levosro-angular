@@ -6,17 +6,16 @@
           <!-- {{ book.title }} -->
           <div [id]="getIdentifier('texts', book, author)">
             <app-text-search-content
-              [texts$]="getTexts(book, author)"
-              [notes$]="book.notes"
               [idntf]="getIdentifier('texts', book, author)"
-              [book$]="book"
+              [book]="book"
+              [author]="author"
             ></app-text-search-content>
           </div>
           <div [id]="getIdentifier('cit', book, author)">
             <app-cit-search-content
-              [cits$]="getCits(book, author)"
               [idntf]="getIdentifier('cit', book, author)"
               [book]="book"
+              [author]="author"
             ></app-cit-search-content>
           </div>
         </div>

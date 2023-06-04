@@ -1,72 +1,83 @@
 import {
-  ChangeDetectionStrategy,
+  AfterViewInit,
   Component,
   Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
+  inject,
 } from '@angular/core';
 import { Text } from '../text';
 import { SearchComponent } from '../search/search.component';
 import { Note } from '../note';
 import { Book } from '../book';
 import { Observable, Subscription, from, map, of } from 'rxjs';
+import { Firestore } from '@angular/fire/firestore';
+import { BooksService } from '../books.service';
 
 @Component({
   selector: 'app-text-search-content',
   templateUrl: './text-search-content.component.html',
   styleUrls: ['./text-search-content.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TextSearchContentComponent implements OnInit {
+export class TextSearchContentComponent implements AfterViewInit {
   getInnerHTML(text: Text) {
     return text.info ? text.info : text.title;
   }
-  @Input() texts$!: Text[];
-  @Input() notes$!: Note[];
+  @Input() texts!: Text[];
+  @Input() notes!: Note[];
   @Input() idntf!: string;
-  @Input() book$!: Book;
+  @Input() author!: string;
+  @Input() book!: Book;
+  firestore: Firestore = inject(Firestore);
 
-  texts: Text[] = [];
-  notes: Note[] = [];
-  book: Book | null = null;
+  constructor(
+    private booksService: BooksService
+  ) // private changeDetector: ChangeDetectorRef
+  {}
 
-  private textsSubscription: Subscription | undefined;
-  private notesSubscription: Subscription | undefined;
-  private bookSubscription: Subscription | undefined;
+  ngAfterViewInit() {
+    this.getTexts(this.book, this.author).subscribe((texts) => {
+      this.texts = texts;
+      // this.changeDetector.markForCheck();
+      this.getNotes(this.book).subscribe((notes) => {
+        this.notes = notes;
+        // this.changeDetector.markForCheck();
+        if (document.getElementById(`ok${this.author}`)) {
+          SearchComponent.Search(
+            'tr',
+            this.idntf,
+            'query',
+            0,
+            'books',
+            this.texts,
+            [],
+            this.notes
+          );
+        }
+      });
+    });
+  }
 
-  ngOnInit() {
-    this.textsSubscription = of(this.texts$)
-      .pipe(map((texts) => (this.texts = texts)))
-      .subscribe();
-    this.notesSubscription = of(this.notes$)
-      .pipe(map((notes) => (this.notes = notes)))
-      .subscribe();
-    this.bookSubscription = of(this.book$)
-      .pipe(map((book) => (this.book = book)))
-      .subscribe();
-    SearchComponent.Search(
-      'tr',
-      this.idntf,
-      'query',
-      0,
-      'books',
-      this.texts,
-      [],
-      this.notes
+  getNotes(book: Book): Observable<Note[]> {
+    return this.booksService.getNotes(book, this.firestore).pipe(
+      map((notes) => {
+        return notes;
+      })
     );
   }
 
-  ngOnDestroy() {
-    if (this.textsSubscription) {
-      this.textsSubscription.unsubscribe();
-    }
-    if (this.notesSubscription) {
-      this.notesSubscription.unsubscribe();
-    }
-    if (this.bookSubscription) {
-      this.bookSubscription.unsubscribe();
-    }
+  getTexts(book: Book, author: string): Observable<Text[]> {
+    return this.booksService.getTexts(book, this.firestore).pipe(
+      map((texts) => {
+        if (book.title.includes('Citate din scrierile lui')) {
+          return [];
+        } else if (!book.title.includes('Antologia Marx-Engels')) {
+          return texts || [];
+        } else {
+          return (texts || []).filter((item) =>
+            item.image.includes(author.split(' ')[1].toLowerCase())
+          );
+        }
+      })
+    );
   }
 }

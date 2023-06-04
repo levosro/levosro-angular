@@ -13,6 +13,21 @@ export class SearchComponent implements AfterContentInit {
   static searchField = document.querySelector('#query') as HTMLInputElement;
 
   ngAfterContentInit(): void {
+    const input = document.getElementById('query') as HTMLInputElement;
+    const toc = document.getElementById('books') as HTMLElement;
+
+    // console.log(filter);
+    input.addEventListener('keyup', function () {
+      const filter = input.value.toUpperCase();
+      if (filter != '') {
+        toc.style.display = 'none';
+        document.getElementById('search')!.style.display = 'block';
+      } else {
+        toc.style.display = 'block';
+        document.getElementById('search')!.style.display = 'none';
+      }
+    });
+
     document
       .getElementById('form')!
       .addEventListener('submit', function (event) {
@@ -31,111 +46,111 @@ export class SearchComponent implements AfterContentInit {
     notes: Note[]
   ) {
     const input = document.getElementById(textInputX) as HTMLInputElement;
-    const search = document.getElementById(searchX) as HTMLElement;
-    const toc = document.getElementById(tocX) as HTMLElement;
-    const textList = search.getElementsByTagName(
-      inputX
-    ) as HTMLCollectionOf<HTMLElement>;
+    const search = document.getElementById(searchX) as HTMLElement | null;
 
     const handleKeyUp = SearchComponent.debounce(function () {
       let filter = input.value.toUpperCase();
       // console.log(filter);
-      if (filter != '') {
-        toc.style.display = 'none';
-        document.getElementById('search')!.style.display = 'block';
-      } else {
-        toc.style.display = 'block';
-        document.getElementById('search')!.style.display = 'none';
-      }
-      for (let i = startI; i < textList.length; i++) {
-        const aX = textList[i].getElementsByTagName('a')[0];
-        let a = aX.getAttribute('id') as string;
-        let content = '';
-        if (a.includes('CHR')) {
-          content = SearchComponent.makeContent(a, false, texts, notes);
-        } else {
-          let x = parseInt(a.substring(3));
-          let citat = citate.filter((item) => item.id == x)[0];
-          content =
-            content + `${citat.titlu.replace(/<[^>]*>/g, '')} ` +
-            (citat.text as string)
-              .normalize('NFD')
-              .replace(/\p{Diacritic}/gu, '')
-              .replace(/<[^>]*>/g, '');
-        }
-        if (filter != '') {
-          if (content.toUpperCase().indexOf(filter) > -1) {
-            textList[i].style.display = '';
-            const aX = textList[i].getElementsByTagName('a')[0];
-            let a = aX.getAttribute('id') as string;
-            let j = content.toUpperCase().indexOf(filter);
-            let res = '';
-
-            if (j > 20) {
-              res =
-                '<i>„...' +
-                content.substring(j - 20, j) +
-                `<b><u>${content.substring(j, j + filter.length)}</b></u>` +
-                content.substring(j + filter.length, j + filter.length + 20) +
-                '...“</i>';
-            } else if (j == 0) {
-              res =
-                '<i>„' +
-                `<b><u>${content.substring(j, j + filter.length)}</b></u>` +
-                content.substring(j + filter.length, j + filter.length + 25) +
-                '...“</i>';
-            } else {
-              res =
-                '<i>„' +
-                content.substring(0, j) +
-                `<b><u>${content.substring(j, j + filter.length)}</b></u>` +
-                content.substring(j + filter.length, j + filter.length + 20) +
-                '...“</i>';
-            }
-
-            if (a.includes('CHR')) {
-              let text = texts.filter(
-                (element) => element.idChr == a.substring(3)
-              )[0];
-              const div = search.querySelector(
-                `[id="chr${text.idChr}"]`
-              ) as HTMLElement;
-              div.innerHTML = res;
-              const DIV = search.querySelector(
-                `[id="CHR${text.idChr}"]`
-              ) as HTMLAnchorElement;
-              // console.log(DIV.attributes.href.value)
-              const index = DIV.href.indexOf('#');
-              let toLookFor = content.substring(j, j + filter.length);
-              let content2 = SearchComponent.makeContent(a, true, texts, notes);
-              let k = content2.indexOf(toLookFor);
-              let match;
-              const regex = /<a id="p(\d+)">/g;
-              let indices = [];
-              while ((match = regex.exec(content2)) !== null) {
-                indices.push(match.index);
-              }
-              indices = indices.filter((item) => item < k);
-              let k2 = indices[indices.length - 1];
-              content2 = content2.substring(k2, content2.indexOf('>', k2));
-              const result = content2.match(/"([^"]*)"/);
-
-              if (result == null) {
-                console.log(a, searchX);
-              } else {
-                DIV.href = DIV.href.substring(0, index) + `#${result![1]}`;
-              }
-            } else {
-              let citat = citate.filter(
-                (element) => element.id == parseInt(a.substring(3))
-              )[0];
-              const div = search.querySelector(
-                `[id="cit${citat.id}"]`
-              ) as HTMLElement;
-              div.innerHTML = res;
-            }
+      if (search != null) {
+        const textList = search.getElementsByTagName(
+          inputX
+        ) as HTMLCollectionOf<HTMLElement>;
+        for (let i = startI; i < textList.length; i++) {
+          const aX = textList[i].getElementsByTagName('a')[0];
+          let a = aX.getAttribute('id') as string;
+          let content = '';
+          if (a.includes('CHR')) {
+            content = SearchComponent.makeContent(a, false, texts, notes);
           } else {
-            textList[i].style.display = 'none';
+            let x = parseInt(a.substring(3));
+            let citat = citate.filter((item) => item.id == x)[0];
+            content =
+              content +
+              `${citat.titlu.replace(/<[^>]*>/g, '')} ` +
+              (citat.text as string)
+                .normalize('NFD')
+                .replace(/\p{Diacritic}/gu, '')
+                .replace(/<[^>]*>/g, '');
+          }
+          if (filter != '') {
+            if (content.toUpperCase().indexOf(filter) > -1) {
+              textList[i].style.display = '';
+              const aX = textList[i].getElementsByTagName('a')[0];
+              let a = aX.getAttribute('id') as string;
+              let j = content.toUpperCase().indexOf(filter);
+              let res = '';
+
+              if (j > 20) {
+                res =
+                  '<i>„...' +
+                  content.substring(j - 20, j) +
+                  `<b><u>${content.substring(j, j + filter.length)}</b></u>` +
+                  content.substring(j + filter.length, j + filter.length + 20) +
+                  '...“</i>';
+              } else if (j == 0) {
+                res =
+                  '<i>„' +
+                  `<b><u>${content.substring(j, j + filter.length)}</b></u>` +
+                  content.substring(j + filter.length, j + filter.length + 25) +
+                  '...“</i>';
+              } else {
+                res =
+                  '<i>„' +
+                  content.substring(0, j) +
+                  `<b><u>${content.substring(j, j + filter.length)}</b></u>` +
+                  content.substring(j + filter.length, j + filter.length + 20) +
+                  '...“</i>';
+              }
+
+              if (a.includes('CHR')) {
+                let text = texts.filter(
+                  (element) => element.idChr == a.substring(3)
+                )[0];
+                const div = search.querySelector(
+                  `[id="chr${text.idChr}"]`
+                ) as HTMLElement;
+                div.innerHTML = res;
+                const DIV = search.querySelector(
+                  `[id="CHR${text.idChr}"]`
+                ) as HTMLAnchorElement;
+                // console.log(DIV.attributes.href.value)
+                const index = DIV.href.indexOf('#');
+                let toLookFor = content.substring(j, j + filter.length);
+                let content2 = SearchComponent.makeContent(
+                  a,
+                  true,
+                  texts,
+                  notes
+                );
+                let k = content2.indexOf(toLookFor);
+                let match;
+                const regex = /<a id="p(\d+)">/g;
+                let indices = [];
+                while ((match = regex.exec(content2)) !== null) {
+                  indices.push(match.index);
+                }
+                indices = indices.filter((item) => item < k);
+                let k2 = indices[indices.length - 1];
+                content2 = content2.substring(k2, content2.indexOf('>', k2));
+                const result = content2.match(/"([^"]*)"/);
+
+                if (result == null) {
+                  console.log(a, searchX);
+                } else {
+                  DIV.href = DIV.href.substring(0, index) + `#${result![1]}`;
+                }
+              } else {
+                let citat = citate.filter(
+                  (element) => element.id == parseInt(a.substring(3))
+                )[0];
+                const div = search.querySelector(
+                  `[id="cit${citat.id}"]`
+                ) as HTMLElement;
+                div.innerHTML = res;
+              }
+            } else {
+              textList[i].style.display = 'none';
+            }
           }
         }
       }

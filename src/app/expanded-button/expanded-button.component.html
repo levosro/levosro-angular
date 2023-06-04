@@ -3,6 +3,6 @@
     {{this.title}} {{ok ? '▲' : '▼'}}
   </button>
 </section>
-<div [style.display]="this.ok ? '' : 'none'" id="content{{ this.title }}">
+<div *ngIf="ok" id="content{{ this.title }}">
   <ng-content></ng-content>
 </div>

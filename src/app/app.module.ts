@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +26,7 @@ import { ActualTextComponent } from './actual-text/actual-text.component';
 import { QuotesComponent } from './quotes/quotes.component';
 import { ButtonComponent } from './button/button.component';
 import { AllQuotesComponent } from './all-quotes/all-quotes.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -47,8 +51,17 @@ import { AllQuotesComponent } from './all-quotes/all-quotes.component';
     ButtonComponent,
     AllQuotesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+  ],
+  providers: [
+
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

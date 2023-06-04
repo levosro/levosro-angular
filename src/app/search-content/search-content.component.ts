@@ -1,37 +1,31 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { BooksService } from '../books.service';
 import { Book } from '../book';
 import { Text } from '../text';
 import { Observable, Subject, map, of, switchMap } from 'rxjs';
 import { Citat } from '../citat';
 import { Note } from '../note';
+import { Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-search-content',
   templateUrl: './search-content.component.html',
   styleUrls: ['./search-content.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchContentComponent implements OnInit {
   authors$!: Observable<string[]>;
   books$!: Observable<Book[]>;
   books!: Book[];
   authors!: string[];
+  firestore: Firestore = inject(Firestore);
 
   constructor(
     private booksService: BooksService,
-    private elRef: ElementRef,
-    private changeDetector: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-    this.books$ = this.booksService.books;
+    this.books$ = this.booksService.books$;
     if (this.books$ !== undefined) {
       this.books$
         .pipe(
@@ -51,7 +45,7 @@ export class SearchContentComponent implements OnInit {
             if (authors) {
               this.authors = authors;
               console.log(authors);
-              this.changeDetector.markForCheck();
+              // this.changeDetector.markForCheck();
               // console.log(this.elRef.nativeElement.outerHTML);
               return;
             }
@@ -109,20 +103,6 @@ export class SearchContentComponent implements OnInit {
       // Provide a fallback value of an empty array if `book.texts` is undefined
       const citate = book.citate || [];
       return citate.filter((item) => item.autor.includes(author));
-    }
-  }
-
-  getTexts(book: Book, author: string): Text[] {
-    if (book.title.includes('Citate din scrierile lui')) {
-      return [];
-    } else if (!book.title.includes('Antologia Marx-Engels')) {
-      return book.texts;
-    } else {
-      // Provide a fallback value of an empty array if `book.texts` is undefined
-      const texts = book.texts || [];
-      return texts.filter((item) =>
-        item.image.includes(author.split(' ')[1].toLowerCase())
-      );
     }
   }
 
