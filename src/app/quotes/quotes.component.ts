@@ -259,6 +259,3 @@ export class QuotesComponent implements OnInit, AfterContentInit {
     });
   }
 }
-function changeToPerson(arg0: string) {
-  throw new Error('Function not implemented.');
-}

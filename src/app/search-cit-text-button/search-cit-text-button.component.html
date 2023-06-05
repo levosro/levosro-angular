@@ -1,0 +1,26 @@
+<section class="container">
+  <button (click)="onButtonClick()" class="expand-btn" id="{{ this.title }}">
+    {{this.title}} {{ok ? '▲' : '▼'}}
+  </button>
+</section>
+<div *ngIf="ok" id="content{{ this.title }}">
+  <ng-container *ngIf="getBooks(author) as booksX">
+    <div *ngFor="let book of booksX">
+      <!-- {{ book.title }} -->
+      <div [id]="getIdentifier('texts', book, author)">
+        <app-text-search-content
+          [idntf]="getIdentifier('texts', book, author)"
+          [book]="book"
+          [author]="author"
+        ></app-text-search-content>
+      </div>
+      <div [id]="getIdentifier('cit', book, author)">
+        <app-cit-search-content
+          [idntf]="getIdentifier('cit', book, author)"
+          [book]="book"
+          [author]="author"
+        ></app-cit-search-content>
+      </div>
+    </div>
+  </ng-container>
+</div>

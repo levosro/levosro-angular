@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../books.service';
-import books from 'src/assets/books.mjs';
 import { Book } from '../book';
 
 

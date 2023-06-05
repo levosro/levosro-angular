@@ -32,18 +32,16 @@ export class CitSearchContentComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.getCits(this.book, this.author).subscribe((citate) => {
       this.cits = citate;
-      if (document.getElementById(`ok${this.author}`)) {
-        SearchComponent.Search(
-          'tr',
-          this.idntf,
-          'query',
-          0,
-          'books',
-          [],
-          this.cits,
-          []
-        );
-      }
+      SearchComponent.Search(
+        'tr',
+        this.idntf,
+        'query',
+        0,
+        'books',
+        [],
+        this.cits,
+        []
+      );
     });
   }
 

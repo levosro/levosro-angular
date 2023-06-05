@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from '../book';
 import { HttpClient } from '@angular/common/http';
@@ -6,6 +6,7 @@ import { BooksService } from '../books.service';
 import { Chapter } from '../chapter';
 import { Text } from '../text';
 import { Part } from '../part';
+import { Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-book-page',
@@ -19,11 +20,43 @@ export class BookPageComponent implements OnInit {
   isItPCT!: boolean;
   isItCit!: boolean;
   // texts: any;
+  firestore: Firestore = inject(Firestore);
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private booksService: BooksService
+  ) {}
 
   async ngOnInit() {
     this.book = this.route.snapshot.data['book'] as Book;
+
+    this.booksService.getParts(this.book, this.firestore).subscribe((parts) => {
+      this.book.parts =
+        parts.length === 0 ? [{ idPt: '1', title: this.book.title }] : parts;
+      this.booksService
+        .getChapters(this.book, this.firestore)
+        .subscribe((chapters) => {
+          this.book.chapters = chapters;
+          this.booksService
+            .getCitate(this.book, this.firestore)
+            .subscribe((cits) => {
+              this.book.citate = cits;
+              this.booksService
+                .getNotes(this.book, this.firestore)
+                .subscribe((notes) => {
+                  this.book.notes = notes;
+                  this.booksService
+                    .getTexts(this.book, this.firestore)
+                    .subscribe((texts) => {
+                      this.book.texts = texts;
+
+
+                    });
+                });
+            });
+        });
+    });
+
     const url = new URL(window.location.href);
     this.id = url.searchParams.get('id');
     console.log('ID:', this.id);
@@ -43,7 +76,9 @@ export class BookPageComponent implements OnInit {
     console.log(this.book);
     window.onclick = function (event) {
       const modal = document.querySelector('.modal') as HTMLElement;
-      const modalClose = document.querySelector(".fa-circle-xmark") as HTMLElement;
+      const modalClose = document.querySelector(
+        '.fa-circle-xmark'
+      ) as HTMLElement;
       if (event.target == modal) {
         modal.style.display = 'none';
       }

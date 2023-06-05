@@ -1,9 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  inject,
-} from '@angular/core';
+import { AfterViewInit, Component, Input, inject } from '@angular/core';
 import { Text } from '../text';
 import { SearchComponent } from '../search/search.component';
 import { Note } from '../note';
@@ -30,9 +25,8 @@ export class TextSearchContentComponent implements AfterViewInit {
   firestore: Firestore = inject(Firestore);
 
   constructor(
-    private booksService: BooksService
-  ) // private changeDetector: ChangeDetectorRef
-  {}
+    private booksService: BooksService // private changeDetector: ChangeDetectorRef
+  ) {}
 
   ngAfterViewInit() {
     this.getTexts(this.book, this.author).subscribe((texts) => {
@@ -41,18 +35,16 @@ export class TextSearchContentComponent implements AfterViewInit {
       this.getNotes(this.book).subscribe((notes) => {
         this.notes = notes;
         // this.changeDetector.markForCheck();
-        if (document.getElementById(`ok${this.author}`)) {
-          SearchComponent.Search(
-            'tr',
-            this.idntf,
-            'query',
-            0,
-            'books',
-            this.texts,
-            [],
-            this.notes
-          );
-        }
+        SearchComponent.Search(
+          'tr',
+          this.idntf,
+          'query',
+          0,
+          'books',
+          this.texts,
+          [],
+          this.notes
+        );
       });
     });
   }

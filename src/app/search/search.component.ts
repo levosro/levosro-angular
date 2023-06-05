@@ -46,15 +46,16 @@ export class SearchComponent implements AfterContentInit {
     notes: Note[]
   ) {
     const input = document.getElementById(textInputX) as HTMLInputElement;
-    const search = document.getElementById(searchX) as HTMLElement | null;
+    const search = document.getElementById(searchX) as HTMLElement;
 
     const handleKeyUp = SearchComponent.debounce(function () {
       let filter = input.value.toUpperCase();
       // console.log(filter);
-      if (search != null) {
+      // if (search != null) {
         const textList = search.getElementsByTagName(
           inputX
         ) as HTMLCollectionOf<HTMLElement>;
+        
         for (let i = startI; i < textList.length; i++) {
           const aX = textList[i].getElementsByTagName('a')[0];
           let a = aX.getAttribute('id') as string;
@@ -153,7 +154,7 @@ export class SearchComponent implements AfterContentInit {
             }
           }
         }
-      }
+      // }
     }, 300); // Adjust debounce time as needed
 
     handleKeyUp();

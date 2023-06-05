@@ -1,26 +1,33 @@
-import { Injector, NgModule } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
+import {
+  APP_INITIALIZER,
+  AfterViewInit,
+  Injector,
+  NgModule,
+  OnInit,
+  inject,
+} from '@angular/core';
+import {
+  PreloadAllModules,
+  Router,
+  RouterModule,
+  Routes,
+} from '@angular/router';
 import { BooksService } from './books.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { map } from 'rxjs/operators';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AllQuotesComponent } from './all-quotes/all-quotes.component';
+import { Book } from './book';
+import { Firestore } from '@angular/fire/firestore';
 
-const injector = Injector.create({
-  providers: [{ provide: BooksService, useClass: BooksService, deps: [] }],
-});
-const booksService = injector.get(BooksService);
-
-const initialRoutes: Routes = [
-  ...booksService.getInitialLinks(),
-  {
-    path: '',
-    component: HomepageComponent,
-  },
-  {
-    path: 'citate',
-    component: AllQuotesComponent,
-  },
+let initialRoutes: Routes = [
+  // {
+  //   path: '',
+  //   component: HomepageComponent,
+  // },
+  // {
+  //   path: 'citate',
+  //   component: AllQuotesComponent,
+  // },
 ];
 
 export function loadLinks(
@@ -51,17 +58,47 @@ export function loadLinks(
 }
 
 @NgModule({
-  imports: [RouterModule.forRoot(initialRoutes)],
+  imports: [
+    RouterModule.forRoot(initialRoutes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
   providers: [
-    // {
-    //   provide: LocationStrategy,
-    //   useClass: HashLocationStrategy,
-    // },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeAppCustomLogic,
+      multi: true,
+      deps: [Router, BooksService, Firestore],
+    },
   ],
 })
-export class AppRoutingModule {
-  constructor(private router: Router) {
-    loadLinks(booksService, router)();
-  }
+export class AppRoutingModule {}
+
+export function initializeAppCustomLogic(
+  router: Router,
+  booksService: BooksService,
+  firestore: Firestore
+): () => Promise<void> {
+  return () =>
+    new Promise((resolve) => {
+      booksService.getInitialLinks(firestore).subscribe((links) => {
+        router.resetConfig([
+          ...links,
+          ...[
+            {
+              path: '',
+              component: HomepageComponent,
+            },
+            {
+              path: 'citate',
+              component: AllQuotesComponent,
+            },
+          ],
+        ]);
+        if (links.length > 0) {
+          resolve()
+        }
+      });
+    });
 }

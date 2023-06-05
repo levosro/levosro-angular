@@ -44,7 +44,7 @@ export class SearchContentComponent implements OnInit {
           next: (authors) => {
             if (authors) {
               this.authors = authors;
-              console.log(authors);
+              // console.log(authors);
               // this.changeDetector.markForCheck();
               // console.log(this.elRef.nativeElement.outerHTML);
               return;

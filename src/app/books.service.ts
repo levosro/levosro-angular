@@ -2,7 +2,6 @@ import { Injectable, Input } from '@angular/core';
 import { Book } from './book';
 import { BookPageComponent } from './book-page/book-page.component';
 import { HttpClient } from '@angular/common/http';
-import booksInit from 'src/assets/books.mjs';
 import {
   Firestore,
   collectionData,
@@ -49,61 +48,57 @@ export class BooksService {
   //   this.books.next(data);
   // }
 
-  async initializeBooks(firestore: Firestore): Promise<void> {
+  initializeBooks(firestore: Firestore): void {
     // const newBooks: Book[] = books;
 
     const books$ = collectionData(collection(firestore, `books`)) as Observable<
       Book[]
     >;
 
-    // await Promise.all(
+    books$.subscribe((items) => {
+      items = items.sort((a, b) => a.index - b.index);
+      // console.log(items);
+      this._books.next(items);
+      // collectionData(
+      //   collection(firestore, `content/${item.link}/texts`)
+      // ).subscribe((texts) => (item.texts = texts as Text[]));
+      // collectionData(
+      //   collection(firestore, `content/${item.link}/citate`)
+      // ).subscribe((citate) => (item.citate = citate as Citat[]));
+      // collectionData(
+      //   collection(firestore, `content/${item.link}/chapters`)
+      // ).subscribe((chapters) => (item.chapters = chapters as Chapter[]));
+      // collectionData(
+      //   collection(firestore, `content/${item.link}/parts`)
+      // ).subscribe((parts) => (item.parts = parts as Part[]));
+      // collectionData(
+      //   collection(firestore, `content/${item.link}/notes`)
+      // ).subscribe((notes) => (item.notes = notes as Note[]));
 
-    books$.pipe(
-      map((items) => {
-        console.log(items)
-        this._books.next(items);
-        // collectionData(
-        //   collection(firestore, `content/${item.link}/texts`)
-        // ).subscribe((texts) => (item.texts = texts as Text[]));
-        // collectionData(
-        //   collection(firestore, `content/${item.link}/citate`)
-        // ).subscribe((citate) => (item.citate = citate as Citat[]));
-        // collectionData(
-        //   collection(firestore, `content/${item.link}/chapters`)
-        // ).subscribe((chapters) => (item.chapters = chapters as Chapter[]));
-        // collectionData(
-        //   collection(firestore, `content/${item.link}/parts`)
-        // ).subscribe((parts) => (item.parts = parts as Part[]));
-        // collectionData(
-        //   collection(firestore, `content/${item.link}/notes`)
-        // ).subscribe((notes) => (item.notes = notes as Note[]));
+      // items.forEach((item) => {
+      //   if (item.citate) {
+      //     // item.texts = texts;
+      //     const updatedCitate = item.citate.map((citat, index) => {
+      //       const updatedCitat = { ...citat };
+      //       updatedCitat.id = index + 1;
 
-
-        // items.forEach((item) => {
-        //   if (item.citate) {
-        //     // item.texts = texts;
-        //     const updatedCitate = item.citate.map((citat, index) => {
-        //       const updatedCitat = { ...citat };
-        //       updatedCitat.id = index + 1;
-
-        //       return updatedCitat;
-        //     });
-        //     item.citate = updatedCitate;
-        //   }
-        //   item.chapters;
-        //   if (item.parts) {
-        //     item.parts =
-        //       item.parts.length === 0
-        //         ? [{ idPt: '1', title: item.title }]
-        //         : item.parts;
-        //   }
-        //   const title = item.title;
-        //   const book = newBooks.filter((item) => item.title == title)[0];
-        //   const index = newBooks.indexOf(book);
-        //   newBooks[index] = item;
-        // });
-      })
-    );
+      //       return updatedCitat;
+      //     });
+      //     item.citate = updatedCitate;
+      //   }
+      //   item.chapters;
+      //   if (item.parts) {
+      //     item.parts =
+      //       item.parts.length === 0
+      //         ? [{ idPt: '1', title: item.title }]
+      //         : item.parts;
+      //   }
+      //   const title = item.title;
+      //   const book = newBooks.filter((item) => item.title == title)[0];
+      //   const index = newBooks.indexOf(book);
+      //   newBooks[index] = item;
+      // });
+    });
 
     // this._books.next(newBooks);
   }
@@ -290,15 +285,20 @@ export class BooksService {
     );
   }
 
-  getInitialLinks(): any[] {
-    const links: any[] = [];
-    booksInit.forEach((item) => {
-      links.push({
-        path: `${(item as Book).link}`,
-        component: BookPageComponent,
-        data: { book: item },
-      });
-    });
-    return links;
+  getInitialLinks(firestore: Firestore): Observable<any[]> {
+    const books$ = collectionData(collection(firestore, `books`)) as Observable<
+      Book[]
+    >;
+    return books$.pipe(
+      map((items) => {
+        return items.map((item) => {
+          return {
+            path: `${(item as Book).link}`,
+            component: BookPageComponent,
+            data: { book: item },
+          };
+        });
+      })
+    );
   }
 }

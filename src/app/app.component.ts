@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { inject } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { BooksService } from './books.service';
-import booksInit from 'src/assets/books.mjs';
 import { Book } from './book';
 // import { AngularFireAuth } from '@angular/fire/auth';
 import { loadLinks } from './app-routing.module';
@@ -14,6 +13,9 @@ import {
 } from '@angular/fire/firestore';
 
 import { Observable, map } from 'rxjs';
+import { Router } from '@angular/router';
+import { HomepageComponent } from './homepage/homepage.component';
+import { AllQuotesComponent } from './all-quotes/all-quotes.component';
 
 @Component({
   selector: 'app-root',
@@ -34,20 +36,6 @@ export class AppComponent implements OnInit {
     this.content$ = collectionData(collection2);
   }
   async ngOnInit(): Promise<void> {
-    // console.log(this.content)
-    // this.content$.subscribe(async (items) => {
-    await this.booksService.initializeBooks(
-      // booksInit as Book[],
-      this.firestore
-    );
-    // });
-
-    // this.booksService.books$.subscribe((books) => {
-    //   this.books = books;
-    //   console.log(books)
-    //   this.booksService.setData(books);
-    // });
-
-    // loadLinks(this.booksService);
+    this.booksService.initializeBooks(this.firestore);
   }
 }
