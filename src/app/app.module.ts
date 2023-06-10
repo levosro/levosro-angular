@@ -28,6 +28,7 @@ import { ButtonComponent } from './button/button.component';
 import { AllQuotesComponent } from './all-quotes/all-quotes.component';
 import { environment } from 'src/environments/environment';
 import { SearchCitTextButtonComponent } from './search-cit-text-button/search-cit-text-button.component';
+import { BookQuotesComponent } from './book-quotes/book-quotes.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { SearchCitTextButtonComponent } from './search-cit-text-button/search-ci
     ButtonComponent,
     AllQuotesComponent,
     SearchCitTextButtonComponent,
+    BookQuotesComponent,
   ],
   imports: [
     BrowserModule,

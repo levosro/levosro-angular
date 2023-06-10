@@ -1,0 +1,10 @@
+<div *ngIf="cits$">
+  <app-quotes
+    *ngIf="citat"
+    [citate]="cits$"
+    [id]="+cit"
+    [linkBook]="book.link"
+    [link]="book.link"
+    [title]="book.title"
+  ></app-quotes>
+</div>

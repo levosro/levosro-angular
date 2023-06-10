@@ -14,11 +14,12 @@ import {
   BehaviorSubject,
   ReplaySubject,
   firstValueFrom,
+  forkJoin,
   lastValueFrom,
   of,
 } from 'rxjs';
 import { combineLatest } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { finalize, map, switchMap, take } from 'rxjs/operators';
 
 import { Observable } from 'rxjs';
 import { Route } from './route';
@@ -34,6 +35,7 @@ import { Citat } from './citat';
 export class BooksService {
   private _books = new BehaviorSubject<Book[]>([]);
   books$ = this._books.asObservable();
+  static booksNumber: number;
 
   // books = new BehaviorSubject<any>(null);
 
@@ -55,88 +57,50 @@ export class BooksService {
       Book[]
     >;
 
-    books$.subscribe((items) => {
-      items = items.sort((a, b) => a.index - b.index);
-      // console.log(items);
-      this._books.next(items);
-      // collectionData(
-      //   collection(firestore, `content/${item.link}/texts`)
-      // ).subscribe((texts) => (item.texts = texts as Text[]));
-      // collectionData(
-      //   collection(firestore, `content/${item.link}/citate`)
-      // ).subscribe((citate) => (item.citate = citate as Citat[]));
-      // collectionData(
-      //   collection(firestore, `content/${item.link}/chapters`)
-      // ).subscribe((chapters) => (item.chapters = chapters as Chapter[]));
-      // collectionData(
-      //   collection(firestore, `content/${item.link}/parts`)
-      // ).subscribe((parts) => (item.parts = parts as Part[]));
-      // collectionData(
-      //   collection(firestore, `content/${item.link}/notes`)
-      // ).subscribe((notes) => (item.notes = notes as Note[]));
-
-      // items.forEach((item) => {
-      //   if (item.citate) {
-      //     // item.texts = texts;
-      //     const updatedCitate = item.citate.map((citat, index) => {
-      //       const updatedCitat = { ...citat };
-      //       updatedCitat.id = index + 1;
-
-      //       return updatedCitat;
-      //     });
-      //     item.citate = updatedCitate;
-      //   }
-      //   item.chapters;
-      //   if (item.parts) {
-      //     item.parts =
-      //       item.parts.length === 0
-      //         ? [{ idPt: '1', title: item.title }]
-      //         : item.parts;
-      //   }
-      //   const title = item.title;
-      //   const book = newBooks.filter((item) => item.title == title)[0];
-      //   const index = newBooks.indexOf(book);
-      //   newBooks[index] = item;
-      // });
+    books$.subscribe({
+      next: (items) => {
+        // console.log(items);
+        BooksService.booksNumber = items.length;
+        items = items.sort((a, b) => a.index - b.index);
+        this._books.next(items);
+      },
+      complete: () => {
+        console.log(BooksService.booksNumber);
+        this._books.complete();
+      },
     });
-
-    // this._books.next(newBooks);
   }
 
-  // getTexts(content: Observable<DocumentData[]>): Observable<Text[]> {
-
-  // }
-
   getTexts(book: Book, firestore: Firestore): Observable<Text[]> {
-    console.log(1);
+    console.log(`texts${book.link}`);
     return collectionData(
       collection(firestore, `content/${book.link}/texts`)
     ) as Observable<Text[]>;
   }
 
   getChapters(book: Book, firestore: Firestore): Observable<Chapter[]> {
-    console.log(1);
+    console.log(`chapters${book.link}`);
     return collectionData(
       collection(firestore, `content/${book.link}/chapters`)
     ) as Observable<Chapter[]>;
   }
 
   getParts(book: Book, firestore: Firestore): Observable<Part[]> {
-    console.log(1);
+    console.log(`parts${book.link}`);
     return collectionData(
       collection(firestore, `content/${book.link}/parts`)
     ) as Observable<Part[]>;
   }
 
   getNotes(book: Book, firestore: Firestore): Observable<Note[]> {
-    console.log(1);
+    console.log(`notes${book.link}`);
     return collectionData(
       collection(firestore, `content/${book.link}/notes`)
     ) as Observable<Note[]>;
   }
 
   getCitate(book: Book, firestore: Firestore): Observable<Citat[]> {
-    console.log(1);
+    console.log(`citate${book.link}`);
     return collectionData(
       collection(firestore, `content/${book.link}/citate`)
     ) as Observable<Citat[]>;
@@ -205,51 +169,77 @@ export class BooksService {
     })
   );
 
-  getAllCits(): Observable<Citat[]> {
+  async getBooksCount(): Promise<number> {
+    const count = await lastValueFrom(
+      this._books.pipe(
+        take(2),
+        map((books) => books.filter((item) => item.language != 'en').length)
+      )
+    );
+    return count;
+  }
+
+  getAllCits(firestore: Firestore): Observable<Citat[]> {
     let d = 0;
-    return this.books$.pipe(
-      map((books) => {
-        const resCit: Citat[] = [];
-        books.forEach((book) => {
+    const resCit = new BehaviorSubject<Citat[]>([]);
+    this._books.subscribe({
+      next: (books) => {
+        books.forEach(async (book) => {
+          const bookCit: Citat[] = [];
           if (book.language != 'en') {
-            if (!book.title.includes('Citate din scrierile lui')) {
-              book.texts.forEach((item) => {
+            const citateObs = this.getCitate(book, firestore);
+            const textsObs = this.getTexts(book, firestore);
+
+            citateObs.subscribe((citate) => {
+              book.citate = citate;
+              book.citate.forEach((item) => {
                 d += 1;
-                resCit.push({
-                  autor: item.author ?? book.author,
-                  titlu: item.title
-                    ? `<a href="${book.link}?id=T${item.idChr}#${item.idChr}">${
-                        item.title
-                      }<br/>(${item.sourceBook ?? book.title})</a>`
-                    : `<a href="${book.link}?id=T${item.idChr}#${item.idChr}">${item.sourceBook}<br/>(${book.title})</a>`,
-                  isItText: true,
-                  text: item.content,
-                  an: item.year ?? book.year,
-                  img: item.image ?? book.img,
+                bookCit.push({
+                  ...item,
+                  id: d,
+                  idNota: item.id,
+                  isItText: false,
                   linkBook: book.link,
                   titluBook: book.title,
-                  id: d,
-                  idNota: 0,
                 });
               });
-            }
-            book.citate.forEach((item) => {
-              d += 1;
-              resCit.push({
-                ...item,
-                id: d,
-                idNota: item.id,
-                isItText: false,
-                linkBook: book.link,
-                titluBook: book.title,
+              textsObs.subscribe((texts) => {
+                book.texts = texts;
+                if (!book.title.includes('Citate din scrierile lui')) {
+                  book.texts.forEach((item) => {
+                    d += 1;
+                    bookCit.push({
+                      autor: item.author ?? book.author,
+                      titlu: item.title
+                        ? `<a href="${book.link}?id=T${item.idChr}#${
+                            item.idChr
+                          }">${item.title}<br/>(${
+                            item.sourceBook ?? book.title
+                          })</a>`
+                        : `<a href="${book.link}?id=T${item.idChr}#${item.idChr}">${item.sourceBook}<br/>(${book.title})</a>`,
+                      isItText: true,
+                      text: item.content,
+                      an: item.year ?? book.year,
+                      img: item.image ?? book.img,
+                      linkBook: book.link,
+                      titluBook: book.title,
+                      id: d,
+                      idNota: 0,
+                    });
+                  });
+                }
+                resCit.next([...resCit.value, ...bookCit]);
               });
             });
           }
         });
-        d = 0;
-        return resCit;
-      })
-    );
+      },
+      complete() {
+        console.log('Books observable complete.');
+        resCit.complete();
+      },
+    });
+    return resCit.asObservable();
   }
 
   getAuthors(books: Book[]): Observable<string[]> {

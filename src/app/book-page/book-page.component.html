@@ -48,12 +48,9 @@
   </ng-container>
   <ng-template #citElement>
     <!-- Replace this with your desired content -->
-    <app-quotes
-      [citate]="book.citate"
-      [id]="cit"
-      [link]="book.link"
-      [linkBook]="book.link"
-      [title]="book.title"
-    ></app-quotes>
+    <app-book-quotes
+      [book]="book"
+      [cit]="cit"
+    ></app-book-quotes>
   </ng-template>
 </ng-template>

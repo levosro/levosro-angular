@@ -9,7 +9,7 @@ import html2canvas from 'html2canvas';
   styleUrls: ['./quotes.component.css'],
 })
 export class QuotesComponent implements OnInit, AfterContentInit {
-  @Input() citate!: Citat[];
+  @Input() citate!: Citat[] | null;
   @Input() id!: number;
   @Input() link!: string;
   @Input() linkBook!: string;
@@ -20,13 +20,15 @@ export class QuotesComponent implements OnInit, AfterContentInit {
   async ngOnInit(): Promise<void> {
     await this.waitForCitate();
 
+    this.citate = this.citate as Citat[];
+
     const img = document.querySelector('.img-container') as HTMLElement;
     const author = document.getElementById('author') as HTMLElement;
     const titlu = document.getElementById('titlu') as HTMLElement;
     const info = document.getElementById('info') as HTMLElement;
     const an = document.getElementById('an') as HTMLElement;
 
-    const item = this.citate.filter((item) => item.id == this.id)[0];
+    const item = this.citate!.filter((item) => item.id == this.id)[0];
     console.log(item);
     let text = '';
     if (item.isItText == true) {
@@ -151,6 +153,8 @@ export class QuotesComponent implements OnInit, AfterContentInit {
 
   async ngAfterContentInit(): Promise<void> {
     await this.waitForCitate();
+
+    this.citate = this.citate as Citat[];
 
     if (this.p) {
       (document.querySelector('#titlu a') as HTMLAnchorElement).href =

@@ -3,10 +3,10 @@
   <div class="underline"></div>
 </div>
 <!-- <ng-component *ngIf="link"> -->
-<div *ngIf="citate$ | async as cits">
+<div *ngIf="cits$">
   <app-quotes
     *ngIf="citat"
-    [citate]="cits"
+    [citate]="citate$ | async"
     [id]="+(cit ?? 0)"
     [linkBook]="link"
     [link]="'citate'"
