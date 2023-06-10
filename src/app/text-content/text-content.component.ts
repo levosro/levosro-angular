@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Text } from '../text';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Book } from '../book';
 import { Note } from '../note';
 
@@ -99,7 +98,12 @@ export class TextContentComponent implements OnInit {
       } else {
         textElement = document.getElementById(target);
       }
-      (textElement as HTMLElement).scrollIntoView();
+      const distanceFromTop = (textElement as HTMLElement).offsetTop - 48; // 3em = 48px (assuming font-size: 16px)
+      window.scrollTo({
+        top: distanceFromTop,
+        behavior: 'smooth', // optional, adds scrolling animation
+      });
+
       if (target.includes('cit') || target.includes('p')) {
         this.highlight(
           (textElement as HTMLElement).parentElement as HTMLElement

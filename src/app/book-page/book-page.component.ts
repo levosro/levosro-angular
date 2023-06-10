@@ -7,6 +7,8 @@ import { Chapter } from '../chapter';
 import { Text } from '../text';
 import { Part } from '../part';
 import { Firestore } from '@angular/fire/firestore';
+import { Storage, getDownloadURL } from '@angular/fire/storage';
+import { ref } from 'firebase/storage';
 
 @Component({
   selector: 'app-book-page',
@@ -21,6 +23,7 @@ export class BookPageComponent implements OnInit {
   isItCit!: boolean;
   // texts: any;
   firestore: Firestore = inject(Firestore);
+  storage: Storage = inject(Storage);
 
   constructor(
     private route: ActivatedRoute,
@@ -49,8 +52,6 @@ export class BookPageComponent implements OnInit {
                     .getTexts(this.book, this.firestore)
                     .subscribe((texts) => {
                       this.book.texts = texts;
-
-
                     });
                 });
             });
@@ -93,10 +94,7 @@ export class BookPageComponent implements OnInit {
   }
 
   DownloadClick = (): void => {
-    downloadFile(
-      `assets/content/${this.book.link}/${this.book.link}.epub`,
-      this.book.title
-    );
+    downloadFile(this.book, this.storage);
   };
 
   CitateClick = (): void => {
@@ -122,17 +120,10 @@ export class BookPageComponent implements OnInit {
   }
 }
 
-function downloadFile(url: string, fileName: string) {
-  fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
-    .then((res) => res.blob())
-    .then((res) => {
-      const aElement = document.createElement('a');
-      aElement.setAttribute('download', fileName);
-      const href = URL.createObjectURL(res);
-      aElement.href = href;
-      // aElement.setAttribute('href', href);
-      aElement.setAttribute('target', '_blank');
-      aElement.click();
-      URL.revokeObjectURL(href);
-    });
+function downloadFile(book: Book, storage: Storage) {
+  const filePath = book.link;
+  const thing = ref(storage, filePath);
+  getDownloadURL(thing).then((link) => {
+    open(link)
+  })
 }

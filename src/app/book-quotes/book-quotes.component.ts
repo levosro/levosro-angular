@@ -39,10 +39,10 @@ export class BookQuotesComponent implements OnInit {
         // this.cits$ = citate;
       },
       complete: () => {
-        console.log(this.cits$);
-        console.log(+this.cit)
+        // console.log(this.cits$);
+        // console.log(+this.cit)
         this.citat = this.cits$.filter((item) => item.id == +this.cit)[0];
-        console.log(this.citat);
+        // console.log(this.citat);
       },
     });
   }

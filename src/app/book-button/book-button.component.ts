@@ -23,6 +23,8 @@ export class BookButtonComponent {
 
   scrollToTop() {
     const textButton = document.getElementById(this.text.idChr);
-    textButton?.scrollIntoView();
+    const distanceFromTop = textButton!.offsetTop - 48; // 3em = 48px (assuming font-size: 16px)
+    document.documentElement.scrollTop = distanceFromTop; // set scrollTop of <html> element
   }
+
 }

@@ -43,7 +43,7 @@ export class AllQuotesComponent implements OnInit {
     this.citate$.pipe(take(BooksService.booksNumber)).subscribe({
       next: (items) => {
         // console.log(items.length)
-        this.cits$ = items;
+        this.cits$ = [...new Set(items)];
       },
       complete: () => {
         console.log(this.cits$.length);
@@ -56,7 +56,7 @@ export class AllQuotesComponent implements OnInit {
               Math.random() * this.cits$.length
             ).toString()}`;
           } else {
-            console.log(this.cits$);
+            // console.log(this.cits$);
             const citat = this.cits$.filter(
               (item) => item.id == +(this.cit ?? 0)
             )[0];

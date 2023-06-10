@@ -166,7 +166,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
 
     const prevBtn = document.querySelector('.prev-btn') as HTMLElement;
     const nextBtn = document.querySelector('.next-btn') as HTMLElement;
-    // const saveBtn = document.querySelector('.save') as HTMLElement;
+    const saveBtn = document.querySelector('.save') as HTMLElement;
     const randomBtn = document.querySelector('.random-btn') as HTMLElement;
     const home = document.getElementById('home') as HTMLElement;
 
@@ -204,48 +204,51 @@ export class QuotesComponent implements OnInit, AfterContentInit {
       window.location.href = `./${link}?cit=${citat.id}`;
     });
 
-    // saveBtn.addEventListener('click', function () {
-    //   let res = document.querySelector('app-quotes')!.innerHTML;
-    //   document.getElementById('save-zone')!.innerHTML = res;
-    //   let node1 = document.getElementById('save-zone') as HTMLElement;
-    //   // node1.removeChild(node1.querySelector('div.title'));
-    //   let node = node1.querySelector('div.quote') as HTMLElement;
-    //   let n1 = node.querySelector('div.button-container') as HTMLElement;
-    //   let n2 = node.querySelector('button.random-btn') as HTMLElement;
-    //   let n3 = node.querySelector('#antologia') as HTMLElement;
-    //   let n4 = node.querySelector('#home') as HTMLElement;
-    //   node.removeChild(n1);
-    //   node.removeChild(n2);
-    //   node.removeChild(n3);
-    //   node.removeChild(n4);
-    //   if (node.querySelector('a') != null) {
-    //     node.querySelector('a')!.style.textDecoration = 'none';
-    //   }
-    //   node.style.margin = '0';
-    //   node.style.maxWidth = '500';
-    //   html2canvas(node1).then(async function (canvas) {
-    //     let xhr = new XMLHttpRequest();
-    //     xhr.responseType = 'blob';
-    //     xhr.onload = function () {
-    //       let a = document.createElement('a');
-    //       a.href = window.URL.createObjectURL(xhr.response);
-    //       a.download = 'cit' + window.location.href.split('cit=')[1] + '.png';
-    //       a.style.display = 'none';
-    //       document.body.appendChild(a);
-    //       a.click();
-    //       a.remove();
-    //     };
-    //     xhr.open('GET', canvas.toDataURL('image/png'));
-    //     xhr.send();
-    //   });
-    //   node1.innerHTML = '';
-    // });
+    saveBtn.addEventListener('click', function () {
+      let res = document.querySelector('app-quotes')!.innerHTML;
+      document.getElementById('save-zone')!.innerHTML = res;
+      let node1 = document.getElementById('save-zone') as HTMLElement;
+      // node1.removeChild(node1.querySelector('div.title'));
+      let node = node1.querySelector('div.quote') as HTMLElement;
+      let n1 = node.querySelector('div#actualQuote') as HTMLElement;
+      n1.style.padding = '2em';
+      if (n1.querySelector('a') != null) {
+        n1.querySelector('a')!.style.textDecoration = 'none';
+      }
+      html2canvas(n1).then(async function (canvas) {
+        let xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob';
+        xhr.onload = function () {
+          let a = document.createElement('a');
+          a.href = window.URL.createObjectURL(xhr.response);
+          a.download = 'cit' + window.location.href.split('cit=')[1] + '.png';
+          a.style.display = 'none';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+        };
+        xhr.open('GET', canvas.toDataURL('image/png'));
+        xhr.send();
+      });
+      node1.innerHTML = '';
+    });
 
     randomBtn.addEventListener('click', function () {
       let x = currentItem;
       let citat = citate[currentItem];
-      while (currentItem == x || citate[currentItem].autor == citate[x].autor) {
-        currentItem = Math.floor(Math.random() * citate.length);
+      const autori = [...new Set(citate.map((cit) => cit.autor))];
+      if (autori.length > 1) {
+        while (
+          currentItem == x ||
+          citate[currentItem].autor == citate[x].autor
+        ) {
+          currentItem = Math.floor(Math.random() * citate.length);
+        }
+      } else {
+        console.log(autori.length)
+        while (currentItem == x) {
+          currentItem = Math.floor(Math.random() * citate.length);
+        }
       }
       citat = citate[currentItem];
       window.location.href = `./${link}?cit=${citat.id}`;
