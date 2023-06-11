@@ -212,6 +212,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
       let node = node1.querySelector('div.quote') as HTMLElement;
       let n1 = node.querySelector('div#actualQuote') as HTMLElement;
       n1.style.padding = '2em';
+      n1.style.width = '500px';
       if (n1.querySelector('a') != null) {
         n1.querySelector('a')!.style.textDecoration = 'none';
       }
