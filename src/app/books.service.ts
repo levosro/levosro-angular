@@ -124,7 +124,7 @@ export class BooksService {
     map((books) =>
       books.filter(
         (item) =>
-          item.title.includes('Antologia') || item.title.includes('Anthology')
+          item.title.includes('Antologia') || item.title.includes('Anthology') || item.title.includes('Citate din scrierile lui Karl Marx')
       )
     )
   );
