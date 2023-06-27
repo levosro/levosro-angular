@@ -4,11 +4,14 @@ import {
   AfterViewInit,
   OnInit,
   AfterContentInit,
+  inject,
 } from '@angular/core';
 import { Book } from '../book';
 import { Chapter } from '../chapter';
 import { Part } from '../part';
 import { Text } from '../text';
+import { Storage, getDownloadURL } from '@angular/fire/storage';
+import { ref } from 'firebase/storage';
 
 @Component({
   selector: 'app-book-content',
@@ -21,6 +24,7 @@ export class BookContentComponent implements OnInit, AfterContentInit {
   chapter!: Chapter;
   part!: Part;
   texts!: Text[];
+  storage: Storage = inject(Storage);
 
   async ngOnInit(): Promise<void> {
     await this.waitForBookParts();
@@ -140,10 +144,7 @@ export class BookContentComponent implements OnInit, AfterContentInit {
   }
 
   DownloadClick = (): void => {
-    downloadFile(
-      `assets/content/${this.book.link}/${this.book.link}.epub`,
-      this.book.title
-    );
+    downloadFile(this.book, this.storage);
   };
 
   CitateClick = (): void => {
@@ -176,17 +177,10 @@ export class BookContentComponent implements OnInit, AfterContentInit {
   }
 }
 
-function downloadFile(url: string, fileName: string) {
-  fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
-    .then((res) => res.blob())
-    .then((res) => {
-      const aElement = document.createElement('a');
-      aElement.setAttribute('download', fileName);
-      const href = URL.createObjectURL(res);
-      aElement.href = href;
-      // aElement.setAttribute('href', href);
-      aElement.setAttribute('target', '_blank');
-      aElement.click();
-      URL.revokeObjectURL(href);
-    });
+function downloadFile(book: Book, storage: Storage) {
+  const filePath = book.link;
+  const thing = ref(storage, filePath);
+  getDownloadURL(thing).then((link) => {
+    open(link)
+  })
 }
