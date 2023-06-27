@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() title!: string;
+  @Input() id!: string;
   @Input() onClick!: () => void;
 
   onClickAction(): void {

@@ -1,17 +1,33 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { Text } from '../text';
 import { Book } from '../book';
 import { Note } from '../note';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-text-content',
   templateUrl: './text-content.component.html',
   styleUrls: ['./text-content.component.css'],
   // encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TextContentComponent implements OnInit {
+export class TextContentComponent implements OnInit, OnChanges {
   @Input() text!: Text;
   @Input() book!: Book;
+
+  bold: boolean;
+
+  constructor() {
+    this.bold = false;
+  }
 
   async ngOnInit(): Promise<void> {
     window.speechSynthesis.cancel();
@@ -110,7 +126,20 @@ export class TextContentComponent implements OnInit {
         );
       }
     }
+    (document.getElementById(this.getBoldID()))?.addEventListener(
+      'click',
+      () => {
+        this.bold = !this.bold;
+        this.addNotesFunct();
+        console.log(`!!${this.bold}`);
+      }
+    );
     this.addNotesFunct();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes['bold']);
+
   }
 
   speak(text: Text) {
@@ -285,6 +314,24 @@ export class TextContentComponent implements OnInit {
         }
       }
     });
+  }
+
+  getBold(): string {
+    return `<i class="fa-solid fa-eye"></i>`;
+  }
+
+  getBoldID(): string {
+    return `boldButton${this.text.idChr}`;
+  }
+
+  // getBoldValue(): boolean {
+  //   return this.bold;
+  // }
+
+  flipBold(): void {
+    // this.cdr.markForCheck();
+    // this.bold = !this.bold;
+    // console.log(this.bold);
   }
 
   getNotes(): string[] {
