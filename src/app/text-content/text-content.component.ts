@@ -23,10 +23,9 @@ export class TextContentComponent implements OnInit, OnChanges {
   @Input() text!: Text;
   @Input() book!: Book;
 
-  bold: boolean;
+  bold!: boolean;
 
   constructor() {
-    this.bold = false;
   }
 
   async ngOnInit(): Promise<void> {
@@ -126,20 +125,21 @@ export class TextContentComponent implements OnInit, OnChanges {
         );
       }
     }
-    (document.getElementById(this.getBoldID()))?.addEventListener(
-      'click',
-      () => {
+    this.bold = false;
+    document.getElementById(this.getBoldID())?.addEventListener('click', () => {
+      if (this.bold === undefined) {
+        this.bold = true;
+      } else {
         this.bold = !this.bold;
-        this.addNotesFunct();
-        console.log(`!!${this.bold}`);
       }
-    );
+      this.addNotesFunct();
+      console.log(`!!${this.bold}`);
+    });
     this.addNotesFunct();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes['bold']);
-
   }
 
   speak(text: Text) {
