@@ -148,3 +148,9 @@ A:active {
   color: #c41616;
   text-decoration: underline;
 }
+
+@media print {
+  .buttons {
+    display: none;
+  }
+}

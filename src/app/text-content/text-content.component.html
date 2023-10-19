@@ -1,6 +1,12 @@
-<div id="synthZone{{ text.idChr }}"></div>
-<div id="boldZOne{{ text.idChr }}">
-  <app-button [id]="getBoldID()" [title]="getBold()" [onClick]="flipBold"></app-button>
+<div class="buttons">
+  <div id="synthZone{{ text.idChr }}"></div>
+  <div id="boldZone{{ text.idChr }}">
+    <app-button
+      [id]="getBoldID()"
+      [title]="getBold()"
+      [onClick]="flipBold"
+    ></app-button>
+  </div>
 </div>
 <p *ngIf="book.title.includes('Antologia') || book.title.includes('Anthology')">
   &nbsp;

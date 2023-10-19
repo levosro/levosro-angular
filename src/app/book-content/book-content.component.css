@@ -99,3 +99,12 @@ main {
   background: #c41616;
   color: white;
 }
+
+@media print {
+  .buttons {
+    display: none;
+  }
+  .review {
+    display: none;
+  }
+}

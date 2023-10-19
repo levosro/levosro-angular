@@ -17,12 +17,16 @@
     border-color: #c41616;
     cursor: pointer;
     user-select: none;
-    
+
 }
-
-
 
 :host ::ng-deep .expand-btn:hover {
     background: #c41616;
     color: white;
+}
+
+@media print {
+  .buttons {
+    display: none;
+  }
 }

@@ -2,7 +2,7 @@
 <div class="book">
   <div class="text">
     <a href="{{ book.link }}">
-      <img class="cover" id="cover{{ book.index }}" src="{{ book.cover }}" />
+      <img class="cover" id="cover{{ book.index }}" [src]="imageUrl" />
     </a>
     <h1 class="title">
       <a href="{{ book.link }}">{{ book.title }}</a>

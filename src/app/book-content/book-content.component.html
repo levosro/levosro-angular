@@ -1,18 +1,18 @@
-
-
 <app-center>
-  <app-button
-    [title]="getDownloadTitle()"
-    [onClick]="DownloadClick"
-  ></app-button>
-  <app-button
-    *ngIf="book.citate.length > 0"
-    [title]="getCitsTitle()"
-    [onClick]="CitateClick"
-  ></app-button>
-  <app-expanded-button title="TOC">
-    <app-book-toc [book]="book"></app-book-toc>
-  </app-expanded-button>
+  <div class="buttons">
+    <app-button
+      [title]="getDownloadTitle()"
+      [onClick]="DownloadClick"
+    ></app-button>
+    <app-button
+      *ngIf="book.citate.length > 0"
+      [title]="getCitsTitle()"
+      [onClick]="CitateClick"
+    ></app-button>
+    <app-expanded-button title="TOC">
+      <app-book-toc [book]="book"></app-book-toc>
+    </app-expanded-button>
+  </div>
   <main>
     <p>&nbsp;</p>
     <div id="part" *ngIf="part" [innerHTML]="part.title"></div>

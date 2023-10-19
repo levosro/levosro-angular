@@ -61,7 +61,8 @@ header #youtube,
 #instagram,
 #discord,
 #facebook,
-#quotes, .fa-bars {
+#quotes,
+.fa-bars {
   cursor: pointer;
 }
 
@@ -187,4 +188,10 @@ ul.sidebar-menu img {
   padding: 0.5em;
   object-fit: contain;
   height: 2em;
+}
+
+@media print {
+  header {
+    display: none;
+  }
 }

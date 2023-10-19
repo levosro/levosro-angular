@@ -18,15 +18,17 @@
   <div class="underline"></div>
   <ng-container *ngIf="!isItCit; else citElement">
     <ng-container *ngIf="!isItPCT; else anotherElement">
-      <app-button
-        [title]="getDownloadTitle()"
-        [onClick]="DownloadClick"
-      ></app-button>
-      <app-button
-        *ngIf="book.citate.length > 0"
-        [title]="getCitsTitle()"
-        [onClick]="CitateClick"
-      ></app-button>
+      <div class="buttons">
+        <app-button
+          [title]="getDownloadTitle()"
+          [onClick]="DownloadClick"
+        ></app-button>
+        <app-button
+          *ngIf="book.citate.length > 0"
+          [title]="getCitsTitle()"
+          [onClick]="CitateClick"
+        ></app-button>
+      </div>
       <p></p>
       <app-book-toc [book]="book"></app-book-toc>
     </ng-container>
@@ -48,9 +50,6 @@
   </ng-container>
   <ng-template #citElement>
     <!-- Replace this with your desired content -->
-    <app-book-quotes
-      [book]="book"
-      [cit]="cit"
-    ></app-book-quotes>
+    <app-book-quotes [book]="book" [cit]="cit"></app-book-quotes>
   </ng-template>
 </ng-template>

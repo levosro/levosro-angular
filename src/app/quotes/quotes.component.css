@@ -39,23 +39,23 @@ h3 {
     font-size: 4rem;
   }
 
-:host ::ng-deep   h2 {
+  :host ::ng-deep h2 {
     font-size: 2.5rem;
   }
 
-:host ::ng-deep   h3 {
+  :host ::ng-deep h3 {
     font-size: 1.75rem;
   }
 
-:host ::ng-deep   h4 {
+  :host ::ng-deep h4 {
     font-size: 1rem;
   }
 
-:host ::ng-deep   body {
+  :host ::ng-deep body {
     font-size: 1rem;
   }
 
-:host ::ng-deep   h1,
+  :host ::ng-deep h1,
   h2,
   h3,
   h4 {
@@ -270,4 +270,28 @@ h3 {
 .expand-btn:hover {
   background: #c41616;
   color: white;
+}
+
+@media print {
+  #buttons {
+    display: none;
+  }
+
+  :host ::ng-deep p#titlu A:link {
+    color: #c41616;
+    text-decoration: none;
+  }
+
+  :host ::ng-deep p#titlu A:visited {
+    color: #c41616;
+    text-decoration: none;
+  }
+
+  :host ::ng-deep p#titlu A:hover {
+    text-decoration: none;
+  }
+
+  :host ::ng-deep p#titlu A:active {
+    text-decoration: none;
+  }
 }

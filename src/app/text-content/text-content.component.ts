@@ -324,10 +324,6 @@ export class TextContentComponent implements OnInit, OnChanges {
     return `boldButton${this.text.idChr}`;
   }
 
-  // getBoldValue(): boolean {
-  //   return this.bold;
-  // }
-
   flipBold(): void {
     // this.cdr.markForCheck();
     // this.bold = !this.bold;
@@ -342,7 +338,6 @@ export class TextContentComponent implements OnInit, OnChanges {
     const parser = new DOMParser();
     const doc = parser.parseFromString(joinedContent, 'text/html');
     const aTags = doc.querySelectorAll('a');
-    // Iterate through the NodeList and perform desired actions
     aTags.forEach((a) => {
       if (a.id.includes('n')) {
         const number = a.id.substring(1);
