@@ -1,3 +1,9 @@
-<div *ngFor="let content of safeContent" [innerHTML]="content">
-  <ng-content></ng-content>
+<div *ngFor="let content of safeContent">
+  <div *ngIf="!content.isItImg; else imgElement">
+    <div [innerHTML]="content.safeValue"></div>
+    <!-- <ng-content></ng-content> -->
+  </div>
+  <ng-template #imgElement>
+    <app-actual-image [link]="book.link" [alt]="content.value"></app-actual-image>
+  </ng-template>
 </div>

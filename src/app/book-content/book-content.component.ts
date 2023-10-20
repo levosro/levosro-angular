@@ -178,7 +178,7 @@ export class BookContentComponent implements OnInit, AfterContentInit {
 }
 
 function downloadFile(book: Book, storage: Storage) {
-  const filePath = book.link;
+  const filePath = book.link + '-book';
   const thing = ref(storage, filePath);
   getDownloadURL(thing).then((link) => {
     open(link)

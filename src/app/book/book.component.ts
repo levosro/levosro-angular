@@ -19,12 +19,13 @@ export class BookComponent implements OnInit {
   }
 
   constructor(private router: Router) {}
+
   onNavigate() {
     this.router.navigate([this.book.link]);
   }
 
   async getImageUrl() {
-    const storageRef = ref(this.storage, this.book.link + '-bcover');
+    const storageRef = ref(this.storage, `${this.book.link}-cover`);
     const url = await getDownloadURL(storageRef);
     return url;
   }

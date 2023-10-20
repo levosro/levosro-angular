@@ -30,6 +30,7 @@ import { AllQuotesComponent } from './all-quotes/all-quotes.component';
 import { environment } from 'src/environments/environment';
 import { SearchCitTextButtonComponent } from './search-cit-text-button/search-cit-text-button.component';
 import { BookQuotesComponent } from './book-quotes/book-quotes.component';
+import { ActualImageComponent } from './actual-image/actual-image.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { BookQuotesComponent } from './book-quotes/book-quotes.component';
     AllQuotesComponent,
     SearchCitTextButtonComponent,
     BookQuotesComponent,
+    ActualImageComponent,
   ],
   imports: [
     BrowserModule,

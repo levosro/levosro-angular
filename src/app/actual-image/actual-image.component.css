@@ -1,0 +1,5 @@
+:host ::ng-deep img.auto {
+    margin: 0 auto;
+    width: 70%;
+    height: auto;
+}

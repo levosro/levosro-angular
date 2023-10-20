@@ -1,6 +1,12 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Book } from '../book';
+
+interface Content {
+  value: string;
+  safeValue: SafeHtml | null
+  isItImg: boolean;
+}
 
 @Component({
   selector: 'app-actual-text',
@@ -12,9 +18,9 @@ export class ActualTextComponent implements OnChanges {
   @Input() book!: Book;
   @Input() bold: boolean | undefined;
 
-  safeContent!: SafeHtml[];
+  safeContent!: Content[];
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['bold']) {
@@ -24,12 +30,17 @@ export class ActualTextComponent implements OnChanges {
     const oldContent = this.content;
     const boldContent: string[] = [];
     oldContent.forEach((item) => boldContent.push(this.processBold(item)));
-    const procContent: string[] = [];
+    const procContent: Content[] = [];
     boldContent.forEach((item) => procContent.push(this.process(item)));
-    const newContent: SafeHtml[] = [];
+    const newContent: Content[] = [];
     procContent.forEach((cont) => {
-      const newCont = this.sanitizer.bypassSecurityTrustHtml(cont);
-      newContent.push(newCont);
+      if (!cont.isItImg) {
+        const newCont = this.sanitizer.bypassSecurityTrustHtml(cont.value);
+        newContent.push({ safeValue: newCont, isItImg: cont.isItImg, value: cont.value });
+      }
+      else {
+        newContent.push({ safeValue: cont.value, isItImg: cont.isItImg, value: cont.value });
+      }
     });
     this.safeContent = newContent;
     // this.cdr.detectChanges();
@@ -37,12 +48,14 @@ export class ActualTextComponent implements OnChanges {
 
   process(content: string) {
     if (content.includes('<img')) {
-      console.log(content);
-      return `<div style="text-align: center;">${content.replace(
-        './Images',
-        `assets/content/${this.book.link}/Images`
-      )}</div>`;
-    } else return content;
+
+      const parser = new DOMParser();
+      const elm = parser.parseFromString(content, 'text/html').body.firstChild as HTMLImageElement;
+      const alt = elm.src.split('Images/')[1]
+
+      return { value: alt, isItImg: true, safeValue: null }
+    }
+    else return { value: content, isItImg: false, safeValue: null };
   }
 
   processBold(content: string): string {
