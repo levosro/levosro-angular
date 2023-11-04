@@ -48,7 +48,6 @@ export class TextContentComponent implements OnInit, OnChanges {
           let anchorId = this.findNearestAnchorId(selection.anchorNode);
           if (anchorId != null) {
             let res = '';
-            console.log(selection)
             let parentElement = selection.anchorNode as HTMLElement
 
             while (parentElement.id == undefined || !parentElement.id.includes('content')) {

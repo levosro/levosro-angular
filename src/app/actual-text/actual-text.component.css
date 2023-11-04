@@ -4,6 +4,11 @@ blockquote {
   font-family: var(--ff-secondary);
 }
 
+:host ::ng-deep td p {
+  text-indent: 0 !important;
+  text-align: center;
+}
+
 :host ::ng-deep A:link {
   color: #c41616;
   text-decoration: none;
