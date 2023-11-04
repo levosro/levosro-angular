@@ -48,10 +48,14 @@ export class TextContentComponent implements OnInit, OnChanges {
           let anchorId = this.findNearestAnchorId(selection.anchorNode);
           if (anchorId != null) {
             let res = '';
-            let parentElementId = (
-              selection.anchorNode?.parentElement?.parentElement?.parentElement
-                ?.parentElement?.parentElement as HTMLElement
-            ).id.split('content')[1];
+            console.log(selection)
+            let parentElement = selection.anchorNode as HTMLElement
+
+            while (parentElement.id == undefined || !parentElement.id.includes('content')) {
+              parentElement = parentElement.parentElement as HTMLElement
+            }
+
+            let parentElementId = parentElement.id.split('content')[1]
 
             console.log(parentElementId);
             const text = this.book.texts.filter(
