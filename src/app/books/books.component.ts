@@ -19,6 +19,7 @@ export class BooksComponent implements OnInit {
   constructor(private booksService: BooksService) {}
 
   ngOnInit(): void {
+    sessionStorage.removeItem('book');
     this.booksService.books$.subscribe((books) => {
       this.booksList = books;
     });
