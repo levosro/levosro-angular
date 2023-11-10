@@ -10,11 +10,7 @@ import { Book } from '../book';
 })
 export class BooksComponent implements OnInit {
   booksList: Array<Book> = [];
-  antologiiList: Array<Book> = [];
-  capitalulList: Array<Book> = [];
-  teoriiList: Array<Book> = [];
-  contentList: Array<Book> = [];
-  maoList: Array<Book> = [];
+  collections: Array<string> = [];
 
   constructor(private booksService: BooksService) {}
 
@@ -23,20 +19,12 @@ export class BooksComponent implements OnInit {
     this.booksService.books$.subscribe((books) => {
       this.booksList = books;
     });
-    this.booksService.antologii$.subscribe((antologii) => {
-      this.antologiiList = antologii;
+    this.booksService.collections$.subscribe((collections) => {
+      this.collections = collections;
     });
-    this.booksService.capitalul$.subscribe((capitalul) => {
-      this.capitalulList = capitalul;
-    });
-    this.booksService.teorii$.subscribe((teorii) => {
-      this.teoriiList = teorii;
-    });
-    this.booksService.content$.subscribe((content) => {
-      this.contentList = content;
-    });
-    this.booksService.mao$.subscribe((mao) => {
-      this.maoList = mao;
-    });
+  }
+
+  getCollectionBooks(collection: string): Array<Book> {
+    return this.booksList.filter((book) => book.collection == collection)
   }
 }

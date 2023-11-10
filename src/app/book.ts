@@ -8,7 +8,7 @@ export interface Book {
   title: string;
   subtitle: string | null;
   author: string;
-  cover: string;
+  collection: string;
   link: string;
   language: string;
   year: string;

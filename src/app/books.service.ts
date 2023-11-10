@@ -120,6 +120,14 @@ export class BooksService {
     return await (lastValueFrom(books$) as Promise<Book[]>);
   }
 
+  collections$ = this.books$.pipe(
+    map((books) => {
+      const collections = books.map(book => book.collection)
+      const uniqueCollections = new Set(collections);
+      return [...uniqueCollections]
+    })
+  )
+
   antologii$ = this.books$.pipe(
     map((books) =>
       books.filter(

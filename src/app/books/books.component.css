@@ -1,8 +1,4 @@
-.content,
-.antologii,
-.mao,
-.capitalul,
-.teorii {
+.bookRow {
   padding-top: 0em;
   display: flex;
   align-items: center;
