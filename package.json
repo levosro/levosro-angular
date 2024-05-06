@@ -22,7 +22,9 @@
     "esm": "^3.2.25",
     "express": "^4.18.2",
     "firebase": "^9.22.1",
+    "fs": "^0.0.1-security",
     "html2canvas": "^1.4.1",
+    "microsoft-cognitiveservices-speech-sdk": "^1.36.0",
     "rxjs": "~7.8.0",
     "systemjs": "^6.14.1",
     "tslib": "^2.3.0",
@@ -30,7 +32,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.1",
-    "@angular/cli": "~16.0.1",
+    "@angular/cli": "^16.2.14",
     "@angular/compiler-cli": "^16.0.0",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.6.0",

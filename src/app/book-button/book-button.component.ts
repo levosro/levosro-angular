@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Text } from '../text';
+import { SpeechService } from '../speech.service';
 
 @Component({
   selector: 'app-book-button',
@@ -12,8 +13,11 @@ export class BookButtonComponent {
 
   onButtonClick() {
     this.ok = !this.ok;
-    window.speechSynthesis.cancel();
+    this.speech.stop()
+    // window.speechSynthesis.cancel();
   }
+
+  constructor(private speech: SpeechService) {}
 
   getInnerHTML() {
     return `${this.text.title != '' ? this.text.title : this.text.info} ${

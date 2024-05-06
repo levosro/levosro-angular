@@ -33,7 +33,11 @@
         [text]="text"
         [ok]="text.idChr == id.substring(1) ? true : false"
       >
-        <app-text-content [text]="text" [book]="book"></app-text-content>
+        <app-text-content
+          *ngIf="text != undefined"
+          [text]="text"
+          [book]="book"
+        ></app-text-content>
       </app-book-button>
     </div>
     <div class="review">

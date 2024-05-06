@@ -1,12 +1,12 @@
 <div class="buttons">
   <div id="synthZone{{ text.idChr }}"></div>
-  <div id="boldZone{{ text.idChr }}">
+  <audio id="audio{{ text.idChr }}" src=""></audio>
+  <!-- <div id="boldZone{{ text.idChr }}">
     <app-button
       [id]="getBoldID()"
       [title]="getBold()"
-      [onClick]="flipBold"
     ></app-button>
-  </div>
+  </div> -->
 </div>
 <p *ngIf="book.title.includes('Antologia') || book.title.includes('Anthology')">
   &nbsp;
@@ -34,16 +34,12 @@
 <p *ngIf="text.image">&nbsp;</p>
 
 <app-actual-text
+  [idChr]="text.idChr"
   [content]="text.content"
   [book]="book"
-  [bold]="bold"
 ></app-actual-text>
 <!-- <a href="{{book.link}}?id={{text.idChr}}#{{text.idChr}}">▲</a> -->
 <hr />
 <div style="color: gray" id="notes">
-  <app-actual-text
-    [content]="getNotes()"
-    [book]="book"
-    [bold]="bold"
-  ></app-actual-text>
+  <app-actual-text [content]="getNotes()" [book]="book"></app-actual-text>
 </div>

@@ -54,7 +54,7 @@ function addContent() {
   });
 
 
-  document.getElementById('discord')!.addEventListener('click', function () {
-    window.open('https://discord.gg/dQY44b7T', '_blank')!.focus();
-  });
+  // document.getElementById('discord')!.addEventListener('click', function () {
+  //   window.open('https://discord.gg/dQY44b7T', '_blank')!.focus();
+  // });
 }

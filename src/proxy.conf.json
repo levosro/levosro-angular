@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://northeurope.api.cognitive.microsoft.com",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-import { getStorage, provideStorage } from '@angular/fire/storage'
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +31,8 @@ import { environment } from 'src/environments/environment';
 import { SearchCitTextButtonComponent } from './search-cit-text-button/search-cit-text-button.component';
 import { BookQuotesComponent } from './book-quotes/book-quotes.component';
 import { ActualImageComponent } from './actual-image/actual-image.component';
+import { provideFunctions } from '@angular/fire/functions';
+import { getFunctions } from 'firebase/functions';
 
 @NgModule({
   declarations: [
@@ -66,10 +68,9 @@ import { ActualImageComponent } from './actual-image/actual-image.component';
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     provideAuth(() => getAuth()),
+    provideFunctions(() => getFunctions()),
   ],
-  providers: [
-
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

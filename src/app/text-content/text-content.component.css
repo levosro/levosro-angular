@@ -5,24 +5,27 @@
   text-align: center;
 }
 
-:host ::ng-deep .expand-btn {
-    margin-top: 0.5rem;
-    background: white;
-    color: #c41616;
-    padding: 0.25rem 0.5rem;
-    /* text-transform: capitalize; */
-    border-radius: var(--radius);
-    transition: var(--transition);
-    font-family: var(--ff-primary);
-    border-color: #c41616;
-    cursor: pointer;
-    user-select: none;
+:host ::ng-deep .softLight {
+  background-color: rgba(196, 22, 22, 0.5);
+}
 
+:host ::ng-deep .expand-btn {
+  margin-top: 0.5rem;
+  background: white;
+  color: #c41616;
+  padding: 0.25rem 0.5rem;
+  /* text-transform: capitalize; */
+  border-radius: var(--radius);
+  transition: var(--transition);
+  font-family: var(--ff-primary);
+  border-color: #c41616;
+  cursor: pointer;
+  user-select: none;
 }
 
 :host ::ng-deep .expand-btn:hover {
-    background: #c41616;
-    color: white;
+  background: #c41616;
+  color: white;
 }
 
 @media print {

@@ -34,7 +34,7 @@ export class BookPageComponent implements OnInit {
 
     if (book2 != null && book2.link == this.book.link) {
       this.book = book2
-      console.log(jsonString)
+      // console.log(jsonString)
     }
     else {
 
