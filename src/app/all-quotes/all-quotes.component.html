@@ -8,6 +8,7 @@
     *ngIf="citat"
     [citate]="citate$ | async"
     [id]="+(cit ?? 0)"
+    [idNota]="citat.idNota"
     [linkBook]="link"
     [link]="'citate'"
     [title]="title"

@@ -147,6 +147,13 @@ export class BookContentComponent implements OnInit, AfterContentInit {
     downloadFile(this.book, this.storage);
   };
 
+  isButtonOpen(idChr: string): boolean {
+    if (this.texts.length == 1) {
+      return true;
+    }
+    return idChr == this.id.substring(1);
+  }
+
   CitateClick = (): void => {
     const citItem = Math.floor(Math.random() * this.book.citate.length);
     window.location.href = `${this.book.link}?cit=${citItem}`;
@@ -175,12 +182,20 @@ export class BookContentComponent implements OnInit, AfterContentInit {
       }, 100); // Check every 100ms
     });
   }
+
+  getCitsOpen(): boolean {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get('citl') != null) {
+      return true;
+    }
+    return false;
+  }
 }
 
 function downloadFile(book: Book, storage: Storage) {
   const filePath = book.link + '-book';
   const thing = ref(storage, filePath);
   getDownloadURL(thing).then((link) => {
-    open(link)
-  })
+    open(link);
+  });
 }

@@ -4,11 +4,19 @@
       [title]="getDownloadTitle()"
       [onClick]="DownloadClick"
     ></app-button>
-    <app-button
+    <!-- <app-button
       *ngIf="book.citate.length > 0"
       [title]="getCitsTitle()"
       [onClick]="CitateClick"
-    ></app-button>
+    ></app-button> -->
+    <app-book-quote-button
+      *ngIf="book.citate.length > 0"
+      [title]="getCitsTitle()"
+      [book]="book"
+      [ok]="getCitsOpen()"
+    >
+      <app-book-quotes-list [book]="book"></app-book-quotes-list>
+    </app-book-quote-button>
     <app-expanded-button title="TOC">
       <app-book-toc [book]="book"></app-book-toc>
     </app-expanded-button>
@@ -31,7 +39,7 @@
       <app-book-button
         *ngFor="let text of texts"
         [text]="text"
-        [ok]="text.idChr == id.substring(1) ? true : false"
+        [ok]="isButtonOpen(text.idChr)"
       >
         <app-text-content
           *ngIf="text != undefined"

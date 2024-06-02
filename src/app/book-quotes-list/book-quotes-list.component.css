@@ -1,0 +1,293 @@
+.citl {
+  display: flex;
+  flex-direction: row;
+}
+
+:host ::ng-deep .titlu A:link {
+  color: #c41616;
+  text-decoration: none;
+}
+
+:host ::ng-deep .titlu A:visited {
+  color: #c41616;
+  text-decoration: none;
+}
+
+i.fa {
+  color: #c41616;
+}
+
+:host ::ng-deep .citl:hover .titlu A {
+  text-decoration: underline;
+}
+
+:host ::ng-deep .titlu A:active {
+  text-decoration: underline;
+}
+
+.citb {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.citl:hover .citb {
+  max-height: 100px;
+  opacity: 1;
+}
+
+.citb i.fa {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px;
+  font-size: 24px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.citl {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+  position: relative;
+}
+
+.citl::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.citl .citltext {
+  position: relative;
+  border-radius: 10px;
+  flex-grow: 1;
+}
+
+.quoteInfo .author,
+.quoteInfo .titlu,
+.quoteInfo .an {
+  margin: 0;
+  padding: 10px;
+}
+
+.quoteInfo {
+  padding: 15px;
+  max-width: 200px;
+  min-width: 200px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.author {
+  margin-bottom: 0.25rem;
+}
+
+.an {
+  letter-spacing: var(--spacing);
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-secondary);
+  font-size: 0.875rem;
+}
+
+.titlu {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: #c41616;
+  font-size: 0.85rem;
+  font-family: var(--ff-secondary);
+}
+
+.underline {
+  background-image: initial;
+  background-color: rgb(157, 18, 18);
+  width: 5rem;
+  background: #c41616;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.citl:hover .underline {
+  height: 0.25rem;
+  margin-bottom: 1rem;
+  max-height: 100px;
+  opacity: 1;
+}
+
+.smallerInfo {
+  display: flex;
+}
+
+.actualInfo {
+  flex-grow: 1;
+}
+
+.smallerInfo .img-container {
+  position: absolute;
+  right: -100%;
+  transition: right 0.5s ease-out, opacity 0.5s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; */
+  /* height: 100%; */
+}
+
+.citl:hover .smallerInfo .img-container {
+  right: 0;
+  opacity: 0.1;
+}
+
+.smallerInfo .img-container img {
+  height: 150px;
+  object-fit: contain;
+}
+
+.quoteInfo {
+  vertical-align: middle;
+}
+
+:host ::ng-deep #save-zone .img-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  /* cursor: pointer; */
+}
+
+:host ::ng-deep #save-zone #person-img {
+  width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+
+:host ::ng-deep #save-zone .img-container::after {
+  content: "\f10e";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transform: translateY(25%);
+  background: #000;
+  color: white;
+}
+
+:host ::ng-deep #save-zone .img-container::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #c41616;
+  position: absolute;
+  top: -0.25rem;
+  right: -0.5rem;
+  border-radius: 50%;
+}
+
+:host ::ng-deep  #save-zone #author {
+  margin-bottom: 0.25rem;
+}
+
+:host ::ng-deep  #save-zone #an {
+  letter-spacing: var(--spacing);
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-secondary);
+  font-size: 0.875rem;
+}
+
+:host ::ng-deep  #save-zone #titlu {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: #c41616;
+  font-size: 0.85rem;
+  font-family: var(--ff-secondary);
+}
+
+:host ::ng-deep  #save-zone #info {
+  margin-bottom: 0.75rem;
+}
+
+:host ::ng-deep  #save-zone {
+  text-align: center;
+}
+
+
+
+.desk {
+  display: contents;
+}
+
+.mob {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .citl {
+    display: block;
+  }
+
+  .citl .actualInfo {
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+  }
+
+  .citl .quoteInfo {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .actualInfo .author,
+  .actualInfo .titlu,
+  .actualInfo .an {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-top: 0;
+  }
+
+  .actualInfo .author,
+  .actualInfo .an {
+    width: 15vw;
+  }
+
+  .smallerInfo .img-container {
+    display: none;
+  }
+
+  .desk {
+    display: none;
+  }
+
+  .mob {
+    display: contents;
+  }
+}

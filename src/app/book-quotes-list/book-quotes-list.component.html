@@ -1,0 +1,40 @@
+<div *ngFor="let cit of book.citate">
+  <div class="citl" id="citl{{ cit.id }}">
+    <div class="citltext">
+      <app-actual-text [book]="book" [content]="content(cit)">
+      </app-actual-text>
+      <div class="desk">
+        <div class="underline"></div>
+      </div>
+    </div>
+
+    <!-- <div class="desk"> -->
+    <div class="quoteInfo">
+      <div class="smallerInfo">
+        <div class="img-container">
+          <img
+            src="assets/profiles/{{ cit.img }}.svg"
+            class="person-img"
+            alt=""
+          />
+        </div>
+        <div class="actualInfo">
+          <h4 class="author" [innerHTML]="cit.autor"></h4>
+          <p class="titlu" [innerHTML]="title(cit)"></p>
+          <p class="an" [innerHTML]="cit.an"></p>
+        </div>
+      </div>
+      <div class="citb">
+        <i
+          *ngIf="cit.titlu.includes('\<a')"
+          class="fa fa-arrow-right"
+          (click)="centerAlign(cit)"
+        ></i>
+        <i class="fa fa-quote-right" (click)="quoteRight(cit)"></i>
+        <i class="fa fa-save" (click)="save(cit)"></i>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</div>
+<div id="save-zone"></div>

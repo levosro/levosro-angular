@@ -1,7 +1,10 @@
 <section class="container">
-  <button (click)="onButtonClick()" class="expand-btn" id="{{ this.title }}">
-    {{this.title}} {{ok ? '▲' : '▼'}}
-  </button>
+  <button
+    (click)="onButtonClick()"
+    class="expand-btn"
+    id="{{ this.title }}"
+    [innerHTML]="getTitle()"
+  ></button>
 </section>
 <div *ngIf="ok" id="content{{ this.title }}">
   <ng-content></ng-content>

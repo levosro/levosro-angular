@@ -48,19 +48,11 @@ export class CitSearchContentComponent implements AfterViewInit {
   getCits(book: Book, author: string): Observable<Citat[]> {
     return this.booksService.getCitate(book, this.firestore).pipe(
       map((citate) => {
-        const newCitate: Citat[] = [];
-        let d = 0;
-        citate.forEach((citat) => {
-          d += 1;
-          newCitate.push({
-            ...citat,
-            id: d,
-          });
-        });
+        citate.sort((a, b) => a.id - b.id);
         if (!book.title.includes('Antologia Marx-Engels')) {
-          return newCitate || [];
+          return citate || [];
         } else {
-          return (newCitate || []).filter((item) =>
+          return (citate || []).filter((item) =>
             item.autor.includes(author)
           );
         }

@@ -11,6 +11,7 @@ import html2canvas from 'html2canvas';
 export class QuotesComponent implements OnInit, AfterContentInit {
   @Input() citate!: Citat[] | null;
   @Input() id!: number;
+  @Input() idNota!: number;
   @Input() link!: string;
   @Input() linkBook!: string;
   @Input() title!: string;
@@ -167,6 +168,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
     const prevBtn = document.querySelector('.prev-btn') as HTMLElement;
     const nextBtn = document.querySelector('.next-btn') as HTMLElement;
     const saveBtn = document.querySelector('.save') as HTMLElement;
+    const citlBtn = document.querySelector('.citl') as HTMLElement;
     const randomBtn = document.querySelector('.random-btn') as HTMLElement;
     const home = document.getElementById('home') as HTMLElement;
 
@@ -216,6 +218,10 @@ export class QuotesComponent implements OnInit, AfterContentInit {
       if (n1.querySelector('a') != null) {
         n1.querySelector('a')!.style.textDecoration = 'none';
       }
+      // n1.querySelector('h4#author')!.
+      // n1.querySelector('p#an')!.
+      // n1.querySelector('div#info')!.style
+      // return;
       html2canvas(n1).then(async function (canvas) {
         let xhr = new XMLHttpRequest();
         xhr.responseType = 'blob';
@@ -234,6 +240,12 @@ export class QuotesComponent implements OnInit, AfterContentInit {
       node1.innerHTML = '';
     });
 
+    if (citlBtn != null) {
+      citlBtn.addEventListener('click', () => {
+        window.location.href = `${this.linkBook}#citl${this.idNota}`;
+      });
+    }
+
     randomBtn.addEventListener('click', function () {
       let x = currentItem;
       let citat = citate[currentItem];
@@ -246,7 +258,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
           currentItem = Math.floor(Math.random() * citate.length);
         }
       } else {
-        console.log(autori.length)
+        console.log(autori.length);
         while (currentItem == x) {
           currentItem = Math.floor(Math.random() * citate.length);
         }

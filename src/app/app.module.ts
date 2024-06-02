@@ -33,6 +33,8 @@ import { BookQuotesComponent } from './book-quotes/book-quotes.component';
 import { ActualImageComponent } from './actual-image/actual-image.component';
 import { provideFunctions } from '@angular/fire/functions';
 import { getFunctions } from 'firebase/functions';
+import { BookQuotesListComponent } from './book-quotes-list/book-quotes-list.component';
+import { BookQuoteButtonComponent } from './book-quote-button/book-quote-button.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { getFunctions } from 'firebase/functions';
     SearchCitTextButtonComponent,
     BookQuotesComponent,
     ActualImageComponent,
+    BookQuotesListComponent,
+    BookQuoteButtonComponent,
   ],
   imports: [
     BrowserModule,

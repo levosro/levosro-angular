@@ -1,15 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { Text } from '../text';
+import { Book } from '../book';
 import { SpeechService } from '../speech.service';
 
 @Component({
-  selector: 'app-book-button',
-  templateUrl: './book-button.component.html',
-  styleUrls: ['./book-button.component.css'],
+  selector: 'app-book-quote-button',
+  templateUrl: './book-quote-button.component.html',
+  styleUrls: ['./book-quote-button.component.css'],
 })
-export class BookButtonComponent {
-  @Input() text!: Text;
+export class BookQuoteButtonComponent {
+  @Input() book!: Book;
   @Input() ok!: boolean;
+  @Input() title!: string;
 
   onButtonClick() {
     this.ok = !this.ok;
@@ -20,13 +22,11 @@ export class BookButtonComponent {
   constructor(private speech: SpeechService) {}
 
   getInnerHTML() {
-    return `${this.text.title != '' ? this.text.title : this.text.info} ${
-      this.ok ? '▲' : '▼'
-    }`;
+    return `${this.title} ${this.ok ? '▲' : '▼'}`;
   }
 
   scrollToTop() {
-    const textButton = document.getElementById(this.text.idChr);
+    const textButton = document.getElementById(`citate${this.book.link}`);
     const distanceFromTop = textButton!.offsetTop - 48; // 3em = 48px (assuming font-size: 16px)
     document.documentElement.scrollTop = distanceFromTop; // set scrollTop of <html> element
   }

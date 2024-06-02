@@ -24,7 +24,7 @@ export class BookPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private booksService: BooksService
-  ) { }
+  ) {}
 
   async ngOnInit() {
     this.book = this.route.snapshot.data['book'] as Book;
@@ -33,36 +33,41 @@ export class BookPageComponent implements OnInit {
     let book2 = jsonString != null ? JSON.parse(jsonString) : null;
 
     if (book2 != null && book2.link == this.book.link) {
-      this.book = book2
+      this.book = book2;
       // console.log(jsonString)
-    }
-    else {
-
-      this.booksService.getParts(this.book, this.firestore).subscribe((parts) => {
-        this.book.parts =
-          parts.length === 0 ? [{ idPt: '1', title: this.book.title }] : parts;
-        this.booksService
-          .getChapters(this.book, this.firestore)
-          .subscribe((chapters) => {
-            this.book.chapters = chapters;
-            this.booksService
-              .getCitate(this.book, this.firestore)
-              .subscribe((cits) => {
-                this.book.citate = cits;
-                this.booksService
-                  .getNotes(this.book, this.firestore)
-                  .subscribe((notes) => {
-                    this.book.notes = notes;
-                    this.booksService
-                      .getTexts(this.book, this.firestore)
-                      .subscribe((texts) => {
-                        this.book.texts = texts;
-                        sessionStorage.setItem('book', JSON.stringify(this.book));
-                      });
-                  });
-              });
-          });
-      });
+    } else {
+      this.booksService
+        .getParts(this.book, this.firestore)
+        .subscribe((parts) => {
+          this.book.parts =
+            parts.length === 0
+              ? [{ idPt: '1', title: this.book.title }]
+              : parts;
+          this.booksService
+            .getChapters(this.book, this.firestore)
+            .subscribe((chapters) => {
+              this.book.chapters = chapters;
+              this.booksService
+                .getCitate(this.book, this.firestore)
+                .subscribe((cits) => {
+                  this.book.citate = cits.sort((a, b) => a.id - b.id);
+                  this.booksService
+                    .getNotes(this.book, this.firestore)
+                    .subscribe((notes) => {
+                      this.book.notes = notes;
+                      this.booksService
+                        .getTexts(this.book, this.firestore)
+                        .subscribe((texts) => {
+                          this.book.texts = texts;
+                          sessionStorage.setItem(
+                            'book',
+                            JSON.stringify(this.book)
+                          );
+                        });
+                    });
+                });
+            });
+        });
     }
 
     const url = new URL(window.location.href);
@@ -82,6 +87,7 @@ export class BookPageComponent implements OnInit {
     }
 
     console.log(this.book);
+
     window.onclick = function (event) {
       const modal = document.querySelector('.modal') as HTMLElement;
       const modalClose = document.querySelector(
@@ -125,12 +131,20 @@ export class BookPageComponent implements OnInit {
     }
     return res;
   }
+
+  getCitsOpen(): boolean {
+    let target = window.location.href.split('#')[1];
+    if (target != undefined && target.includes('citl')) {
+      return true;
+    }
+    return false;
+  }
 }
 
 function downloadFile(book: Book, storage: Storage) {
   const filePath = book.link + '-book';
   const thing = ref(storage, filePath);
   getDownloadURL(thing).then((link) => {
-    open(link)
-  })
+    open(link);
+  });
 }

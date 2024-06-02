@@ -1,9 +1,4 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Book } from '../book';
 
@@ -42,10 +37,17 @@ export class ActualTextComponent implements OnChanges {
     procContent.forEach((cont) => {
       if (!cont.isItImg) {
         const newCont = this.sanitizer.bypassSecurityTrustHtml(cont.value);
-        newContent.push({ safeValue: newCont, isItImg: cont.isItImg, value: cont.value });
-      }
-      else {
-        newContent.push({ safeValue: cont.value, isItImg: cont.isItImg, value: cont.value });
+        newContent.push({
+          safeValue: newCont,
+          isItImg: cont.isItImg,
+          value: cont.value,
+        });
+      } else {
+        newContent.push({
+          safeValue: cont.value,
+          isItImg: cont.isItImg,
+          value: cont.value,
+        });
       }
     });
     this.safeContent = newContent;
@@ -130,6 +132,10 @@ export class ActualTextComponent implements OnChanges {
   }
 
   getParagraphId(index: number): string {
-    return `${this.idChr}-${index}`
+    if (this.idChr != undefined) {
+      return `${this.idChr}-${index}`;
+    } else {
+      return `${index}`;
+    }
   }
 }

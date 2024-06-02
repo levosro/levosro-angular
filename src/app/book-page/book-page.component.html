@@ -23,11 +23,14 @@
           [title]="getDownloadTitle()"
           [onClick]="DownloadClick"
         ></app-button>
-        <app-button
+        <app-book-quote-button
           *ngIf="book.citate.length > 0"
           [title]="getCitsTitle()"
-          [onClick]="CitateClick"
-        ></app-button>
+          [book]="book"
+          [ok]="getCitsOpen()"
+        >
+          <app-book-quotes-list [book]="book"></app-book-quotes-list>
+        </app-book-quote-button>
       </div>
       <p></p>
       <app-book-toc [book]="book"></app-book-toc>

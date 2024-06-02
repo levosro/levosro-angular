@@ -13,4 +13,8 @@ export class ExpandedButtonComponent {
   onButtonClick() {
     this.ok = !this.ok;
   }
+
+  getTitle() {
+    return this.title + ' ' + (this.ok ? '▲' : '▼')
+  }
 }

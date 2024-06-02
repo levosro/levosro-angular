@@ -1,0 +1,17 @@
+<div>
+  <section class="container">
+    <button
+      (click)="onButtonClick()"
+      class="expand-btn"
+      id="citate{{ book.link }}"
+      [innerHTML]="getInnerHTML()"
+    ></button>
+  </section>
+  <!-- <div [style.display]="this.ok ? '' : 'none'"> -->
+  <div *ngIf="ok" class="citList">
+    <ng-content></ng-content>
+    <button class="top" (click)="scrollToTop()">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+  </div>
+</div>

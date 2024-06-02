@@ -26,24 +26,28 @@ export class BookQuotesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.citate$ = this.booksService.getCitate(this.book, this.firestore);
+    let jsonString = sessionStorage.getItem('book');
+    let book2 = jsonString != null ? JSON.parse(jsonString) : null;
 
-    this.citate$.pipe(take(1)).subscribe({
-      next: (citate) => {
-        let d = 0;
-        this.cits$ = [];
-        citate.forEach((cit) => {
-          d += 1;
-          this.cits$.push({ ...cit, id: d });
-        });
-        // this.cits$ = citate;
-      },
-      complete: () => {
-        // console.log(this.cits$);
-        // console.log(+this.cit)
-        this.citat = this.cits$.filter((item) => item.id == +this.cit)[0];
-        // console.log(this.citat);
-      },
-    });
+    if (book2 != null && book2.link == this.book.link) {
+      this.cits$ = book2.citate;
+      this.citat = this.cits$.filter((item) => item.id == +this.cit)[0];
+      // console.log(jsonString)
+    } else {
+      this.citate$ = this.booksService.getCitate(this.book, this.firestore);
+
+      this.citate$.pipe(take(1)).subscribe({
+        next: (citate) => {
+          citate.sort((a, b) => a.id - b.id);
+          this.cits$ = citate;
+        },
+        complete: () => {
+          // console.log(this.cits$);
+          // console.log(+this.cit)
+          this.citat = this.cits$.filter((item) => item.id == +this.cit)[0];
+          // console.log(this.citat);
+        },
+      });
+    }
   }
 }

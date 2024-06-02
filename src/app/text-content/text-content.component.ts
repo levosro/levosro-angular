@@ -40,7 +40,7 @@ export class TextContentComponent implements OnInit, OnDestroy {
   constructor(private speechService: SpeechService) {}
 
   ngOnDestroy(): void {
-    console.log('destroy', this.text.idChr)
+    console.log('destroy', this.text.idChr);
     if (this.wordBoundSubscription) {
       this.wordBoundSubscription.unsubscribe();
     }
@@ -109,6 +109,7 @@ export class TextContentComponent implements OnInit, OnDestroy {
               ) {
                 const timeoutId = setTimeout(() => {
                   element.innerHTML = newParagraph;
+                  this.addNotesFunct(index);
                 }, (offset + 5000) / 10000);
                 this.timeouts.push(timeoutId);
               }
@@ -116,6 +117,7 @@ export class TextContentComponent implements OnInit, OnDestroy {
             this.reset = () => {
               console.log('reset at ', index);
               element.innerHTML = original;
+              this.addNotesFunct(index);
             };
             const timeoutId = setTimeout(this.reset, (duration + 5000) / 10000);
             this.timeouts.push(timeoutId);
@@ -228,14 +230,23 @@ export class TextContentComponent implements OnInit, OnDestroy {
     //   console.log(`!!${this.bold}`);
     // });
 
-    const target = window.location.href.split('#')[1];
+    let target = window.location.href.split('#')[1];
+
+    let textElement = document.querySelector('.titlu');
+    // if (
+    //   this.book.chapters.filter((c) => this.text.idChr.indexOf(c.idCh) == 0).length == 1
+    // ) {
+    //   target = this.text.idChr;
+    // }
     if (target != undefined) {
-      let textElement = document.querySelector('.titlu');
       if (target.includes('cit') || target.includes('p')) {
         textElement = document.querySelector(`a#${target}`);
       } else {
         textElement = document.getElementById(target);
       }
+    }
+
+    if (textElement != document.querySelector('.titlu')) {
       const distanceFromTop = (textElement as HTMLElement).offsetTop - 48;
       window.scrollTo({
         top: distanceFromTop,
@@ -243,9 +254,11 @@ export class TextContentComponent implements OnInit, OnDestroy {
       });
 
       if (target.includes('cit') || target.includes('p')) {
-        this.highlight(
-          (textElement as HTMLElement).parentElement as HTMLElement
-        );
+        if (target.includes('cit') || target.includes('p')) {
+          this.highlight(
+            (textElement as HTMLElement).parentElement as HTMLElement
+          );
+        }
       }
     }
 
@@ -335,11 +348,16 @@ export class TextContentComponent implements OnInit, OnDestroy {
     return (node instanceof Element && node.id) || null;
   }
 
-  addNotesFunct(): void {
+  addNotesFunct(index: number | null = null): void {
     const notes = this.book.notes;
-    const doc = document.getElementById(
+    let doc = document.getElementById(
       `content${this.text.idChr}`
     ) as HTMLElement;
+    if (index != null) {
+      doc = document.getElementById(
+        `${this.text.idChr}-${index}`
+      ) as HTMLElement;
+    }
     const aTags = doc.querySelectorAll('a');
     const modal = document.getElementById('modal') as HTMLElement;
     const modalBody = document.getElementById('modal-inner') as HTMLElement;
