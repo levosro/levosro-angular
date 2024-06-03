@@ -26,11 +26,7 @@
     <div id="part" *ngIf="part" [innerHTML]="part.title"></div>
     <h4 id="titlu" *ngIf="chapter" [innerHTML]="chapter.title"></h4>
     <div class="subtitle" *ngIf="chapter" [innerHTML]="chapter.subtitle"></div>
-    <div id="author" *ngIf="chapter">
-      <div *ngIf="chapter.author.toLowerCase() != chapter.author">
-        {{ chapter.author != "" ? chapter.author : book.author }}
-      </div>
-    </div>
+    <div id="author" *ngIf="chapter">{{chapterAuthor(chapter)}}</div>
     <div id="info" *ngIf="chapter">
       <app-actual-text
         [content]="filteredChapter(chapter)"

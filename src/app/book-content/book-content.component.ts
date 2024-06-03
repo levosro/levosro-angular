@@ -148,7 +148,17 @@ export class BookContentComponent implements OnInit, AfterContentInit {
   };
 
   filteredChapter(c: Chapter): string[] {
-    return c.description.filter(e => !e.includes('.svg'))
+    return c.description != undefined
+      ? c.description.filter((e) => !e.includes('.svg'))
+      : [];
+  }
+
+  chapterAuthor(c: Chapter): string {
+    return c.author != undefined && c.author != ''
+      ? c.author.toLowerCase() != c.author
+        ? c.author
+        : ''
+      : this.book.author;
   }
 
   isButtonOpen(idChr: string): boolean {
