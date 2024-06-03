@@ -147,6 +147,10 @@ export class BookContentComponent implements OnInit, AfterContentInit {
     downloadFile(this.book, this.storage);
   };
 
+  filteredChapter(c: Chapter): string[] {
+    return c.description.filter(e => !e.includes('.svg'))
+  }
+
   isButtonOpen(idChr: string): boolean {
     if (this.texts.length == 1) {
       return true;

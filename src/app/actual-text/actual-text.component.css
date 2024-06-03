@@ -1,42 +1,32 @@
-:host ::ng-deep p,
-div,
-blockquote {
-  font-family: var(--ff-secondary);
-}
-
-:host ::ng-deep td p {
-  text-indent: 0 !important;
-  text-align: center;
-}
-
-:host ::ng-deep A:link {
-  color: #c41616;
-  text-decoration: none;
-}
-
-:host ::ng-deep A:visited {
-  color: #c41616;
-  text-decoration: none;
-}
-
-:host ::ng-deep A:hover {
-  text-decoration: underline;
-}
-
-:host ::ng-deep A:active {
-  text-decoration: underline;
-}
-
-:host ::ng-deep A:hover {
-  text-decoration: underline;
-}
-
-:host ::ng-deep A:active {
-  text-decoration: underline;
-}
-
-:host ::ng-deep div {
+:host ::ng-deep p {
+  font-size: 12pt;
+  text-indent: 1em;
+  line-height: 130%;
+  hyphens: auto;
   text-align: justify;
+}
+
+:host ::ng-deep p {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+:host ::ng-deep table, ol {
+    max-width: 100%;
+}
+
+:host ::ng-deep p.noind, p.quote, p.quotef, p.quote-list, p.inline, p.toc, p.right, p.mid, p.mid1, p.indent-list, p.h1 {
+  text-indent: 0;
+}
+
+:host ::ng-deep a:link, a:visited, a:hover, a:active {
+  color: #c41616;
+  /* color: #000; */
+  text-decoration: none;
+}
+
+:host ::ng-deep a:hover, a:active {
+  text-decoration: underline;
 }
 
 :host ::ng-deep hr {
@@ -44,155 +34,89 @@ blockquote {
   height: 1px;
   margin-top: 1em;
   margin-bottom: 1em;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0)
-  );
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
-:host ::ng-deep BLOCKQUOTE {
-  font-size: 12pt;
-  margin-left: 15%;
-  line-height: 125%;
-  margin-right: 15%;
-  color: gray;
+:host ::ng-deep blockquote {
+  border-left: 5px solid #c41616;
+}
+
+:host ::ng-deep blockquote, p.quote, p.quotef {
+  max-width: 70%;
+  padding: 0 10px;
+  margin: 0 auto;
+  color: rgb(152, 143, 129);
+}
+
+:host ::ng-deep blockquote, div.citate, h1, h2, h3, h4, h5, h6, p.sub, p.quote, p.quotef, p.quote-list, p.inline, p.toc, p.right, p.mid, p.mid1, p.indent-list {
   text-align: justify;
+  text-indent: 0;
+  hyphens: auto;
 }
 
-:host ::ng-deep DIV.citate {
+:host ::ng-deep div.citate, h1, h2, h3, h4, h5, h6, span.stea, p.sub, p.quote-list, p.inline, p.toc, p.right, p.mid, p.mid1, p.indent-list {
+  font-size: 12pt;
+  margin-left: 1em;
+  line-height: 130%;
+  margin-right: 1em;
+}
+
+:host ::ng-deep h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-left: 36px;
+  color: #330000;
+  line-height: 120%;
+  margin-right: 36px;
+}
+
+:host ::ng-deep h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+/* Specific styles for headings */
+:host ::ng-deep h1 {
+  font-size: 28pt;
+}
+
+:host ::ng-deep h2 {
+  font-size: 18pt;
+}
+
+:host ::ng-deep h3 {
+  font-size: 16pt;
+}
+
+:host ::ng-deep h4 {
+  font-size: 14pt;
+  margin-left: 8%;
+}
+
+:host ::ng-deep h5 {
+  font-size: 14pt;
+  line-height: 175%;
+}
+
+:host ::ng-deep h6 {
+  font-size: 14pt;
+  line-height: 150%;
+  margin-bottom: 1em;
+}
+
+/* Additional specific styles */
+:host ::ng-deep div.citate {
   font-size: 11pt;
   margin-left: 20%;
   text-indent: 0em;
-  line-height: 130%;
-  margin-right: 5%;
+  margin-right: 1em;
   text-align: right;
 }
 
-:host ::ng-deep P.right2 {
+:host ::ng-deep p.right2 {
   font-size: 12pt;
   margin-left: 40%;
   text-indent: 1em;
   line-height: 130%;
-  margin-right: 5%;
-  text-align: justify;
-}
-
-:host ::ng-deep H1 {
-  font-weight: bold;
-  font-size: 28pt;
-  background: #ffffff;
-  margin-left: 36px;
-  color: #330000;
-  line-height: 120%;
-  margin-right: 36px;
-
-  text-align: center;
-}
-
-:host ::ng-deep P.h1 {
-  font-weight: bold;
-  font-size: 28pt;
-  background: #ffffff;
-  text-indent: 0em;
-  margin-left: 36px;
-  color: #000000;
-  line-height: 120%;
-  margin-right: 36px;
-  text-align: center;
-}
-
-:host ::ng-deep H2 {
-  font-weight: bold;
-  font-size: 18pt;
-  background: none transparent scroll repeat 0% 0%;
-  margin-left: 36px;
-  color: #330000;
-  line-height: 120%;
-  margin-right: 36px;
-
-  text-align: center;
-}
-
-:host ::ng-deep H3 {
-  font-weight: bold;
-  font-size: 16pt;
-  background: none transparent scroll repeat 0% 0%;
-  margin-left: 36px;
-  color: #330000;
-  line-height: 120%;
-  margin-right: 36px;
-
-  text-align: center;
-}
-
-:host ::ng-deep H4 {
-  font-weight: bold;
-  font-size: 14pt;
-  background: none transparent scroll repeat 0% 0%;
-  margin-left: 8%;
-  color: #330000;
-  line-height: 120%;
-  margin-right: 8%;
-
-  text-align: center;
-}
-
-:host ::ng-deep H5 {
-  font-weight: bold;
-  font-size: 14pt;
-  background: none transparent scroll repeat 0% 0%;
-  margin-left: 9%;
-  color: #330000;
-  line-height: 175%;
-  margin-right: 9%;
-
-  text-align: center;
-}
-
-:host ::ng-deep H6 {
-  font-weight: bold;
-  font-size: 14pt;
-  background: none transparent scroll repeat 0% 0%;
-  margin-left: 6%;
-  color: #330000;
-  line-height: 150%;
-  margin-right: 6%;
-  margin-bottom: 1em;
-
-  text-align: center;
-}
-
-:host ::ng-deep SPAN.stea {
-  font-size: 110%;
-}
-
-:host ::ng-deep SPAN.greek {
-  font-family: symbol;
-  font-family: "grec";
-}
-
-:host ::ng-deep SPAN.russian {
-  font-family: "rus";
-}
-
-:host ::ng-deep ol {
-  font-size: 12pt;
-  margin-left: 5%;
-  line-height: 130%;
-  margin-right: 5%;
-
-  text-align: justify;
-}
-
-:host ::ng-deep table {
-  font-size: 12pt;
-  margin-left: 5%;
-  line-height: 130%;
-  margin-right: 5%;
-  text-align: justify;
-  border: black;
+  margin-right: 1em;
 }
 
 :host ::ng-deep td.special {
@@ -200,95 +124,67 @@ blockquote {
   width: 1px;
 }
 
-:host ::ng-deep UL.disc {
+:host ::ng-deep td p {
+  text-indent: 0;
+}
+
+:host ::ng-deep ul.disc, ol.numbered {
   font-size: 12pt;
   margin-left: 7%;
   line-height: 130%;
   margin-right: 14%;
-
-  list-style-type: disc;
   text-align: left;
 }
 
-:host ::ng-deep OL.numbered {
-  font-size: 12pt;
-  margin-left: 7%;
-  line-height: 130%;
-  margin-right: 14%;
-
-  text-align: left;
+:host ::ng-deep span.stea {
+  font-size: 110%;
 }
 
-:host ::ng-deep SPAN.spt {
+/* span.greek {
+  font-family: symbol, "grec";
+}
+
+span.russian {
+  font-family: "rus";
+} */
+
+:host ::ng-deep span.spt {
   letter-spacing: 0.2em;
   word-spacing: 0.1em;
 }
 
-:host ::ng-deep SPAN.eng {
+:host ::ng-deep span.eng {
   font-variant: small-caps;
 }
 
-:host ::ng-deep P {
-  font-size: 12pt;
-  margin-left: 5%;
-  text-indent: 1em !important;
-  line-height: 130%;
-  margin-right: 5%;
-  margin-bottom: 1.25rem;
-  /* color: black; */
-  text-align: justify;
+:host ::ng-deep span.cpt {
+    text-transform: uppercase;
 }
 
-:host ::ng-deep P.noind {
-  font-size: 12pt;
-  margin-left: 5%;
-  text-indent: 0 !important;
-  line-height: 130%;
-  margin-right: 5%;
-
-  text-align: justify;
-}
-
-:host ::ng-deep P.sub {
+:host ::ng-deep p.sub {
   font-weight: bold;
   font-size: 16pt;
   color: black;
   text-align: center;
 }
 
-:host ::ng-deep P.quote {
-  text-indent: 0em;
+:host ::ng-deep p.quote, p.quotef {
   font-size: 12pt;
   margin-left: 15%;
   line-height: 125%;
   margin-right: 15%;
-
-  text-align: justify;
 }
 
-:host ::ng-deep P.quotef {
-  font-size: 12pt;
-  margin-left: 15%;
-  line-height: 125%;
-  margin-right: 15%;
-  text-indent: 0em;
-
-  text-align: center;
-}
-
-:host ::ng-deep P.quote-list {
+:host ::ng-deep p.quote-list {
   font-size: 12pt;
   margin-left: 14%;
   text-indent: -1em;
   line-height: 150%;
   margin-right: 14%;
-
-  text-align: justify;
 }
 
-:host ::ng-deep P.inline {
+:host ::ng-deep p.inline {
   font-size: 11pt;
-  background: none transparent scroll repeat 0% 0%;
   margin-left: 20%;
   color: #666666;
   text-indent: 0em;
@@ -296,10 +192,9 @@ blockquote {
   text-align: right;
 }
 
-:host ::ng-deep P.toc {
+:host ::ng-deep p.toc {
   font-weight: bold;
   font-size: 12pt;
-  background: none transparent scroll repeat 0% 0%;
   margin-left: 7%;
   color: #330000;
   text-indent: 0em;
@@ -308,71 +203,29 @@ blockquote {
   text-align: left;
 }
 
-:host ::ng-deep P.right {
+:host ::ng-deep p.right {
   font-size: 12pt;
   margin-left: 11%;
   text-indent: 0em;
   line-height: 125%;
-  margin-right: 5%;
-
+  margin-right: 1em;
   text-align: right;
 }
 
-:host ::ng-deep P.mid {
+:host ::ng-deep p.mid, p.mid1 {
   font-size: 13pt;
   margin-left: 20%;
-  text-indent: 0 !important;
+  text-indent: 0!important;
   line-height: 125%;
   margin-right: 20%;
-
   text-align: center;
 }
 
-:host ::ng-deep P.mid1 {
-  font-size: 12pt;
-  margin-left: 20%;
-  text-indent: 0em;
-  line-height: 125%;
-  margin-right: 20%;
-
-  text-align: center;
-}
-
-:host ::ng-deep P.indent-list {
+:host ::ng-deep p.indent-list {
   font-size: 14pt;
   margin-left: 12%;
   text-indent: -1em;
   line-height: 150%;
   margin-right: 12%;
-
   text-align: justify;
-}
-
-:host ::ng-deep UL.disc {
-  font-size: 12pt;
-  margin-left: 7%;
-  line-height: 130%;
-  margin-right: 14%;
-
-  list-style-type: disc;
-  text-align: left;
-}
-
-:host ::ng-deep OL.numbered {
-  font-size: 12pt;
-  margin-left: 7%;
-  line-height: 130%;
-  margin-right: 14%;
-
-  text-align: left;
-}
-
-:host ::ng-deep SUP {
-  font-weight: normal;
-  font-size: x-small;
-}
-
-:host ::ng-deep SUB {
-  font-weight: normal;
-  font-size: x-small;
 }

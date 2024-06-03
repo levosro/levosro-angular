@@ -3,6 +3,7 @@
   min-width: 7em;
   pointer-events: none;
   text-align: center;
+  max-height: 150px;
 }
 
 :host ::ng-deep .softLight {
