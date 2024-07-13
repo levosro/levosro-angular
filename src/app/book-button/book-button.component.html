@@ -4,10 +4,11 @@
       (click)="onButtonClick()"
       class="expand-btn"
       id="{{ text.idChr }}"
-      [innerHTML]="getInnerHTML()"
-    ></button>
+    >
+     <span [innerHTML]="getInnerHTML()"></span>&nbsp;<i class="fa fa-caret-down" [ngClass]="{ 'open': ok, 'closed': !ok }"></i>
+  </button>
   </section>
-  <div [style.display]="this.ok ? '' : 'none'" id="content{{ text.idChr }}">
+  <div class="smooth-content" [class.retracted]="!ok" id="content{{ text.idChr }}">
     <ng-content></ng-content>
     <button class="top" (click)="scrollToTop()">
       <i class="fa-solid fa-chevron-up"></i>

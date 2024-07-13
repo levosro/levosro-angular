@@ -20,9 +20,7 @@ export class BookButtonComponent {
   constructor(private speech: SpeechService) {}
 
   getInnerHTML() {
-    return `${this.text.title != '' ? this.text.title : this.text.info} ${
-      this.ok ? '▲' : '▼'
-    }`;
+    return `${this.text.title != '' ? this.text.title : this.text.info}`;
   }
 
   scrollToTop() {

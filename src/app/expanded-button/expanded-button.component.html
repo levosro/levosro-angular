@@ -1,11 +1,12 @@
 <section class="container">
-  <button
-    (click)="onButtonClick()"
-    class="expand-btn"
-    id="{{ this.title }}"
-    [innerHTML]="getTitle()"
-  ></button>
+  <button (click)="onButtonClick()" class="expand-btn" id="{{ this.title }}">
+    <span [innerHTML]="title"></span>&nbsp;<i class="fa fa-caret-down" [ngClass]="{ open: ok, closed: !ok }"></i>
+  </button>
 </section>
-<div *ngIf="ok" id="content{{ this.title }}">
+<div
+  class="smooth-content"
+  [class.retracted]="!ok"
+  id="content{{ this.title }}"
+>
   <ng-content></ng-content>
 </div>

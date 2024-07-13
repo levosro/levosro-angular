@@ -1,0 +1,66 @@
+<div class="dialog-background" *ngIf="isDialogOpen">
+  <div class="dialog">
+    <h2>Download</h2>
+
+    <button (click)="selectAllAuthors()">
+      {{ allAuthorsSelected ? "Deselect All Authors" : "Select All Authors" }}
+    </button>
+
+    <div class="sel-zone">
+      <div class="tile">
+        <span>Authors</span>
+        <i
+          class="fa fa-caret-down"
+          [ngClass]="{ open: !authorsRetracted, closed: authorsRetracted }"
+        ></i>
+      </div>
+      <div class="authors" [class.retracted]="authorsRetracted">
+        <ul>
+          <li
+            *ngFor="let author of authors"
+            (click)="toggleAuthorSelection(author)"
+          >
+            <label class="checkbox-container">
+              <input type="checkbox" [checked]="selAuthors.includes(author)"/>
+            </label>
+            <span class="list-item-text">{{ author }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <button (click)="selectAllBooks()">
+      {{ allBooksSelected ? "Deselect All Books" : "Select All Books" }}
+    </button>
+
+    <div class="sel-zone">
+      <div class="tile">
+        <span>Books</span>
+        <i
+          class="fa fa-caret-down"
+          [ngClass]="{ open: !booksRetracted, closed: booksRetracted }"
+        ></i>
+      </div>
+      <div class="books" [class.retracted]="booksRetracted">
+        <ul>
+          <li *ngFor="let book of books" (click)="toggleBookSelection(book)">
+            <label class="checkbox-container">
+              <input type="checkbox" [checked]="selBooks.includes(book)" />
+            </label>
+            <span class="list-item-text">{{ book.title }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="buttons">
+      <button
+        [disabled]="selBooks.length === 0"
+        (click)="downloadSelectedBooks()"
+        [class.disabled]="selBooks.length === 0"
+      >
+        Download ({{ selBooks.length }})
+      </button>
+      <button (click)="closeDialog()">Close</button>
+    </div>
+  </div>
+</div>

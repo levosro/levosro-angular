@@ -20,43 +20,22 @@ export class SearchContentComponent implements OnInit {
   authors!: string[];
   firestore: Firestore = inject(Firestore);
 
-  constructor(
-    private booksService: BooksService,
-  ) {}
+  constructor(private booksService: BooksService) {}
 
   ngOnInit(): void {
     this.books$ = this.booksService.books$;
     if (this.books$ !== undefined) {
-      this.books$
-        .pipe(
-          switchMap((books) => {
-            if (books) {
-              // console.log(books);
-              this.books = books;
-              // console.log(this.elRef.nativeElement.outerHTML);
-              return this.booksService.getAuthors(books);
-            } else {
-              return of(null);
-            }
-          })
-        )
-        .subscribe({
-          next: (authors) => {
-            if (authors) {
-              this.authors = authors;
-              // console.log(authors);
-              // this.changeDetector.markForCheck();
-              // console.log(this.elRef.nativeElement.outerHTML);
-              return;
-            }
-          },
-          error: (error) => {
-            console.error(error);
-          },
-        });
-      // console.log(this.elRef.nativeElement.outerHTML);
+      this.books$.subscribe(
+        (books) => {
+          if (books) {
+            // console.log(books);
+            this.books = books;
+            // console.log(this.elRef.nativeElement.outerHTML);
+            this.authors = this.booksService.getAuthors(books)
+          }
+        })
+      ;
     }
-    // console.log(`!!${this.elRef.nativeElement.outerHTML}`);
   }
 
   private onDestroy$ = new Subject<void>();

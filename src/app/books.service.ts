@@ -122,58 +122,9 @@ export class BooksService {
 
   collections$ = this.books$.pipe(
     map((books) => {
-      const collections = books.map(book => book.collection)
+      const collections = books.map((book) => book.collection);
       const uniqueCollections = new Set(collections);
-      return [...uniqueCollections]
-    })
-  )
-
-  antologii$ = this.books$.pipe(
-    map((books) =>
-      books.filter(
-        (item) =>
-          item.title.includes('Antologia') || item.title.includes('Anthology') || item.title.includes('Citate din scrierile lui Karl Marx')
-      )
-    )
-  );
-
-  mao$ = this.books$.pipe(
-    map((books) =>
-      books.filter(
-        (item) => item.link.includes('mao') && !item.title.includes('Antologia')
-      )
-    )
-  );
-
-  capitalul$ = this.books$.pipe(
-    map((books) =>
-      books.filter(
-        (item) =>
-          item.title.includes('Capitalul') ||
-          item.title.includes('Bazele criticii')
-      )
-    )
-  );
-
-  teorii$ = this.books$.pipe(
-    map((books) => books.filter((item) => item.title.includes('Teorii asupra')))
-  );
-
-  content$ = combineLatest([
-    this.books$,
-    this.antologii$,
-    this.mao$,
-    this.capitalul$,
-    this.teorii$,
-  ]).pipe(
-    map(([books, antologii, mao, capitalul, teorii]) => {
-      return books.filter(
-        (item) =>
-          !antologii.includes(item) &&
-          !mao.includes(item) &&
-          !capitalul.includes(item) &&
-          !teorii.includes(item)
-      );
+      return [...uniqueCollections];
     })
   );
 
@@ -250,7 +201,7 @@ export class BooksService {
     return resCit.asObservable();
   }
 
-  getAuthors(books: Book[]): Observable<string[]> {
+  getAuthors(books: Book[]): string[] {
     // const books = this._books.getValue();
     // console.log(books)
     const authors: string[] = [];
@@ -268,7 +219,7 @@ export class BooksService {
         }
       });
     });
-    return of(Array.from(new Set(authors)));
+    return Array.from(new Set(authors));
   }
 
   getLinks(): Observable<Route[]> {

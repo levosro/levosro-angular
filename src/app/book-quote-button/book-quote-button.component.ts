@@ -21,10 +21,6 @@ export class BookQuoteButtonComponent {
 
   constructor(private speech: SpeechService) {}
 
-  getInnerHTML() {
-    return `${this.title} ${this.ok ? '▲' : '▼'}`;
-  }
-
   scrollToTop() {
     const textButton = document.getElementById(`citate${this.book.link}`);
     const distanceFromTop = textButton!.offsetTop - 48; // 3em = 48px (assuming font-size: 16px)

@@ -20,3 +20,26 @@
   display: block;
   text-align: center;
 }
+
+.fa-caret-down {
+  transition: transform 0.3s ease;
+}
+
+.fa-caret-down.open {
+  transform: rotate(180deg);
+}
+
+.fa-caret-down.closed {
+  transform: rotate(0deg);
+}
+
+.smooth-content {
+  overflow: visible;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.smooth-content.retracted {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}

@@ -39,6 +39,18 @@
   background-color: #b01616;
 }
 
+.fa-caret-down {
+  transition: transform 0.3s ease;
+}
+
+.fa-caret-down.open {
+  transform: rotate(180deg);
+}
+
+.fa-caret-down.closed {
+  transform: rotate(0deg);
+}
+
 .container {
   display: block;
   text-align: center;
@@ -47,4 +59,12 @@
 .citList {
   max-width: 900px;
   margin: 0 auto;
+  overflow: visible;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.citList.retracted {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
 }

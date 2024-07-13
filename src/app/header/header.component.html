@@ -13,25 +13,26 @@
         <li><i id="youtube" class="fa-brands fa-youtube"></i></li>
         <li><i id="instagram" class="fa-brands fa-instagram"></i></li>
         <li><i id="facebook" class="fa-brands fa-facebook"></i></li>
-        <!-- <li><i id="discord" class="fa-brands fa-discord"></i></li> -->
+        <li><i id="download" (click)="openNameDialog()" class="fa fa-download"></i></li>
       </ul>
     </div>
   </div>
-  <div class="menu-btn">
-    <i class="fa fa-bars" (click)="openNav()"></i>
+  <div class="menu-btn" (click)="toggleNav()">
+    <i class="fa fa-bars"></i>
   </div>
 </header>
-<nav class="sidenav" id="sidenav">
+<nav class="sidenav" [class.open]="isNavOpen">
   <ul class="sidebar-menu">
     <li>
-      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
-        ><i class="fa fa-xmark"></i
-      ></a>
+      <a href="javascript:void(0)" class="closebtn" (click)="toggleNav()">
+        <i class="fa fa-xmark"></i>
+      </a>
     </li>
     <li><i id="quotes" class="fa fa-quote-right"></i></li>
     <li><i id="youtube" class="fa-brands fa-youtube"></i></li>
     <li><i id="instagram" class="fa-brands fa-instagram"></i></li>
     <li><i id="facebook" class="fa-brands fa-facebook"></i></li>
-    <!-- <li><i id="discord" class="fa-brands fa-discord"></i></li> -->
+    <li><i id="download" (click)="openNameDialog()" class="fa fa-download"></i></li>
   </ul>
 </nav>
+<app-author-dialog (closeDialogEvent)="closeNameDialog()" #authorDialog></app-author-dialog>

@@ -4,11 +4,12 @@
       (click)="onButtonClick()"
       class="expand-btn"
       id="citate{{ book.link }}"
-      [innerHTML]="getInnerHTML()"
-    ></button>
+    >
+    <i class="fa fa-quote-right"></i>&nbsp;<span [innerHTML]="title"></span>&nbsp;<i class="fa fa-caret-down" [ngClass]="{ 'open': ok, 'closed': !ok }"></i>
+  </button>
   </section>
   <!-- <div [style.display]="this.ok ? '' : 'none'"> -->
-  <div *ngIf="ok" class="citList">
+  <div [class.retracted]="!ok" class="citList">
     <ng-content></ng-content>
     <button class="top" (click)="scrollToTop()">
       <i class="fa-solid fa-chevron-up"></i>

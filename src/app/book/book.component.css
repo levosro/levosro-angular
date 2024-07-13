@@ -18,7 +18,7 @@
   border-radius: 0.25rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s linear;
-  content-visibility: auto;
+  /* content-visibility: auto; */
 }
 
 .book img.cover:hover {

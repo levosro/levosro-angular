@@ -12,6 +12,7 @@ import { Part } from '../part';
 import { Text } from '../text';
 import { Storage, getDownloadURL } from '@angular/fire/storage';
 import { ref } from 'firebase/storage';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-book-content',
@@ -174,7 +175,7 @@ export class BookContentComponent implements OnInit, AfterContentInit {
   };
 
   getCitsTitle(): string {
-    let res = `\<i class="fa fa-quote-right">\</i> Citate`;
+    let res = `Citate`;
     const authors = this.book.author.split(', ');
     res = res + ` din scrierile lui ${authors[0]}`;
     if (authors.length > 1) {
@@ -210,6 +211,6 @@ function downloadFile(book: Book, storage: Storage) {
   const filePath = book.link + '-book';
   const thing = ref(storage, filePath);
   getDownloadURL(thing).then((link) => {
-    open(link);
+    saveAs(link, `${book.link}.epub`)
   });
 }

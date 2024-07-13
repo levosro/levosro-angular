@@ -1,9 +1,9 @@
 <section class="container">
-  <button (click)="onButtonClick()" class="expand-btn" id="{{ this.title }}">
-    {{this.title}} {{ok ? '▲' : '▼'}}
+  <button (click)="onButtonClick()" class="expand-btn" id="{{ title }}">
+    <span [innerHTML]="title"></span>&nbsp;<i class="fa fa-caret-down" [ngClass]="{ 'open': ok, 'closed': !ok }"></i>
   </button>
 </section>
-<div *ngIf="ok" id="content{{ this.title }}">
+<div *ngIf="ok" id="content{{ title }}">
   <ng-container *ngIf="getBooks(author) as booksX">
     <div *ngFor="let book of booksX">
       <!-- {{ book.title }} -->
