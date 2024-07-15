@@ -174,8 +174,8 @@ export class AuthorDialogComponent implements OnInit {
             title = title + `${autor}-`;
           }
         }
-
-        saveAs(content, `${title}pack.zip`);
+        const link = URL.createObjectURL(content)
+        saveAs(link, `${title}pack.zip`);
       }
     }
   }
