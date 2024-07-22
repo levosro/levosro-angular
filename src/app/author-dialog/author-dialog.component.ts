@@ -2,6 +2,7 @@ import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { BooksService } from '../books.service';
 import { Book } from '../book';
 import { Storage, getDownloadURL, ref } from '@angular/fire/storage';
+import { Functions, httpsCallable } from '@angular/fire/functions';
 import * as JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
@@ -23,7 +24,10 @@ export class AuthorDialogComponent implements OnInit {
   booksRetracted = true;
   storage: Storage = inject(Storage);
 
-  constructor(private booksService: BooksService) {}
+  constructor(
+    private booksService: BooksService,
+    private functions: Functions
+  ) {}
 
   ngOnInit(): void {
     if (this.booksService.books$ !== undefined) {
@@ -73,6 +77,7 @@ export class AuthorDialogComponent implements OnInit {
     } else {
       this.selBooks.push(book);
     }
+    this.selAuthors = this.booksService.getAuthors(this.selBooks);
     this.allBooksSelected = this.selBooks.length === this.books.length;
     if (this.selBooks.length > 0) {
       this.booksRetracted = false;
@@ -100,6 +105,7 @@ export class AuthorDialogComponent implements OnInit {
     } else {
       this.selBooks = [...this.books];
     }
+    this.selAuthors = this.booksService.getAuthors(this.selBooks);
     this.allBooksSelected = !this.allBooksSelected;
     if (this.selBooks.length > 0) {
       this.booksRetracted = false;
@@ -136,37 +142,47 @@ export class AuthorDialogComponent implements OnInit {
     this.booksRetracted = !this.booksRetracted;
   }
 
+  b64toBlob(b64Data: string, contentType = '', sliceSize = 512) {
+    const byteCharacters = window.atob(b64Data);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+  }
+
   async downloadSelectedBooks() {
+    let title = '';
     if (this.selBooks.length > 0) {
       if (this.selBooks.length === 1) {
-        const book = this.selBooks[0];
-        const url = await this.getDownloadLink(book.link);
-        saveAs(url, `${book.link}.epub`);
+        title = `${this.selBooks[0].link}.epub`;
       } else {
-        const zip = new JSZip();
+        const bAuthors = this.booksService.getAuthors(this.selBooks);
+        // console.log(bAuthors)
         let autori: string[] = [];
-        for (const book of this.selBooks) {
-          const bAuthors = this.booksService.getAuthors([book]);
-          for (const bAuthor of bAuthors) {
-            let shortAuthor = '';
-            if (bAuthor.includes('Mao')) {
-              shortAuthor = 'mao';
-            } else {
-              shortAuthor = bAuthor
-                .split(' ')
-                [bAuthor.split(' ').length - 1].toLowerCase();
-            }
-            if (!autori.includes(shortAuthor)) {
-              autori.push(shortAuthor);
-            }
+        for (const bAuthor of bAuthors) {
+          let shortAuthor = '';
+          if (bAuthor.includes('Mao')) {
+            shortAuthor = 'mao';
+          } else {
+            shortAuthor = bAuthor
+              .split(' ')
+              [bAuthor.split(' ').length - 1].toLowerCase();
           }
-          const url = await this.getDownloadLink(book.link);
-          const response = await fetch(url);
-          const blob = await response.blob();
-          zip.file(`${book.link}.epub`, blob);
+          autori.push(shortAuthor);
         }
-        const content = await zip.generateAsync({ type: 'blob' });
-        let title = '';
+
         if (autori.length == this.authors.length) {
           title = 'lvs-';
         } else {
@@ -174,15 +190,38 @@ export class AuthorDialogComponent implements OnInit {
             title = title + `${autor}-`;
           }
         }
-        const link = URL.createObjectURL(content)
-        saveAs(link, `${title}pack.zip`);
+        title = title + 'pack.zip';
       }
     }
-  }
 
-  getDownloadLink(bookLink: string): Promise<string> {
-    const bookDownloadLink = `${bookLink}-book`;
-    const reference = ref(this.storage, bookDownloadLink);
-    return getDownloadURL(reference);
+    const callable = httpsCallable(this.functions, 'download');
+    if (this.selBooks.length == 1) {
+      const response = await callable({
+        books: [this.selBooks[1].link],
+      });
+      const blob = this.b64toBlob(response.data as string, 'application/epub');
+      const blobUrl = URL.createObjectURL(blob);
+      saveAs(blobUrl, title);
+    } else {
+      const zip = new JSZip();
+      for (const book of this.selBooks) {
+        const response = await callable({
+          books: [book.link],
+        });
+
+        const blob = this.b64toBlob(
+          response.data as string,
+          'application/epub'
+        );
+        zip.file(`${book.link}.epub`, blob)
+      }
+      const content = await zip.generateAsync({
+        type: 'blob',
+        compression: 'DEFLATE',
+      });
+      saveAs(content, title);
+    }
+
+    // const blob = new Blob([arrayBuffer], { type: 'application/epub+zip' });
   }
 }

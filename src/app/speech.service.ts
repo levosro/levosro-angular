@@ -17,7 +17,7 @@ export class SpeechService {
 
   private abortController: AbortController | null = null;
 
-  constructor(private functions: Functions, private http: HttpClient) {}
+  constructor(private functions: Functions) {}
 
   public textToSpeech(
     text: Text,
