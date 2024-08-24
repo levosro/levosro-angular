@@ -6,6 +6,7 @@ import { Firestore } from '@angular/fire/firestore';
 import { Storage, getDownloadURL } from '@angular/fire/storage';
 import { ref } from 'firebase/storage';
 import * as saveAs from 'file-saver';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-book-page',
@@ -24,7 +25,8 @@ export class BookPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private booksService: BooksService
+    private booksService: BooksService,
+    private titleService: Title
   ) {}
 
   async ngOnInit() {
@@ -70,6 +72,9 @@ export class BookPageComponent implements OnInit {
             });
         });
     }
+
+    this.titleService.setTitle(this.book.title);
+    (document.getElementById('favicon') as HTMLAnchorElement).href = this.getImage()
 
     const url = new URL(window.location.href);
     this.id = url.searchParams.get('id');
