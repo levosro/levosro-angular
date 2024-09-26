@@ -194,10 +194,19 @@ export class AuthorDialogComponent implements OnInit {
       }
     }
 
+    const dialBtn = document.getElementById('dlBtn') as HTMLElement;
+    const dialDisp = dialBtn.style.display;
+    dialBtn.style.display = 'none';
+
+    const dlTxt = document.getElementById('dlTxt') as HTMLElement;
+    dlTxt.style.display = 'block';
+    const dlCounter = document.getElementById('dlCounter') as HTMLElement;
+
     const callable = httpsCallable(this.functions, 'download');
     if (this.selBooks.length == 1) {
+      dlCounter.innerHTML = '(0/1)';
       const response = await callable({
-        books: [this.selBooks[1].link],
+        books: [this.selBooks[0].link],
       });
       const blob = this.b64toBlob(response.data as string, 'application/epub');
       const blobUrl = URL.createObjectURL(blob);
@@ -205,6 +214,10 @@ export class AuthorDialogComponent implements OnInit {
     } else {
       const zip = new JSZip();
       for (const book of this.selBooks) {
+        dlCounter.innerHTML = `(${this.selBooks.indexOf(book)}/${
+          this.selBooks.length
+        })`;
+
         const response = await callable({
           books: [book.link],
         });
@@ -213,7 +226,7 @@ export class AuthorDialogComponent implements OnInit {
           response.data as string,
           'application/epub'
         );
-        zip.file(`${book.link}.epub`, blob)
+        zip.file(`${book.link}.epub`, blob);
       }
       const content = await zip.generateAsync({
         type: 'blob',
@@ -221,6 +234,8 @@ export class AuthorDialogComponent implements OnInit {
       });
       saveAs(content, title);
     }
+    dialBtn.style.display = dialDisp;
+    dlTxt.style.display = 'none';
 
     // const blob = new Blob([arrayBuffer], { type: 'application/epub+zip' });
   }

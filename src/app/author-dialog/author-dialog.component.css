@@ -27,14 +27,18 @@
   margin-top: 0;
 }
 
-.authors, .books, .sel-zone:hover .authors, .sel-zone:hover .books {
+.authors,
+.books,
+.sel-zone:hover .authors,
+.sel-zone:hover .books {
   max-height: 20vh;
   opacity: 1;
   overflow: auto;
   transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
-.authors.retracted, .books.retracted {
+.authors.retracted,
+.books.retracted {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -60,7 +64,8 @@
   transition: transform 0.3s ease;
 }
 
-.fa-caret-down.open, .sel-zone:hover .fa-caret-down {
+.fa-caret-down.open,
+.sel-zone:hover .fa-caret-down {
   transform: rotate(180deg);
 }
 
@@ -124,7 +129,7 @@ button.disabled {
 }
 
 .checkbox-container input[type="checkbox"]:checked::after {
-  content: '✔';
+  content: "✔";
   position: absolute;
   top: 0;
   left: 0;
@@ -139,4 +144,22 @@ button.disabled {
   flex-grow: 1;
   padding-left: 10px;
   text-align: center;
+}
+
+#dlTxt {
+  color: rgb(152, 143, 129);
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  margin-top: 1em;
+  /* max-width: 20vw; */
+  display: flex;
+  align-self: flex-end;
+  flex-wrap: nowrap;
+  display: none;
+}
+
+#dlTxt span {
+  /* background-color: #c41616; */
+  margin-left: 0.5em;
+  align-self: center;
 }
