@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.title h2 {
+  font-family: "Grizzly", serif;
+  text-transform: uppercase;
+}
+
 .loading {
   display: flex;
   justify-content: center;
@@ -14,6 +19,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(359deg);
   }
@@ -116,7 +122,7 @@ i {
 H2 {
   font-weight: bold;
   font-size: 18pt;
-  background: none transparent scroll repeat 0% 0%;
+  /* background: none transparent scroll repeat 0% 0%; */
   margin-left: 36px;
   color: #330000;
   line-height: 120%;
