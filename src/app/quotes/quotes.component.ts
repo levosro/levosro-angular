@@ -39,7 +39,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
     } else {
       text = item.text as string;
     }
-    img.innerHTML = `<img src="assets/profiles/${item.img}.svg" id="person-img" alt="" > </img>`;
+    img.innerHTML = `<img src="assets/profiles/${item.img}.svg" class="person-img" alt="" > </img>`;
     // console.log(img.innerHTML)
     author.innerHTML = item.autor;
     titlu.innerHTML = item.titlu.replace('./index.html', this.linkBook);
@@ -78,7 +78,7 @@ export class QuotesComponent implements OnInit, AfterContentInit {
         autori.forEach((autor) => {
           res =
             res +
-            `<div class="img-container" id="${autor}"><img src="assets/profiles/${autor}.svg" id="person-img" alt=""> </div>`;
+            `<div class="img-container" id="${autor}"><img src="assets/profiles/${autor}.svg" class="person-img" alt=""> </div>`;
         });
         res = res + '</div></div></div>';
         const quoteZone = document.querySelector('.quote') as HTMLElement;

@@ -180,11 +180,11 @@ h3 {
   /* cursor: pointer; */
 }
 
-:host ::ng-deep #person-img {
+:host ::ng-deep .person-img {
   width: 100%;
   display: block;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 50%;
   position: relative;
 }
