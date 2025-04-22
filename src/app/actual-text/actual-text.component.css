@@ -62,14 +62,12 @@
 }
 
 :host ::ng-deep h1, h2, h3, h4, h5, h6 {
+  font-family: "Grizzly", serif;
   font-weight: bold;
   margin-left: 36px;
   color: #330000;
   line-height: 120%;
   margin-right: 36px;
-}
-
-:host ::ng-deep h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
@@ -83,20 +81,24 @@
 }
 
 :host ::ng-deep h3 {
+  font-family: "Grizzly", serif;
   font-size: 16pt;
 }
 
 :host ::ng-deep h4 {
+  font-family: "Grizzly", serif;
   font-size: 14pt;
   margin-left: 8%;
 }
 
 :host ::ng-deep h5 {
+  font-family: "Grizzly", serif;
   font-size: 14pt;
   line-height: 175%;
 }
 
 :host ::ng-deep h6 {
+  font-family: "Grizzly", serif;
   font-size: 14pt;
   line-height: 150%;
   margin-bottom: 1em;
@@ -213,6 +215,7 @@ span.russian {
 }
 
 :host ::ng-deep p.mid, p.mid1 {
+  font-family: "Grizzly", serif;
   font-size: 13pt;
   margin-left: 20%;
   text-indent: 0!important;
