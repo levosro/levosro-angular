@@ -42,19 +42,42 @@ export class BookTocComponent implements OnInit {
   getAnchor(header: string) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(header, 'text/html');
-    const headerHTML = (doc.body.firstChild as HTMLElement)
-    return headerHTML.id
+    const headerHTML = doc.body.firstChild as HTMLElement;
+    return headerHTML.id;
   }
 
   getTitle(header: string) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(header, 'text/html');
-    const headerHTML = (doc.body.firstChild as HTMLElement)
+    const headerHTML = doc.body.firstChild as HTMLElement;
     if (headerHTML.title) {
       return headerHTML.title;
     } else {
       return headerHTML.textContent;
     }
+  }
+
+  getTitleOfChapter(chapter: Chapter): string {
+    let ret = chapter.title.replace('<br/>', ' ');
+
+    const texts = this.book.texts.filter(
+      (item: Text) => item.idChr.indexOf(chapter.idCh) == 0
+    );
+    if (texts.length == 1) {
+      let text = texts[0];
+      if (text.author && text.year) {
+        let extraInfo = '(';
+        if (text.extra) {
+          extraInfo = extraInfo + `${text.author}, ${text.year}`;
+        }
+        extraInfo = extraInfo + ')';
+        if (extraInfo != '()') {
+          ret = `${ret} <span class="extra">${extraInfo}</span>`;
+        }
+      }
+    }
+
+    return ret;
   }
 
   getTextsOfChapter(chapter: Chapter): Text[] {

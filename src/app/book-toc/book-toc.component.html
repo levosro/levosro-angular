@@ -46,7 +46,7 @@
               <!-- <ol> -->
               <li>
                 <a href="{{ book.link }}?id=C{{ chapter.idCh }}"
-                  ><ng-component [innerHTML]="chapter.title.replace('\<br/>', ' ')"></ng-component
+                  ><ng-component [innerHTML]="getTitleOfChapter(chapter)"></ng-component
                 ></a>
               </li>
               <ul>

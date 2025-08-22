@@ -155,11 +155,20 @@ export class BookContentComponent implements OnInit, AfterContentInit {
   }
 
   chapterAuthor(c: Chapter): string {
-    return c.author != undefined && c.author != ''
-      ? c.author.toLowerCase() != c.author
-        ? c.author
-        : ''
-      : this.book.author;
+    let ret =
+      c.author != undefined && c.author != ''
+        ? c.author.toLowerCase() != c.author
+          ? c.author
+          : ''
+        : this.book.author;
+
+    if (this.texts.length == 1) {
+      if (this.texts[0].extra) {
+        ret = '';
+      }
+    }
+
+    return ret;
   }
 
   isButtonOpen(idChr: string): boolean {
@@ -211,6 +220,6 @@ function downloadFile(book: Book, storage: Storage) {
   const filePath = book.link + '-book';
   const thing = ref(storage, filePath);
   getDownloadURL(thing).then((link) => {
-    saveAs(link, `${book.link}.epub`)
+    saveAs(link, `${book.link}.epub`);
   });
 }

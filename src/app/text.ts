@@ -7,4 +7,5 @@ export interface Text {
   image: string;
   info: string;
   idChr: string;
+  extra: boolean;
 }
